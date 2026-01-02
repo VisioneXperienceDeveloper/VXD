@@ -26,9 +26,6 @@
 ## 2. Type Definition Convention (타입 정의 규칙)
 - **Interfaces vs Types:** - 확장이 필요한 객체(Object) 정의에는 `interface`를 사용하라.
   - 유니온(Union), 인터섹션(Intersection), 튜플(Tuple), 별칭(Alias)에는 `type`을 사용하라.
-- **Naming:**
-  - Interface: `I` 접두사를 붙이지 않는다 (예: `User`, not `IUser`).
-  - Type: PascalCase를 사용한다.
 
 ## 3. Modern Syntax (최신 문법 선호)
 - **Async/Await:** `.then().catch()` 체이닝 대신 항상 `async/await`을 사용하라.
