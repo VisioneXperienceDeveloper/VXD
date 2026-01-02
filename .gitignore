@@ -33,6 +33,8 @@ dist
 # TODO
 /note/
 
+/docs/
+
 # Debug
 npm-debug.log*
 yarn-debug.log*
