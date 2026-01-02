@@ -4,7 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export const revalidate = 60;
+export const revalidate = 21600; // Revalidate every 6 hours
+
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const posts = await getPublishedPosts();
@@ -12,6 +14,35 @@ export async function generateStaticParams() {
   return posts.map((post) => ({
     id: post.id,
   }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const post = await getPostById(id);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.description || `Read ${post.title} on VXD Blog`,
+    openGraph: {
+      title: post.title,
+      description: post.description || `Read ${post.title} on VXD Blog`,
+      type: 'article',
+      publishedTime: post.date,
+      images: post.cover ? [{ url: post.cover }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description || `Read ${post.title} on VXD Blog`,
+      images: post.cover ? [post.cover] : undefined,
+    },
+  };
 }
 
 export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {

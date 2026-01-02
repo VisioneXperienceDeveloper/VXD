@@ -33,7 +33,11 @@ dist
 # TODO
 /note/
 
-/docs/
+# Gemini
+gemini.local.md
+
+# Documentation
+docs/
 
 # Debug
 npm-debug.log*

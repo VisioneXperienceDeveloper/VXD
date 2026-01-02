@@ -24,7 +24,9 @@ export type BlogPost = {
   group?: string;
 };
 
-export const getPublishedPosts = async (tag?: string, searchQuery?: string, group?: string): Promise<BlogPost[] | null> => {
+import { unstable_cache } from 'next/cache';
+
+const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> => {
   const dataSourceId = getDatabaseId();
   
   let response;
@@ -43,8 +45,6 @@ export const getPublishedPosts = async (tag?: string, searchQuery?: string, grou
     return null;
   }
 
-  const now = new Date();
-  
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return response.results.map((page: PageObjectResponse | any) => {
     const p = page as PageObjectResponse;
@@ -78,26 +78,35 @@ export const getPublishedPosts = async (tag?: string, searchQuery?: string, grou
       cover,
       description,
     };
-  })
-  .filter(post => {
-    // Filter out future posts
-    if (post.date && new Date(post.date) > now) return false;
-    
-    // Filter by tag if provided
-    if (tag && !post.tags.includes(tag)) return false;
+  });
+}, ['all-posts'], { revalidate: 21600 });
 
-    // Filter by search query if provided
-    if (searchQuery && !post.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+export const getPublishedPosts = async (tag?: string, searchQuery?: string, group?: string): Promise<BlogPost[] | null> => {
+  const posts = await getCachedAllPosts();
+  if (!posts) return null;
 
-    // Filter by group if provided
-    if (group && post.group !== group) return false;
-    
-    return true;
-  })
-  .map(post => ({
-    ...post,
-    date: new Date(post.date).toLocaleDateString(), // Format date for display
-  }));
+  const now = new Date();
+
+  return posts
+    .filter(post => {
+      // Filter out future posts
+      if (post.date && new Date(post.date) > now) return false;
+      
+      // Filter by tag if provided
+      if (tag && !post.tags.includes(tag)) return false;
+  
+      // Filter by search query if provided
+      if (searchQuery && !post.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+  
+      // Filter by group if provided
+      if (group && post.group !== group) return false;
+      
+      return true;
+    })
+    .map(post => ({
+      ...post,
+      date: new Date(post.date).toLocaleDateString(), // Format date for display
+    }));
 };
 
 export const getAllTags = async (): Promise<string[]> => {
@@ -164,14 +173,14 @@ export const groupPosts = (posts: BlogPost[]): Record<string, BlogPost[]> => {
   return grouped;
 };
 
-export const getPageContent = async (pageId: string) => {
+export const getPageContent = unstable_cache(async (pageId: string) => {
   const response = await notion.blocks.children.list({
     block_id: pageId,
   });
   return response.results as BlockObjectResponse[];
-};
+}, ['page-content'], { revalidate: 21600 });
 
-export const getPostById = async (pageId: string): Promise<BlogPost | null> => {
+export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPost | null> => {
   try {
     const response = await notion.pages.retrieve({ page_id: pageId });
     const p = response as PageObjectResponse;
@@ -203,4 +212,4 @@ export const getPostById = async (pageId: string): Promise<BlogPost | null> => {
   } catch {
     return null;
   }
-}
+}, ['post-by-id'], { revalidate: 21600 });

@@ -1,6 +1,6 @@
 import { getPublishedPosts, getAllGroups, getTopTags } from "@/lib/notion";
 
-export const revalidate = 60; // Revalidate every 60 seconds
+export const revalidate = 21600; // Revalidate every 6 hours
 
 import { ModeToggle } from "@/components/ModeToggle";
 import { Search } from "@/components/Search";
