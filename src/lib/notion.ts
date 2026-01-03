@@ -22,6 +22,7 @@ export type BlogPost = {
   cover: string | null;
   description: string;
   group?: string;
+  part?: string;
 };
 
 import { unstable_cache } from 'next/cache';

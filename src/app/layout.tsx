@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+
 import "./globals.css";
 
 const geistSans = Geist({
@@ -39,10 +43,6 @@ export const metadata: Metadata = {
     },
   },
 };
-
-import { ThemeProvider } from "@/components/ThemeProvider";
-
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 export default function RootLayout({
   children,

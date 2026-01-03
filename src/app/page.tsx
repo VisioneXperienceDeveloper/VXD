@@ -5,7 +5,7 @@ export const revalidate = 21600; // Revalidate every 6 hours
 import { ModeToggle } from "@/components/ModeToggle";
 import { Search } from "@/components/Search";
 import { Sidebar } from "@/components/Sidebar";
-import { PostCard } from "@/components/PostCard";
+import { PostList } from "@/components/PostList";
 
 export default async function Home({
   searchParams,
@@ -17,9 +17,13 @@ export default async function Home({
   const selectedGroup = typeof resolvedSearchParams.group === 'string' ? resolvedSearchParams.group : undefined;
   const searchQuery = typeof resolvedSearchParams.search === 'string' ? resolvedSearchParams.search : undefined;
   
-  const posts = await getPublishedPosts(selectedTag, searchQuery, selectedGroup);
+  const allPosts = await getPublishedPosts(selectedTag, searchQuery, selectedGroup);
   const groups = await getAllGroups();
   const topTags = await getTopTags();
+
+  const POSTS_PER_PAGE = 6;
+  const initialPosts = allPosts ? allPosts.slice(0, POSTS_PER_PAGE) : [];
+  const initialHasMore = allPosts ? allPosts.length > POSTS_PER_PAGE : false;
 
   return (
     <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 font-sans selection:bg-neutral-200 dark:selection:bg-neutral-800 transition-colors duration-300">
@@ -56,7 +60,7 @@ export default async function Home({
 
           {/* Main Content */}
           <div className="lg:col-span-3">
-            {posts === null ? (
+            {allPosts === null ? (
               <div className="text-center py-32 bg-white dark:bg-neutral-900 rounded-2xl border border-dashed border-red-300 dark:border-red-900/30">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-50 dark:bg-red-900/20 mb-6">
                    <span className="text-3xl">📡</span>
@@ -68,16 +72,14 @@ export default async function Home({
                   Please check your network settings and try again.
                 </p>
               </div>
-            ) : posts.length === 0 ? (
-              <div className="text-center py-32 bg-white dark:bg-neutral-900 rounded-2xl border border-dashed border-neutral-300 dark:border-neutral-700">
-                <p className="text-neutral-500 text-lg">No posts found.</p>
-              </div>
             ) : (
-              <div className="grid gap-8 sm:grid-cols-3">
-                {posts.map((post) => (
-                  <PostCard key={post.id} post={post} />
-                ))}
-              </div>
+              <PostList 
+                initialPosts={initialPosts}
+                initialHasMore={initialHasMore}
+                tag={selectedTag}
+                search={searchQuery}
+                group={selectedGroup}
+              />
             )}
           </div>
         </div>
