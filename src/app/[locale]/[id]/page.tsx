@@ -108,6 +108,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
                     src={post.cover}
                     alt={post.title}
                     fill
+                    sizes="100vw"
                     className="object-cover"
                     priority
                   />

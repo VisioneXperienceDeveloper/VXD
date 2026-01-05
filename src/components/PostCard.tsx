@@ -14,6 +14,7 @@ export function PostCard({ post }: { post: BlogPost }) {
             src={post.cover}
             alt={post.title}
             fill
+            sizes="100%"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
