@@ -200,7 +200,7 @@ export const groupPosts = (posts: BlogPost[]): Record<string, BlogPost[]> => {
   return grouped;
 };
 
-export const getPageContent = unstable_cache(async (pageId: string) => {
+export const getPageContent = unstable_cache(async (pageId: string, locale: string = 'ko') => {
   const response = await notion.blocks.children.list({
     block_id: pageId,
   });
@@ -214,7 +214,7 @@ export const getPageContent = unstable_cache(async (pageId: string) => {
   return blocks;
 }, ['page-content'], { revalidate: 3600 });
 
-export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPost | null> => {
+export const getPostById = unstable_cache(async (pageId: string, locale: string = 'ko'): Promise<BlogPost | null> => {
   try {
     const response = await notion.pages.retrieve({ page_id: pageId });
     const p = response as PageObjectResponse;
