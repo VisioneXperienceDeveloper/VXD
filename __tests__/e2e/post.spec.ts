@@ -14,7 +14,7 @@ test.describe('Post Detail Page', () => {
         await expect(page.locator('h1')).toBeVisible();
         
         // Check for "Back to Garden" link
-        await expect(page.getByText('목록으로 돌아가기')).toBeVisible();
+        await expect(page.getByText('뒤로')).toBeVisible();
         
         // Check for related posts sidebar
         // It might say "More in [Group]" or "More in this blog"
