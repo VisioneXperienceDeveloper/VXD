@@ -30,7 +30,14 @@ export function TextRenderer({ text, className }: TextProps) {
     <span className={cn(className)}>
       {text.map((value, i) => {
         const {
-          annotations: { bold, code, color, italic, strikethrough, underline },
+          annotations: { bold, code, color, italic, strikethrough, underline } = {
+            bold: false,
+            code: false,
+            color: 'default',
+            italic: false,
+            strikethrough: false,
+            underline: false,
+          },
           text,
         } = value;
 

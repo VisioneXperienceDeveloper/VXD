@@ -201,17 +201,18 @@ export const groupPosts = (posts: BlogPost[]): Record<string, BlogPost[]> => {
 };
 
 export const getPageContent = unstable_cache(async (pageId: string, locale: string = 'ko') => {
-  const response = await notion.blocks.children.list({
-    block_id: pageId,
-  });
+  try {
+    const response = await notion.blocks.children.list({
+      block_id: pageId,
+    });
+    
+    const blocks = response.results as BlockObjectResponse[];
   
-  const blocks = response.results as BlockObjectResponse[];
-  
-  // Legacy translation support (optional)
-  // if (locale === 'ko') return blocks;
-  // return Promise.all(blocks.map(block => translateBlock(block, locale)));
-  
-  return blocks;
+    return blocks;
+  } catch (error) {
+    console.error("Failed to fetch page content:", error);
+    return [];
+  }
 }, ['page-content'], { revalidate: 3600 });
 
 export const getPostById = unstable_cache(async (pageId: string, locale: string = 'ko'): Promise<BlogPost | null> => {
@@ -220,11 +221,6 @@ export const getPostById = unstable_cache(async (pageId: string, locale: string 
     const p = response as PageObjectResponse;
 
     const title = p.properties.title?.type === 'title' ? p.properties.title.title[0]?.plain_text ?? 'Untitled' : 'Untitled';
-    
-    // Legacy translation support (optional)
-    // if (locale !== 'ko') {
-    //   title = await translateText(title, locale);
-    // }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const date = (p as any).last_edited_time ?? '';

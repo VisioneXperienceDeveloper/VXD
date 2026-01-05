@@ -14,6 +14,7 @@ vi.mock('@notionhq/client', () => {
         query: mockQuery,
       };
       // Add other properties if needed
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       constructor(options: any) {}
     },
     LogLevel: {},
