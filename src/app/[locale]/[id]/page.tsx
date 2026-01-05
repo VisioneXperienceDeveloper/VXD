@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import { getTranslations } from 'next-intl/server';
 import { LanguageToggle } from "@/components/LanguageToggle";
 
+export const dynamic = 'force-dynamic';
+
 export const revalidate = 3600; // Revalidate every 1 hour
 
 import { Metadata } from "next";
