@@ -5,6 +5,7 @@ import { BlogPost } from '@/lib/notion';
 import { PostCard } from '@/components/PostCard';
 import { fetchPosts } from '@/app/actions';
 import { Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface PostListProps {
   initialPosts: BlogPost[];
@@ -21,6 +22,7 @@ export function PostList({
   search,
   group,
 }: PostListProps) {
+  const t = useTranslations('Common');
   const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
   const [hasMore, setHasMore] = useState(initialHasMore);
   const [page, setPage] = useState(1);
@@ -78,7 +80,7 @@ export function PostList({
   if (posts.length === 0) {
     return (
       <div className="text-center py-32 bg-white dark:bg-neutral-900 rounded-2xl border border-dashed border-neutral-300 dark:border-neutral-700">
-        <p className="text-neutral-500 text-lg">No posts found.</p>
+        <p className="text-neutral-500 text-lg">{t('noPosts')}</p>
       </div>
     );
   }

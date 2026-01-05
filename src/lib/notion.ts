@@ -1,16 +1,17 @@
 import { Client } from "@notionhq/client";
 import { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { unstable_cache } from 'next/cache';
 
 export const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-export const getDatabaseId = () => {
-    const databaseId = process.env.NOTION_DATABASE_ID;
-    if (!databaseId) {
-        throw new Error("NOTION_DATABASE_ID is not set in environment variables");
-    }
-    return databaseId;
+export const getDataSourceId = () => {
+  const dataSourceId = process.env.NOTION_DATA_SOURCE_ID;
+  if (!dataSourceId) {
+      throw new Error("NOTION_DATA_SOURCE_ID is not set in environment variables");
+  }
+  return dataSourceId;
 }
 
 export type BlogPost = {
@@ -23,12 +24,12 @@ export type BlogPost = {
   description: string;
   group?: string;
   part?: string;
+  language?: string;
+  translationId?: string | null;
 };
 
-import { unstable_cache } from 'next/cache';
-
 const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> => {
-  const dataSourceId = getDatabaseId();
+  const dataSourceId = getDataSourceId();
   
   let response;
   try {
@@ -47,20 +48,34 @@ const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> =>
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return response.results.map((page: PageObjectResponse | any) => {
+  const posts = await Promise.all(response.results.map(async (page: PageObjectResponse | any) => {
     const p = page as PageObjectResponse;
     
     // Extract properties safely based on actual available properties
     // Available: tags, type, title, published_date, group
     const title = p.properties.title?.type === 'title' ? p.properties.title.title[0]?.plain_text ?? 'Untitled' : 'Untitled';
+    
+    // Legacy translation support (optional, can be removed if fully migrated)
+    // if (locale !== 'ko') {
+    //   title = await translateText(title, locale);
+    // }
+
     const dateProperty = p.properties.published_date?.type === 'date' ? p.properties.published_date.date?.start : null;
     const lastEditedTime = p.last_edited_time;
     const date = dateProperty ?? lastEditedTime ?? ''; 
     
     const tags = p.properties.tags?.type === 'multi_select' ? p.properties.tags.multi_select.map(tag => tag.name) : [];
     const groupName = p.properties.group?.type === 'select' ? p.properties.group.select?.name : undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const part = (p.properties.part as any)?.select?.name || (p.properties.part as any)?.rich_text?.[0]?.plain_text;
     const description = ''; // No description property
     
+    // Extract new i18n properties
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const language = (p.properties.language as any)?.select?.name || 'ko'; // Default to 'ko' if missing
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const translationId = (p.properties.translation as any)?.relation?.[0]?.id || null;
+
     // Extract cover
     let cover = null;
     if (p.cover?.type === 'external') {
@@ -76,13 +91,18 @@ const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> =>
       date: date, // Keep raw date string for filtering
       tags,
       group: groupName,
+      part,
       cover,
       description,
+      language,
+      translationId,
     };
-  });
-}, ['all-posts'], { revalidate: 21600 });
+  }));
 
-export const getPublishedPosts = async (tag?: string, searchQuery?: string, group?: string): Promise<BlogPost[] | null> => {
+  return posts;
+}, ['all-posts'], { revalidate: 3600 });
+
+export const getPublishedPosts = async (tag?: string, searchQuery?: string, group?: string, locale: string = 'ko'): Promise<BlogPost[] | null> => {
   const posts = await getCachedAllPosts();
   if (!posts) return null;
 
@@ -92,6 +112,12 @@ export const getPublishedPosts = async (tag?: string, searchQuery?: string, grou
     .filter(post => {
       // Filter out future posts
       if (post.date && new Date(post.date) > now) return false;
+
+      // Filter by locale (Language property)
+      // Map 'en' locale to 'EN' property value, 'ko' to 'KR' (or whatever is used in Notion)
+      // Assuming Notion uses 'KR' and 'EN' as select options
+      const targetLang = locale === 'ko' ? 'KR' : 'EN';
+      if (post.language && post.language !== targetLang) return false;
       
       // Filter by tag if provided
       if (tag && !post.tags.includes(tag)) return false;
@@ -178,8 +204,15 @@ export const getPageContent = unstable_cache(async (pageId: string) => {
   const response = await notion.blocks.children.list({
     block_id: pageId,
   });
-  return response.results as BlockObjectResponse[];
-}, ['page-content'], { revalidate: 21600 });
+  
+  const blocks = response.results as BlockObjectResponse[];
+  
+  // Legacy translation support (optional)
+  // if (locale === 'ko') return blocks;
+  // return Promise.all(blocks.map(block => translateBlock(block, locale)));
+  
+  return blocks;
+}, ['page-content'], { revalidate: 3600 });
 
 export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPost | null> => {
   try {
@@ -187,12 +220,26 @@ export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPo
     const p = response as PageObjectResponse;
 
     const title = p.properties.title?.type === 'title' ? p.properties.title.title[0]?.plain_text ?? 'Untitled' : 'Untitled';
+    
+    // Legacy translation support (optional)
+    // if (locale !== 'ko') {
+    //   title = await translateText(title, locale);
+    // }
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const date = (p as any).last_edited_time ?? '';
     const tags = p.properties.tags?.type === 'multi_select' ? p.properties.tags.multi_select.map(tag => tag.name) : [];
     const group = p.properties.group?.type === 'select' ? p.properties.group.select?.name : undefined;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const part = (p.properties.part as any)?.select?.name || (p.properties.part as any)?.rich_text?.[0]?.plain_text;
     const description = '';
     
+    // Extract new i18n properties
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const language = (p.properties.language as any)?.select?.name || 'ko';
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const translationId = (p.properties.translation as any)?.relation?.[0]?.id || null;
+
     let cover = null;
     if (p.cover?.type === 'external') {
       cover = p.cover.external.url;
@@ -207,10 +254,13 @@ export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPo
       date: new Date(date).toLocaleDateString(),
       tags,
       group,
+      part,
       cover,
       description,
+      language,
+      translationId,
     };
   } catch {
     return null;
   }
-}, ['post-by-id'], { revalidate: 21600 });
+}, ['post-by-id'], { revalidate: 3600 });

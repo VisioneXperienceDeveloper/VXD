@@ -1,23 +1,30 @@
 import { getPublishedPosts, getAllGroups, getTopTags } from "@/lib/notion";
+import { getTranslations } from 'next-intl/server';
 
-export const revalidate = 21600; // Revalidate every 6 hours
+export const revalidate = 3600; // Revalidate every 1 hour
 
 import { ModeToggle } from "@/components/ModeToggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
 import { Search } from "@/components/Search";
 import { Sidebar } from "@/components/Sidebar";
 import { PostList } from "@/components/PostList";
 
 export default async function Home({
   searchParams,
+  params
 }: {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  params: Promise<{ locale: string }>;
 }) {
   const resolvedSearchParams = await searchParams;
+  const { locale } = await params;
+  const t = await getTranslations('Common');
+
   const selectedTag = typeof resolvedSearchParams.tag === 'string' ? resolvedSearchParams.tag : undefined;
   const selectedGroup = typeof resolvedSearchParams.group === 'string' ? resolvedSearchParams.group : undefined;
   const searchQuery = typeof resolvedSearchParams.search === 'string' ? resolvedSearchParams.search : undefined;
   
-  const allPosts = await getPublishedPosts(selectedTag, searchQuery, selectedGroup);
+  const allPosts = await getPublishedPosts(selectedTag, searchQuery, selectedGroup, locale);
   const groups = await getAllGroups();
   const topTags = await getTopTags();
 
@@ -31,6 +38,7 @@ export default async function Home({
         <div className="absolute top-6 right-6 sm:top-10 sm:right-10 flex items-center gap-2 z-50">
           <Search />
           <ModeToggle />
+          <LanguageToggle />
         </div>
         
         <header className="mb-12 text-center space-y-4 pt-8">
@@ -41,7 +49,7 @@ export default async function Home({
             VXD Blog
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            A collection of thoughts, learnings, and stories.
+            {t('description')}
           </p>
         </header>
 

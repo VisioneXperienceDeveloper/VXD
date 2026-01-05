@@ -1,13 +1,16 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation"
+import { useRouter } from "@/i18n/routing"
 import { Search as SearchIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useTranslations } from 'next-intl';
 
 export function Search() {
   const router = useRouter()
   const searchParams = useSearchParams()
+  const t = useTranslations('Search');
   const [query, setQuery] = useState(searchParams.get("search") || "")
   const [isOpen, setIsOpen] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
@@ -49,7 +52,7 @@ export function Search() {
           ref={inputRef}
           type="text"
           className="block w-full py-2 px-3 text-sm text-neutral-900 bg-transparent border-none outline-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] rounded-4xl dark:text-neutral-100 placeholder:text-neutral-500"
-          placeholder="Search..."
+          placeholder={t('placeholder')}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onBlur={() => {

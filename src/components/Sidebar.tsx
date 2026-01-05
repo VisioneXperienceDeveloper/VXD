@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
+import { getTranslations } from 'next-intl/server';
 
 interface SidebarProps {
   groups: string[];
@@ -9,15 +10,17 @@ interface SidebarProps {
   className?: string;
 }
 
-export function Sidebar({ groups, topTags, selectedGroup, selectedTag, className }: SidebarProps) {
+export async function Sidebar({ groups, topTags, selectedGroup, selectedTag, className }: SidebarProps) {
+  const t = await getTranslations('Common');
+
   return (
     <aside className={cn("space-y-8", className)}>
       {/* Categories (Groups) */}
       <div>
         <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-4 uppercase tracking-wider">
-          Categories
+          {t('categories')}
         </h3>
-        <nav className="flex flex-col space-y-2">
+        <nav className="flex flex-col space-y-2 ml-2">
           <Link
             href="/"
             className={cn(
@@ -27,7 +30,7 @@ export function Sidebar({ groups, topTags, selectedGroup, selectedTag, className
                 : "text-neutral-500 dark:text-neutral-400"
             )}
           >
-            All Posts
+            {t('allPosts')}
           </Link>
           {groups.map((group) => (
             <Link
@@ -49,7 +52,7 @@ export function Sidebar({ groups, topTags, selectedGroup, selectedTag, className
       {/* Top Tags */}
       <div>
         <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-4 uppercase tracking-wider">
-          Top Tags
+          {t('topTags')}
         </h3>
         <div className="flex flex-wrap gap-2">
           {topTags.map((tag) => (

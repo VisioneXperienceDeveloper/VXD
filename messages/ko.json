@@ -1,0 +1,19 @@
+{
+  "Navigation": {
+    "back": "목록으로 돌아가기",
+    "moreIn": "{part}의 다른 글",
+    "readMore": "더 많은 글 보기"
+  },
+  "Search": {
+    "placeholder": "검색..."
+  },
+  "Common": {
+    "noPosts": "글이 없습니다.",
+    "allPosts": "전체보기",
+    "categories": "카테고리",
+    "topTags": "인기 태그",
+    "noOtherPosts": "이 파트의 다른 글이 없습니다.",
+    "thisBlog": "이 블로그",
+    "description": "생각, 배움, 그리고 이야기를 모아둔 공간입니다."
+  }
+}

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Home Page', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/ko');
   });
 
   test('should display the main heading', async ({ page }) => {
@@ -10,12 +10,12 @@ test.describe('Home Page', () => {
   });
 
   test('should display the sidebar with categories', async ({ page }) => {
-    await expect(page.getByRole('complementary').getByText('Categories')).toBeVisible();
-    await expect(page.getByRole('link', { name: 'All Posts' })).toBeVisible();
+    await expect(page.getByRole('complementary').getByText('카테고리')).toBeVisible();
+    await expect(page.getByRole('link', { name: '전체보기' })).toBeVisible();
   });
 
   test('should display the sidebar with top tags', async ({ page }) => {
-    await expect(page.getByRole('complementary').getByText('Top Tags')).toBeVisible();
+    await expect(page.getByRole('complementary').getByText('인기 태그')).toBeVisible();
   });
 
   test('should display blog posts', async ({ page }) => {

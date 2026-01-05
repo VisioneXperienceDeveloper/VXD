@@ -1,10 +1,12 @@
 import { getPageContent, getPostById, getPublishedPosts } from "@/lib/notion";
 import { BlockRenderer } from "@/components/notion/BlockRenderer";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getTranslations } from 'next-intl/server';
+import { LanguageToggle } from "@/components/LanguageToggle";
 
-export const revalidate = 21600; // Revalidate every 6 hours
+export const revalidate = 3600; // Revalidate every 1 hour
 
 import { Metadata } from "next";
 
@@ -45,36 +47,39 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
-  const post = await getPostById(id);
+export default async function BlogPost({ params }: { params: Promise<{ id: string, locale: string }> }) {
+  const { id, locale } = await params;
+  const tNav = await getTranslations('Navigation');
+  const tCommon = await getTranslations('Common');
+  const post = await getPostById(id, locale);
 
   if (!post) {
     notFound();
   }
 
-  const blocks = await getPageContent(post.id);
+  const blocks = await getPageContent(post.id, locale);
 
-  // Fetch related posts (same group)
+  // Fetch related posts (same part)
   let relatedPosts: typeof post[] = [];
-  if (post.group) {
-    const allGroupPosts = await getPublishedPosts(undefined, undefined, post.group);
-    if (allGroupPosts) {
-      relatedPosts = allGroupPosts.filter(p => p.id !== post.id);
+  if (post.part) {
+    const allPosts = await getPublishedPosts(undefined, undefined, undefined, locale);
+    if (allPosts) {
+      relatedPosts = allPosts.filter(p => p.part === post.part && p.id !== post.id);
     }
   }
 
   return (
     <article className="min-h-screen bg-white dark:bg-neutral-950 font-sans selection:bg-blue-100 dark:selection:bg-blue-900">
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <nav className="mb-8">
+        <nav className="mb-8 flex items-center justify-between">
           <Link
             href="/"
             className="group inline-flex items-center text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
             <span className="mr-2 group-hover:-translate-x-1 transition-transform">←</span>
-            Back to Garden
+            {tNav('back')}
           </Link>
+          <LanguageToggle translationId={post.translationId} />
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
@@ -83,25 +88,13 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
             <header className="mb-12">
               <div className="flex items-center gap-3 text-sm text-neutral-500 mb-6 uppercase tracking-wider font-medium">
                 <time dateTime={post.date}>{post.date}</time>
-                {post.group && (
+                {post.part && (
                   <>
                     <span>•</span>
                     <span className="text-neutral-900 dark:text-neutral-100 font-semibold">
-                      {post.group}
+                      {post.part}
                     </span>
                   </>
-                )}
-                {post.tags.length > 0 && (
-                    <>
-                        <span>•</span>
-                        <div className="flex gap-2">
-                            {post.tags.map(tag => (
-                                <span key={tag} className="text-blue-600 dark:text-blue-400">
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    </>
                 )}
               </div>
 
@@ -140,7 +133,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
             
             <div className="mt-20 pt-10 border-t border-neutral-100 dark:border-neutral-800">
                 <Link href="/" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
-                    ← Read more posts
+                    ← {tNav('readMore')}
                 </Link>
             </div>
           </div>
@@ -149,7 +142,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
           <div className="lg:col-span-1">
             <div className="sticky top-8">
               <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 mb-6 uppercase tracking-wider">
-                More in {post.group || 'this blog'}
+                {tNav('moreIn', { part: post.part || tCommon('thisBlog') })}
               </h3>
               {relatedPosts.length > 0 ? (
                 <div className="space-y-6">
@@ -163,7 +156,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-neutral-500">No other posts in this category.</p>
+                <p className="text-sm text-neutral-500">{tCommon('noOtherPosts')}</p>
               )}
             </div>
           </div>
