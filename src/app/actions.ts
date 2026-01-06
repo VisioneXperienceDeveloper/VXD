@@ -9,13 +9,15 @@ export async function fetchPosts({
   tag,
   search,
   group,
+  locale = 'ko',
 }: {
   page?: number;
   tag?: string;
   search?: string;
   group?: string;
+  locale?: string;
 }) {
-  const allPosts = await getPublishedPosts(tag, search, group);
+  const allPosts = await getPublishedPosts(tag, search, group, locale);
   
   if (!allPosts) {
     return { posts: [], hasMore: false };

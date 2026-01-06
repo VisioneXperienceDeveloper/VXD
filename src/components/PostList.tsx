@@ -13,6 +13,7 @@ interface PostListProps {
   tag?: string;
   search?: string;
   group?: string;
+  locale?: string;
 }
 
 export function PostList({
@@ -21,6 +22,7 @@ export function PostList({
   tag,
   search,
   group,
+  locale,
 }: PostListProps) {
   const t = useTranslations('Common');
   const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
@@ -48,6 +50,7 @@ export function PostList({
         tag,
         search,
         group,
+        locale,
       });
 
       setPosts((prev) => [...prev, ...result.posts]);
@@ -58,7 +61,7 @@ export function PostList({
     } finally {
       setLoading(false);
     }
-  }, [page, hasMore, loading, tag, search, group]);
+  }, [page, hasMore, loading, tag, search, group, locale]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

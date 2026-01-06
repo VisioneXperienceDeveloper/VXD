@@ -87,6 +87,7 @@ export default async function Home({
                 tag={selectedTag}
                 search={searchQuery}
                 group={selectedGroup}
+                locale={locale}
               />
             )}
           </div>
