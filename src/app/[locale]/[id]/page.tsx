@@ -53,13 +53,13 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
   const { id, locale } = await params;
   const tNav = await getTranslations('Navigation');
   const tCommon = await getTranslations('Common');
-  const post = await getPostById(id, locale);
+  const post = await getPostById(id);
 
   if (!post) {
     notFound();
   }
 
-  const blocks = await getPageContent(post.id, locale);
+  const blocks = await getPageContent(post.id);
 
   // Fetch related posts (same part)
   let relatedPosts: typeof post[] = [];
@@ -110,7 +110,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
                     src={post.cover}
                     alt={post.title}
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 75vw"
                     className="object-cover"
                     priority
                   />
