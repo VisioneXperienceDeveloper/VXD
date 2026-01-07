@@ -26,6 +26,7 @@ export type BlogPost = {
   part?: string;
   language?: string;
   translationId?: string | null;
+  viewCount?: number;
 };
 
 // Type-safe property extraction helpers
@@ -57,6 +58,13 @@ function getPartValue(property: NotionPropertyValue | undefined): string | undef
   return getSelectValue(property) || getRichTextValue(property);
 }
 
+function getNumberValue(property: NotionPropertyValue | undefined): number {
+  if (property?.type === 'number' && property.number !== null) {
+    return property.number;
+  }
+  return 0;
+}
+
 function extractBlogPostFromPage(p: PageObjectResponse): BlogPost {
   const title = p.properties.title?.type === 'title' 
     ? p.properties.title.title[0]?.plain_text ?? 'Untitled' 
@@ -75,6 +83,7 @@ function extractBlogPostFromPage(p: PageObjectResponse): BlogPost {
   const part = getPartValue(p.properties.part);
   const language = getSelectValue(p.properties.language) || 'ko';
   const translationId = getRelationFirstId(p.properties.translation);
+  const viewCount = getNumberValue(p.properties.view_count);
 
   let cover: string | null = null;
   if (p.cover?.type === 'external') {
@@ -95,6 +104,7 @@ function extractBlogPostFromPage(p: PageObjectResponse): BlogPost {
     description: '',
     language,
     translationId,
+    viewCount,
   };
 }
 
@@ -229,8 +239,24 @@ export const getPageContent = unstable_cache(async (pageId: string) => {
     });
     
     const blocks = response.results as BlockObjectResponse[];
+    
+    // Fetch children for blocks that have them (e.g., tables)
+    const blocksWithChildren = await Promise.all(
+      blocks.map(async (block) => {
+        if (block.has_children && block.type === 'table') {
+          const childrenResponse = await notion.blocks.children.list({
+            block_id: block.id,
+          });
+          return {
+            ...block,
+            children: childrenResponse.results,
+          };
+        }
+        return block;
+      })
+    );
   
-    return blocks;
+    return blocksWithChildren;
   } catch (error) {
     console.error("Failed to fetch page content:", error);
     return [];
@@ -256,3 +282,34 @@ export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPo
     return null;
   }
 }, ['post-by-id'], { revalidate: 3600 });
+
+// Increment view count for a post (no caching, direct update)
+export async function incrementViewCount(pageId: string): Promise<number> {
+  try {
+    // First, get the current view count
+    const response = await notion.pages.retrieve({ page_id: pageId });
+    
+    if (!('properties' in response)) {
+      return 0;
+    }
+    
+    const currentCount = getNumberValue(response.properties.view_count);
+    const newCount = currentCount + 1;
+    
+    // Update the page with incremented view count
+    await notion.pages.update({
+      page_id: pageId,
+      properties: {
+        view_count: {
+          number: newCount
+        }
+      }
+    });
+    
+    return newCount;
+  } catch (error) {
+    console.error('Failed to increment view count:', error);
+    return 0;
+  }
+}
+
