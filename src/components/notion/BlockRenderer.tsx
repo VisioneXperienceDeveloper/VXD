@@ -1,15 +1,21 @@
-import { Fragment } from "react";
 import { TextRenderer } from "./TextRenderer";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import type { BlockObjectResponse, RichTextItemResponse, TableRowBlockObjectResponse, PartialBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+
+// Extended block type to include children for tables
+type BlockWithChildren = BlockObjectResponse & {
+  children?: (BlockObjectResponse | PartialBlockObjectResponse)[];
+};
 
 type BlockRendererProps = {
-  block: any; // Using any for simplicity with Notion types, but ideally should be BlockObjectResponse
+  block: BlockWithChildren;
 };
 
 export function BlockRenderer({ block }: BlockRendererProps) {
-  const { type, id } = block;
-  const value = block[type];
+  const { type } = block;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const value = (block as any)[type];
 
   switch (type) {
     case "paragraph":
@@ -114,6 +120,37 @@ export function BlockRenderer({ block }: BlockRendererProps) {
           )}
         </figure>
       );
+    case "table":
+      return (
+        <div className="my-6 overflow-x-auto">
+          <table className="min-w-full border-collapse border border-neutral-200 dark:border-neutral-700">
+            <tbody>
+              {block.children?.map((row, rowIndex: number) => (
+                <tr key={row.id} className={rowIndex === 0 && value.has_column_header ? "bg-neutral-100 dark:bg-neutral-800" : ""}>
+                  {(row as TableRowBlockObjectResponse).table_row?.cells?.map((cell: RichTextItemResponse[], cellIndex: number) => {
+                    const isHeader = (rowIndex === 0 && value.has_column_header) || (cellIndex === 0 && value.has_row_header);
+                    const CellTag = isHeader ? "th" : "td";
+                    return (
+                      <CellTag
+                        key={cellIndex}
+                        className={cn(
+                          "border border-neutral-200 dark:border-neutral-700 px-4 py-2 text-left",
+                          isHeader ? "font-semibold text-neutral-900 dark:text-neutral-100" : "text-neutral-700 dark:text-neutral-300"
+                        )}
+                      >
+                        <TextRenderer text={cell} />
+                      </CellTag>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    case "table_row":
+      // Table rows are handled within the table case
+      return null;
     case "divider":
         return <hr className="my-8 border-neutral-200 dark:border-neutral-800" />;
     default:
