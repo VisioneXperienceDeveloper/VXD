@@ -5,6 +5,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from 'next-intl/server';
 import { LanguageToggle } from "@/components/LanguageToggle";
+import { ViewTracker } from "@/components/ViewTracker";
+import { PostEngagement } from "@/components/PostEngagement";
 
 export const dynamic = 'force-dynamic';
 
@@ -53,13 +55,13 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
   const { id, locale } = await params;
   const tNav = await getTranslations('Navigation');
   const tCommon = await getTranslations('Common');
-  const post = await getPostById(id, locale);
+  const post = await getPostById(id);
 
   if (!post) {
     notFound();
   }
 
-  const blocks = await getPageContent(post.id, locale);
+  const blocks = await getPageContent(post.id);
 
   // Fetch related posts (same part)
   let relatedPosts: typeof post[] = [];
@@ -72,6 +74,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
 
   return (
     <article className="min-h-screen bg-white dark:bg-neutral-950 font-sans selection:bg-blue-100 dark:selection:bg-blue-900">
+      <ViewTracker postId={post.id} />
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <nav className="mb-8 flex items-center justify-between">
           <Link
@@ -88,29 +91,33 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
           {/* Main Content */}
           <div className="lg:col-span-3">
             <header className="mb-12">
-              <div className="flex items-center gap-3 text-sm text-neutral-500 mb-6 uppercase tracking-wider font-medium">
-                <time dateTime={post.date}>{post.date}</time>
-                {post.part && (
-                  <>
-                    <span>•</span>
-                    <span className="text-neutral-900 dark:text-neutral-100 font-semibold">
-                      {post.part}
-                    </span>
-                  </>
-                )}
+              <div className="flex justify-between items-center gap-3 text-sm text-neutral-500 mb-6 uppercase tracking-wider font-medium">
+                <div className="flex items-center gap-2">
+                  <time dateTime={post.date}>{post.date}</time>
+                  {post.part && (
+                    <>
+                      <span>•</span>
+                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">
+                        {post.part}
+                      </span>
+                    </>
+                  )}
+                </div>
+                <div className="flex items-center mr-2">
+                  <PostEngagement viewCount={post.viewCount} />
+                </div>
               </div>
 
-              <h1 className="text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl mb-8 leading-tight">
+              <h1 className="text-4xl mb-8 font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl leading-tight">
                 {post.title}
               </h1>
-
               {post.cover && (
                 <div className="aspect-2/1 w-full overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800 shadow-sm relative">
                   <Image
                     src={post.cover}
                     alt={post.title}
                     fill
-                    sizes="100vw"
+                    sizes="(max-width: 1024px) 100vw, 75vw"
                     className="object-cover"
                     priority
                   />
