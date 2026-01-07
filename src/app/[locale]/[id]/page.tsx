@@ -91,16 +91,21 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
           {/* Main Content */}
           <div className="lg:col-span-3">
             <header className="mb-12">
-              <div className="flex items-center gap-3 text-sm text-neutral-500 mb-6 uppercase tracking-wider font-medium">
-                <time dateTime={post.date}>{post.date}</time>
-                {post.part && (
-                  <>
-                    <span>•</span>
-                    <span className="text-neutral-900 dark:text-neutral-100 font-semibold">
-                      {post.part}
-                    </span>
-                  </>
-                )}
+              <div className="flex justify-between items-center gap-3 text-sm text-neutral-500 mb-6 uppercase tracking-wider font-medium">
+                <div className="flex items-center gap-2">
+                  <time dateTime={post.date}>{post.date}</time>
+                  {post.part && (
+                    <>
+                      <span>•</span>
+                      <span className="text-neutral-900 dark:text-neutral-100 font-semibold">
+                        {post.part}
+                      </span>
+                    </>
+                  )}
+                </div>
+                <div className="flex items-center mr-2">
+                  <PostEngagement viewCount={post.viewCount} />
+                </div>
               </div>
 
               <h1 className="text-4xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl leading-tight">
