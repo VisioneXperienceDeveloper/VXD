@@ -25,16 +25,9 @@ export function PostCard({ post }: { post: BlogPost }) {
       </div>
       
       <div className="flex flex-col flex-1 p-6">
-        <div className="flex items-center gap-2 text-xs font-medium text-neutral-500 mb-3 uppercase tracking-wider">
+        <div className="flex justify-between items-center gap-2 text-xs font-medium text-neutral-500 mb-3 uppercase tracking-wider">
+          <span>{post.group ?? post.tags[0]}</span>
           <time dateTime={post.date}>{post.date}</time>
-          {post.tags.length > 0 && (
-            <>
-              <span>•</span>
-              <span className="text-neutral-700 dark:text-neutral-300">
-                {post.tags[0]}
-              </span>
-            </>
-          )}
         </div>
         
         <h2 className="text-xl font-bold text-neutral-900 dark:text-neutral-50 mb-3 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
