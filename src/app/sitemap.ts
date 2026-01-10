@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPublishedPosts();
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+  const baseUrl = "https://www.visionexperiencedeveloper.com";
 
   const blogPosts = posts?.map((post) => ({
     url: `${baseUrl}/${post.id}`,
