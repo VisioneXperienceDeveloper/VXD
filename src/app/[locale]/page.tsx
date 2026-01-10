@@ -8,6 +8,7 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import { Search } from "@/components/Search";
 import { Sidebar } from "@/components/Sidebar";
 import { PostList } from "@/components/PostList";
+import { Footer } from "@/components/Footer";
 
 export default async function Home({
   searchParams,
@@ -93,9 +94,7 @@ export default async function Home({
           </div>
         </div>
         
-        <footer className="mt-20 pt-8 border-t border-neutral-200 dark:border-neutral-800 text-center text-neutral-500 text-sm">
-          <p>© {new Date().getFullYear()} VXD Blog. Built with Next.js & Notion.</p>
-        </footer>
+        <Footer />
       </div>
     </main>
   );
