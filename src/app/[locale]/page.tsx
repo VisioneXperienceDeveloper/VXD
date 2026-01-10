@@ -47,7 +47,7 @@ export default async function Home({
             <span role="img" aria-label="writing" className="text-2xl">✍️</span>
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl">
-            VXD Blog
+            {"VXD Blog"}
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
             {t('description')}
