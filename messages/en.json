@@ -14,7 +14,9 @@
     "topTags": "Top Tags",
     "noOtherPosts": "No other posts in this part.",
     "thisBlog": "this blog",
-    "description": "A collection of thoughts, learnings, and stories."
+    "description": "A collection of thoughts, learnings, and stories.",
+    "copy": "Copy link",
+    "copied": "Copied!"
   },
   "Footer": {
     "privacy": "Privacy Policy",

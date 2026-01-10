@@ -91,11 +91,17 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
           {/* Main Content */}
           <div className="lg:col-span-3">
             <header className="mb-12">
-              <div className="flex items-center gap-3 text-sm text-neutral-500 mb-6 uppercase tracking-wider font-medium">
-                <time dateTime={post.date}>{post.date}</time>
+              <div className="flex items-center text-sm text-neutral-500 mb-6 uppercase tracking-wider font-medium">
+                {post.group && (
+                  <>
+                    <span className="text-neutral-900 dark:text-neutral-100 font-semibold">
+                      {post.group}
+                    </span>
+                  </>
+                )}
                 {post.part && (
                   <>
-                    <span>•</span>
+                    <span className="text-neutral-900 dark:text-neutral-100 ml-1 mr-3 font-semibold">|</span>
                     <span className="text-neutral-900 dark:text-neutral-100 font-semibold">
                       {post.part}
                     </span>
