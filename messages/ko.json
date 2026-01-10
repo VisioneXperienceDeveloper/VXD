@@ -14,7 +14,9 @@
     "topTags": "인기 태그",
     "noOtherPosts": "이 파트의 다른 글이 없습니다.",
     "thisBlog": "이 블로그",
-    "description": "생각, 배움, 그리고 이야기를 모아둔 공간입니다."
+    "description": "생각, 배움, 그리고 이야기를 모아둔 공간입니다.",
+    "copy": "링크 복사",
+    "copied": "복사됨!"
   },
   "Footer": {
     "privacy": "개인정보처리방침",
