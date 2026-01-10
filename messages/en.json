@@ -13,7 +13,49 @@
     "categories": "Categories",
     "topTags": "Top Tags",
     "noOtherPosts": "No other posts in this part.",
-    "thisBlog": "this blog",
-    "description": "A collection of thoughts, learnings, and stories."
+    "thisBlog": "this blog"
+  },
+  "Footer": {
+    "privacy": "Privacy Policy",
+    "about": "About",
+    "terms": "Terms of Use",
+    "copyright": "© {year} VXD Blog. Built with Next.js & Notion."
+  },
+  "Privacy": {
+    "back": "Home",
+    "title": "Privacy Policy",
+    "metaDescription": "Policy regarding personal information collection and processing",
+    "lastUpdated": "Last Updated",
+    "section1Title": "1. Information We Collect",
+    "section1Content": "This blog uses Google Analytics to collect anonymized visitor statistics (page views, visit duration, approximate location, etc.). We do not collect personally identifiable information.",
+    "section2Title": "2. Use of Cookies",
+    "section2Content": "This blog uses cookies to improve user experience and for analytics purposes. You can disable cookies through your browser settings, but some features may be limited.",
+    "section3Title": "3. Purpose of Use",
+    "section3Content": "The collected information is used solely for improving blog operations, analyzing visitor statistics, and enhancing content quality.",
+    "section4Title": "4. Contact",
+    "section4Content": "If you have any questions about our privacy practices, please contact us through the About page."
+  },
+  "About": {
+    "back": "Home",
+    "title": "About",
+    "metaDescription": "About the blog owner and contact information",
+    "aboutBlogTitle": "About This Blog",
+    "aboutBlogContent": "VXD Blog is a personal blog sharing experiences in development, technology, and various learnings. I record my journey of learning new technologies and aim to share knowledge with fellow developers.",
+    "aboutAuthorTitle": "About the Author",
+    "aboutAuthorContent": "Hello! I'm an engineer who loves development. I enjoy exploring new technologies and sharing what I've learned.",
+    "contactTitle": "Contact",
+    "contactContent": "If you have any inquiries, please reach out through GitHub."
+  },
+  "Terms": {
+    "back": "Home",
+    "title": "Terms of Use",
+    "metaDescription": "Terms of service and disclaimer",
+    "lastUpdated": "Last Updated",
+    "copyrightTitle": "1. Copyright",
+    "copyrightContent": "All content on this blog (articles, images, code, etc.) is protected by copyright law unless otherwise stated. Personal reference is permitted, but commercial use or unauthorized reproduction is prohibited.",
+    "disclaimerTitle": "2. Disclaimer",
+    "disclaimerContent": "The information on this blog is based on personal experience and learning. While we strive for accuracy, technical information may become outdated over time. We are not legally responsible for any outcomes resulting from the use of information on this blog.",
+    "usageTitle": "3. Usage Guidelines",
+    "usageContent": "When using this blog, please respect the rights of others and do not use it for any illegal purposes."
   }
 }
