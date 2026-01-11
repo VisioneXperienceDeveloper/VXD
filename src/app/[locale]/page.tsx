@@ -1,4 +1,4 @@
-import { getPublishedPosts, getAllGroups, getTopTags } from "@/lib/notion";
+import { getPublishedPosts, getAllGroups, getTopTags } from "@/lib/services/posts.service";
 import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600; // Revalidate every 1 hour
@@ -25,7 +25,7 @@ export default async function Home({
   const selectedGroup = typeof resolvedSearchParams.group === 'string' ? resolvedSearchParams.group : undefined;
   const searchQuery = typeof resolvedSearchParams.search === 'string' ? resolvedSearchParams.search : undefined;
   
-  const allPosts = await getPublishedPosts(selectedTag, searchQuery, selectedGroup, locale);
+  const allPosts = await getPublishedPosts({ tag: selectedTag, searchQuery, group: selectedGroup, locale });
   const groups = await getAllGroups();
   const topTags = await getTopTags();
 

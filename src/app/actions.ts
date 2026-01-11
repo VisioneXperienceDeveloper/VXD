@@ -1,6 +1,6 @@
 'use server';
 
-import { getPublishedPosts } from '@/lib/notion';
+import { getPublishedPosts } from '@/lib/services/posts.service';
 
 const POSTS_PER_PAGE = 6;
 
@@ -17,7 +17,7 @@ export async function fetchPosts({
   group?: string;
   locale?: string;
 }) {
-  const allPosts = await getPublishedPosts(tag, search, group, locale);
+  const allPosts = await getPublishedPosts({ tag, searchQuery: search, group, locale });
   
   if (!allPosts) {
     return { posts: [], hasMore: false };

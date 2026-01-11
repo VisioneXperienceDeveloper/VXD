@@ -7,7 +7,7 @@ vi.mock('@/lib/notion', () => ({
   getPublishedPosts: vi.fn(),
 }));
 
-import { getPublishedPosts } from '@/lib/notion';
+import { getPublishedPosts } from '@/lib/services/posts.service';
 
 describe('fetchPosts server action', () => {
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import { incrementViewCount } from '@/lib/notion';
+import { incrementViewCount } from '@/lib/services/posts.service';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(

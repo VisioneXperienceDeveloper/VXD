@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { BlogPost } from '@/lib/notion';
+import { BlogPost } from '@/lib/types';
 import { PostCard } from '@/components/PostCard';
 import { fetchPosts } from '@/app/actions';
 import { Loader2 } from 'lucide-react';
