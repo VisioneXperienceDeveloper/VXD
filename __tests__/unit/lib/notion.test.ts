@@ -51,13 +51,13 @@ describe('getDataSourceId', () => {
   });
 
   it('should return data source id when set', () => {
-    process.env.NOTION_DATA_SOURCE_ID = 'test-source-id';
+    process.env.NOTION_POSTS_DATA_SOURCE_ID = 'test-source-id';
     expect(getPostsDataSourceId()).toBe('test-source-id');
   });
 
   it('should throw error when data source id is not set', () => {
-    delete process.env.NOTION_DATA_SOURCE_ID;
-    expect(() => getPostsDataSourceId()).toThrow('NOTION_DATA_SOURCE_ID is not set in environment variables');
+    delete process.env.NOTION_POSTS_DATA_SOURCE_ID;
+    expect(() => getPostsDataSourceId()).toThrow('NOTION_POSTS_DATA_SOURCE_ID is not set in environment variables');
   });
 });
 
@@ -67,7 +67,7 @@ describe('getPublishedPosts', () => {
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
     process.env.NOTION_DATABASE_ID = 'test-db-id';
     process.env.NOTION_API_KEY = 'test-api-key';
-    process.env.NOTION_DATA_SOURCE_ID = 'test-source-id';
+    process.env.NOTION_POSTS_DATA_SOURCE_ID = 'test-source-id';
   });
 
   afterEach(() => {
@@ -138,7 +138,7 @@ describe('getAllTags', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
-    process.env.NOTION_DATA_SOURCE_ID = 'test-source-id';
+    process.env.NOTION_POSTS_DATA_SOURCE_ID = 'test-source-id';
   });
 
   afterEach(() => {
@@ -169,7 +169,7 @@ describe('groupPosts', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
-    process.env.NOTION_DATA_SOURCE_ID = 'test-source-id';
+    process.env.NOTION_POSTS_DATA_SOURCE_ID = 'test-source-id';
   });
 
   afterEach(() => {
@@ -209,7 +209,7 @@ describe('getAllGroups', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
-    process.env.NOTION_DATA_SOURCE_ID = 'test-source-id';
+    process.env.NOTION_POSTS_DATA_SOURCE_ID = 'test-source-id';
   });
 
   afterEach(() => {
@@ -240,7 +240,7 @@ describe('getTopTags', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
-    process.env.NOTION_DATA_SOURCE_ID = 'test-source-id';
+    process.env.NOTION_POSTS_DATA_SOURCE_ID = 'test-source-id';
   });
 
   afterEach(() => {
