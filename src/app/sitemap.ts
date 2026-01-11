@@ -3,7 +3,8 @@ import { routing } from '@/i18n/routing';
 import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await getPublishedPosts();
+  const koreanPosts = await getPublishedPosts({ locale: 'ko' });
+  const englishPosts = await getPublishedPosts({ locale: 'en' });
   const baseUrl = "https://www.visionexperiencedeveloper.com";
   const locales = routing.locales;
 
@@ -23,7 +24,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   };
 
   // Generate blog post entries based on post's language
-  const blogPosts = posts?.map((post) => ({
+  const koreanBlogPosts = koreanPosts?.map((post) => ({
+    url: `${baseUrl}/${getLocaleFromLanguage(post.language)}/${post.id}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  })) ?? [];
+
+  const englishBlogPosts = englishPosts?.map((post) => ({
     url: `${baseUrl}/${getLocaleFromLanguage(post.language)}/${post.id}`,
     lastModified: new Date(post.date),
     changeFrequency: 'weekly' as const,
@@ -41,6 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Localized home pages
     ...homePages,
     // Localized blog posts
-    ...blogPosts,
+    ...koreanBlogPosts,
+    ...englishBlogPosts,
   ];
 }
