@@ -1,6 +1,7 @@
-import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { BlogPost } from "@/lib/services/posts.service";
+
+import { Link } from "@/i18n/routing";
+import { BlogPost } from "@/lib/types";
 
 export function PostCard({ post }: { post: BlogPost }) {
   return (
