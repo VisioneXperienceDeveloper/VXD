@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { BlogPost } from "@/lib/notion";
+import { BlogPost } from "@/lib/services/posts.service";
 
 export function PostCard({ post }: { post: BlogPost }) {
   return (

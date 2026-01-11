@@ -1,4 +1,4 @@
-import { getPublishedPosts } from '@/lib/notion';
+import { getPublishedPosts } from '@/lib/services/posts.service';
 
 function escapeXml(unsafe: string): string {
   return unsafe.replace(/[<>&'"]/g, (c) => {

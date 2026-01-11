@@ -1,4 +1,4 @@
-import { getPageContent, getPostById, getPublishedPosts } from "@/lib/notion";
+import { getPageContent, getPostById, getPublishedPosts } from "@/lib/services/posts.service";
 import { BlockRenderer } from "@/components/notion/BlockRenderer";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
@@ -66,7 +66,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
   // Fetch related posts (same part)
   let relatedPosts: typeof post[] = [];
   if (post.part) {
-    const allPosts = await getPublishedPosts(undefined, undefined, undefined, locale);
+    const allPosts = await getPublishedPosts({ locale });
     if (allPosts) {
       relatedPosts = allPosts.filter(p => p.part === post.part && p.id !== post.id);
     }
