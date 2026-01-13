@@ -5,9 +5,10 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { GoogleTagManager } from '@next/third-parties/google';
 
 import { ThemeProvider } from "@/components/ThemeProvider";
-import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { GoogleAnalytics } from "@/components/delegator/GoogleAnalytics";
 
 import "../globals.css";
 
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <GoogleTagManager gtmId={"GTM-KVJ8RZ3W"} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
