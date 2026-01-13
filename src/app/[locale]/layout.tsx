@@ -9,6 +9,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { GoogleAnalytics } from "@/components/delegator/GoogleAnalytics";
+import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
 
 import "../globals.css";
 
@@ -48,6 +49,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  other: {
+    "google-adsense-account": "ca-pub-5789408346188657",
+  },
 };
 
 export default async function LocaleLayout({
@@ -69,13 +73,14 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <GoogleTagManager gtmId={"GTM-KVJ8RZ3W"} />
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider messages={messages}>
           <GoogleAnalytics />
+          <GoogleAdSense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID!} />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
