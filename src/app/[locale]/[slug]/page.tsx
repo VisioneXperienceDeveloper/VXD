@@ -1,4 +1,4 @@
-import { getPageContent, getPostById, getPublishedPosts } from "@/lib/services/posts.service";
+import { getPageContent, getPostBySlug, getPublishedPosts, getPostById } from "@/lib/services/posts.service";
 import { BlockRenderer } from "@/components/notion/BlockRenderer";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
@@ -18,13 +18,13 @@ export async function generateStaticParams() {
   const posts = await getPublishedPosts();
   if (!posts) return [];
   return posts.map((post) => ({
-    id: post.id,
+    slug: post.slug,
   }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
-  const { id } = await params;
-  const post = await getPostById(id);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -51,14 +51,23 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   };
 }
 
-export default async function BlogPost({ params }: { params: Promise<{ id: string, locale: string }> }) {
-  const { id, locale } = await params;
+export default async function BlogPost({ params }: { params: Promise<{ slug: string, locale: string }> }) {
+  const { slug, locale } = await params;
   const tNav = await getTranslations('Navigation');
   const tCommon = await getTranslations('Common');
-  const post = await getPostById(id);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
+  }
+
+  // Get translated post slug if it exists
+  let translationSlug = null;
+  if (post.translationId) {
+    const translatedPost = await getPostById(post.translationId);
+    if (translatedPost) {
+      translationSlug = translatedPost.slug;
+    }
   }
 
   const blocks = await getPageContent(post.id);
@@ -84,7 +93,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
             <span className="mr-2 group-hover:-translate-x-1 transition-transform">←</span>
             {tNav('back')}
           </Link>
-          <LanguageToggle translationId={post.translationId} />
+          <LanguageToggle translationSlug={translationSlug} />
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
@@ -161,7 +170,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
               {relatedPosts.length > 0 ? (
                 <div className="space-y-6">
                   {relatedPosts.map(relatedPost => (
-                    <Link key={relatedPost.id} href={`/${relatedPost.id}`} className="group block">
+                    <Link key={relatedPost.id} href={`/${relatedPost.slug}`} className="group block">
                       <h4 className="text-base font-medium text-neutral-900 dark:text-neutral-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
                         {relatedPost.title}
                       </h4>

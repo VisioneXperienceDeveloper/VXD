@@ -6,7 +6,7 @@ import { BlogPost } from "@/lib/types";
 export function PostCard({ post }: { post: BlogPost }) {
   return (
     <Link
-      href={`/${post.id}`}
+      href={`/${post.slug}`}
       className="group flex flex-col bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
     >
       <div className="aspect-[1.6/1] overflow-hidden bg-neutral-100 dark:bg-neutral-800 relative">

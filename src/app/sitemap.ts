@@ -25,14 +25,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Generate blog post entries based on post's language
   const koreanBlogPosts = koreanPosts?.map((post) => ({
-    url: `${baseUrl}/${getLocaleFromLanguage(post.language)}/${post.id}`,
+    url: `${baseUrl}/${getLocaleFromLanguage(post.language)}/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   })) ?? [];
 
   const englishBlogPosts = englishPosts?.map((post) => ({
-    url: `${baseUrl}/${getLocaleFromLanguage(post.language)}/${post.id}`,
+    url: `${baseUrl}/${getLocaleFromLanguage(post.language)}/${post.slug}`,
     lastModified: new Date(post.date),
     changeFrequency: 'weekly' as const,
     priority: 0.7,

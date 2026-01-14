@@ -3,15 +3,15 @@
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from '@/i18n/routing';
 
-export function LanguageToggle({ translationId }: { translationId?: string | null }) {
+export function LanguageToggle({ translationSlug }: { translationSlug?: string | null }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
   const toggleLanguage = () => {
     const nextLocale = locale === 'ko' ? 'en' : 'ko';
-    if (translationId) {
-      router.replace(`/${translationId}`, { locale: nextLocale });
+    if (translationSlug) {
+      router.replace(`/${translationSlug}`, { locale: nextLocale });
     } else {
       router.replace(pathname, { locale: nextLocale });
     }

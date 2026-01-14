@@ -37,7 +37,7 @@ const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> =>
     .map(extractBlogPostFromPage);
 
   return posts;
-}, ['all-posts'], { revalidate: 3600 });
+}, ['all-posts-v4'], { revalidate: 3600 });
 
 export interface GetPublishedPostsOptions {
   tag?: string;
@@ -195,6 +195,27 @@ export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPo
     return null;
   }
 }, ['post-by-id'], { revalidate: 3600 });
+
+export const getPostBySlug = unstable_cache(async (slug: string): Promise<BlogPost | null> => {
+  try {
+    const posts = await getCachedAllPosts();
+    if (!posts) return null;
+    
+    // Decoded slug for comparison because URL params might be encoded (though Next.js usually decodes, explicit decoding is safer)
+    const decodedSlug = decodeURIComponent(slug);
+    
+    const post = posts.find(p => p.slug === decodedSlug || p.slug === slug);
+    if (!post) return null;
+    
+    // Format date for display
+    return {
+      ...post,
+      date: new Date(post.date).toLocaleDateString(),
+    };
+  } catch {
+    return null;
+  }
+}, ['post-by-slug-v4'], { revalidate: 3600 });
 
 // Increment view count for a post (no caching, direct update)
 export async function incrementViewCount(pageId: string): Promise<number> {
