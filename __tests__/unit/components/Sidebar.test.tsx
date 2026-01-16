@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { Sidebar } from '@/components/Sidebar';
+import { Sidebar } from '@/components/utils/Sidebar';
 
 // Sidebar is an async component, so we need to wrap it or test it differently.
 // For unit testing, we can treat it as a regular component if we mock the async parts.

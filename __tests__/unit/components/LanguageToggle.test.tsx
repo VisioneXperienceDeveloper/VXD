@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { LanguageToggle } from '@/components/LanguageToggle';
+import { LanguageToggle } from '@/components/utils/LanguageToggle';
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname } from '@/i18n/routing';
 

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor, act } from '@testing-library/react';
-import { PostList } from '@/components/PostList';
+import { PostList } from '@/components/posts/PostList';
 import { mockBlogPosts } from '../../fixtures/notion-data';
 import { fetchPosts } from '@/app/actions';
 

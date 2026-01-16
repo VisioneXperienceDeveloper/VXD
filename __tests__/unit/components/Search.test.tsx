@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { Search } from '@/components/Search';
+import { Search } from '@/components/utils/Search';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from '@/i18n/routing';
 

@@ -4,9 +4,9 @@ import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from 'next-intl/server';
-import { LanguageToggle } from "@/components/LanguageToggle";
-import { ViewTracker } from "@/components/ViewTracker";
-import { PostEngagement } from "@/components/PostEngagement";
+import { LanguageToggle } from "@/components/utils/LanguageToggle";
+import { ViewTracker } from "@/components/utils/ViewTracker";
+import { PostEngagement } from "@/components/posts/PostEngagement";
 import { CommentSection } from "@/components/comments/CommentSection";
 
 export const dynamic = 'force-dynamic';

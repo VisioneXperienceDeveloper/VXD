@@ -7,7 +7,7 @@ import { routing } from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GoogleTagManager } from '@next/third-parties/google';
 
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeProvider } from "@/components/utils/ThemeProvider";
 import { GoogleAnalytics } from "@/components/delegator/GoogleAnalytics";
 import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
 
