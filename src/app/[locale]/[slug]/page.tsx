@@ -7,6 +7,7 @@ import { getTranslations } from 'next-intl/server';
 import { LanguageToggle } from "@/components/LanguageToggle";
 import { ViewTracker } from "@/components/ViewTracker";
 import { PostEngagement } from "@/components/PostEngagement";
+import { CommentSection } from "@/components/comments/CommentSection";
 
 export const dynamic = 'force-dynamic';
 
@@ -159,6 +160,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                     ← {tNav('readMore')}
                 </Link>
             </div>
+
+            {/* Comments Section */}
+            <CommentSection postId={post.id} />
           </div>
 
           {/* Sidebar: Related Posts */}
