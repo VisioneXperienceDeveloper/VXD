@@ -33,6 +33,19 @@ export function getNumberValue(property: NotionPropertyValue | undefined): numbe
   return 0;
 }
 
+// Generate a URL-friendly slug from title with short ID for uniqueness
+function generateSlug(title: string): string {
+  const baseSlug = title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s가-힣-]/g, '') // Keep letters, numbers, spaces, Korean, hyphens
+    .replace(/\s+/g, '-') // Replace spaces with hyphens
+    .replace(/-+/g, '-') // Replace multiple hyphens with single
+    .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+  
+  return baseSlug;
+}
+
 export function extractBlogPostFromPage(p: PageObjectResponse): BlogPost {
   const title = p.properties.title?.type === 'title' 
     ? p.properties.title.title[0]?.plain_text ?? 'Untitled' 
@@ -62,7 +75,7 @@ export function extractBlogPostFromPage(p: PageObjectResponse): BlogPost {
 
   const blogPost: BlogPost = {
     id: p.id,
-    slug: p.id,
+    slug: generateSlug(title),
     title,
     date,
     tags,

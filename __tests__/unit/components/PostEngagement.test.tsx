@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { PostEngagement } from '@/components/PostEngagement';
+import { PostEngagement } from '@/components/posts/PostEngagement';
 
 // Mock next-intl
 vi.mock('next-intl', () => ({

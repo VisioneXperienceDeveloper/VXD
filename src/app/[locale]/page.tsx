@@ -3,12 +3,12 @@ import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600; // Revalidate every 1 hour
 
-import { ModeToggle } from "@/components/ModeToggle";
-import { LanguageToggle } from "@/components/LanguageToggle";
-import { Search } from "@/components/Search";
-import { Sidebar } from "@/components/Sidebar";
-import { PostList } from "@/components/PostList";
-import { Footer } from "@/components/Footer";
+import { ModeToggle } from "@/components/utils/ModeToggle";
+import { LanguageToggle } from "@/components/utils/LanguageToggle";
+import { Search } from "@/components/utils/Search";
+import { Sidebar } from "@/components/utils/Sidebar";
+import { PostList } from "@/components/posts/PostList";
+import { Footer } from "@/components/utils/Footer";
 
 export default async function Home({
   searchParams,

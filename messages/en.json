@@ -60,5 +60,18 @@
     "disclaimerContent": "The information on this blog is based on personal experience and learning. While we strive for accuracy, technical information may become outdated over time. We are not legally responsible for any outcomes resulting from the use of information on this blog.",
     "usageTitle": "3. Usage Guidelines",
     "usageContent": "When using this blog, please respect the rights of others and do not use it for any illegal purposes."
+  },
+  "Comments": {
+    "title": "Comments",
+    "noComments": "No comments yet. Be the first to comment!",
+    "writeComment": "Write a comment",
+    "commentPlaceholder": "Enter your comment (maximum 1000 characters)",
+    "characters": "characters",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "submitSuccess": "Comment submitted successfully. It will appear after approval.",
+    "submitError": "Failed to submit comment. Please try again.",
+    "loading": "Loading comments...",
+    "loadError": "Failed to load comments."
   }
 }

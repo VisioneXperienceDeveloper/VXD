@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { ModeToggle } from '@/components/ModeToggle';
+import { ModeToggle } from '@/components/utils/ModeToggle';
 import { useTheme } from 'next-themes';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
