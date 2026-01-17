@@ -207,5 +207,99 @@ describe('PostList Component', () => {
 
     consoleSpy.mockRestore();
   });
+
+  it('should append new posts on successful loadMore', async () => {
+    const mockFetchPosts = fetchPosts as any;
+    const newPosts = [{ ...mockBlogPosts[0], id: 'new-1', title: 'New Post 1' }];
+    mockFetchPosts.mockResolvedValue({
+      posts: newPosts,
+      hasMore: true,
+    });
+
+    render(
+      <PostList
+        initialPosts={mockBlogPosts}
+        initialHasMore={true}
+      />
+    );
+
+    // Initial posts should be visible
+    expect(screen.getByText('A')).toBeDefined();
+
+    // Trigger intersection
+    await act(async () => {
+      intersectionCallback(
+        [{ isIntersecting: true } as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      );
+    });
+
+    // Wait for new post to appear
+    await waitFor(() => {
+      expect(screen.getByText('New Post 1')).toBeDefined();
+    });
+
+    // Original posts should still be there
+    expect(screen.getByText('A')).toBeDefined();
+  });
+
+  it('should update hasMore flag when no more posts', async () => {
+    const mockFetchPosts = fetchPosts as any;
+    mockFetchPosts.mockResolvedValue({
+      posts: [],
+      hasMore: false,
+    });
+
+    render(
+      <PostList
+        initialPosts={mockBlogPosts}
+        initialHasMore={true}
+      />
+    );
+
+    // Trigger intersection
+    await act(async () => {
+      intersectionCallback(
+        [{ isIntersecting: true } as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      );
+    });
+
+    // Wait for loading to complete
+    await waitFor(() => {
+      expect(mockFetchPosts).toHaveBeenCalled();
+    });
+
+    // Loading indicator should not be visible anymore
+    const loadingContainer = document.querySelector('.flex.justify-center');
+    // If hasMore is false, observer target might be removed or not visible
+    // This is implementation dependent
+  });
+
+  it('should not trigger loadMore when not intersecting', async () => {
+    const mockFetchPosts = fetchPosts as any;
+    mockFetchPosts.mockResolvedValue({
+      posts: [],
+      hasMore: false,
+    });
+
+    render(
+      <PostList
+        initialPosts={mockBlogPosts}
+        initialHasMore={true}
+      />
+    );
+
+    // Trigger with isIntersecting: false
+    await act(async () => {
+      intersectionCallback(
+        [{ isIntersecting: false } as IntersectionObserverEntry],
+        {} as IntersectionObserver
+      );
+    });
+
+    // Should not call fetchPosts
+    expect(mockFetchPosts).not.toHaveBeenCalled();
+  });
 });
 

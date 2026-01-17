@@ -2,8 +2,8 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { fetchPosts } from '@/app/actions';
 import { mockBlogPosts } from '../../fixtures/notion-data';
 
-// Mock the notion module
-vi.mock('@/lib/notion', () => ({
+// Mock the getPublishedPosts function
+vi.mock('@/lib/services/posts.service', () => ({
   getPublishedPosts: vi.fn(),
 }));
 
@@ -62,7 +62,7 @@ describe('fetchPosts server action', () => {
 
     await fetchPosts({ page: 1, tag: 'Tech', search: 'test', group: 'Group 1', locale: 'en' });
 
-    expect(getPublishedPosts).toHaveBeenCalledWith('Tech', 'test', 'Group 1', 'en');
+    expect(getPublishedPosts).toHaveBeenCalledWith({ tag: 'Tech', searchQuery: 'test', group: 'Group 1', locale: 'en' });
   });
 
   it('should use default locale when not provided', async () => {
@@ -70,6 +70,6 @@ describe('fetchPosts server action', () => {
 
     await fetchPosts({ page: 1 });
 
-    expect(getPublishedPosts).toHaveBeenCalledWith(undefined, undefined, undefined, 'ko');
+    expect(getPublishedPosts).toHaveBeenCalledWith({ locale: 'ko' });
   });
 });
