@@ -17,12 +17,12 @@ vi.mock('next/navigation', () => ({
 vi.mock('next-intl', () => ({
   useLocale: () => 'en',
   useTranslations: () => (key: string) => key,
-  Link: ({ children }: { children: any }) => children,
+  Link: ({ children }: { children: React.ReactNode }) => children,
 }));
 
 // Mock routing
 vi.mock('@/i18n/routing', () => ({
-  Link: ({ children }: { children: any }) => children,
+  Link: ({ children }: { children: React.ReactNode }) => children,
 }));
 
 describe('PostCard Component', () => {

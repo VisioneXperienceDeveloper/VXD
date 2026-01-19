@@ -1,56 +1,54 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { LanguageToggle } from '@/components/utils/LanguageToggle';
-import { useLocale } from 'next-intl';
-import { useRouter, usePathname } from '@/i18n/routing';
 
-// Mocks are handled by vitest.config.ts aliases, but we need to mock specific return values
-vi.mock('next-intl', async (importOriginal) => {
-  const actual = await importOriginal();
-  return {
-    ...(actual as any),
-    useLocale: vi.fn(),
-  };
-});
+// Mock the hooks
+const mockUseLocale = vi.fn();
+const mockReplace = vi.fn();
+const mockUseRouter = vi.fn(() => ({ replace: mockReplace }));
+const mockUsePathname = vi.fn();
+
+vi.mock('next-intl', () => ({
+  useLocale: () => mockUseLocale(),
+}));
 
 vi.mock('@/i18n/routing', () => ({
-  useRouter: vi.fn(),
-  usePathname: vi.fn(),
+  useRouter: () => mockUseRouter(),
+  usePathname: () => mockUsePathname(),
 }));
 
 describe('LanguageToggle Component', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   it('should render current language', () => {
-    (useLocale as any).mockReturnValue('ko');
-    (useRouter as any).mockReturnValue({ replace: vi.fn() });
-    (usePathname as any).mockReturnValue('/');
+    mockUseLocale.mockReturnValue('ko');
+    mockUsePathname.mockReturnValue('/');
 
     render(<LanguageToggle />);
     expect(screen.getByText('KR')).toBeDefined();
   });
 
   it('should toggle language on click', () => {
-    const replaceMock = vi.fn();
-    (useLocale as any).mockReturnValue('ko');
-    (useRouter as any).mockReturnValue({ replace: replaceMock });
-    (usePathname as any).mockReturnValue('/');
+    mockUseLocale.mockReturnValue('ko');
+    mockUsePathname.mockReturnValue('/');
 
     render(<LanguageToggle />);
     const button = screen.getByLabelText('Toggle language');
     fireEvent.click(button);
 
-    expect(replaceMock).toHaveBeenCalledWith('/', { locale: 'en' });
+    expect(mockReplace).toHaveBeenCalledWith('/', { locale: 'en' });
   });
 
   it('should use translationSlug if provided', () => {
-    const replaceMock = vi.fn();
-    (useLocale as any).mockReturnValue('ko');
-    (useRouter as any).mockReturnValue({ replace: replaceMock });
-    (usePathname as any).mockReturnValue('/post/1');
+    mockUseLocale.mockReturnValue('ko');
+    mockUsePathname.mockReturnValue('/post/1');
 
     render(<LanguageToggle translationSlug="translated-slug" />);
     const button = screen.getByLabelText('Toggle language');
     fireEvent.click(button);
 
-    expect(replaceMock).toHaveBeenCalledWith('/translated-slug', { locale: 'en' });
+    expect(mockReplace).toHaveBeenCalledWith('/translated-slug', { locale: 'en' });
   });
 });
