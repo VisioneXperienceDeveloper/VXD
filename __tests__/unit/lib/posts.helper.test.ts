@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { extractBlogPostFromPage, getNumberValue } from '@/lib/services/posts.helper';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
