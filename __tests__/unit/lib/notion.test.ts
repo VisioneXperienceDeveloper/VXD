@@ -3,22 +3,12 @@ import { getPublishedPosts, getAllTags, getAllGroups, getTopTags, groupPosts, ge
 import { mockPosts, mockBlogPosts } from '../../fixtures/notion-data';
 
 // Hoist mocks before imports
-const { mockQuery, mockBlocksList, mockRetrieve, mockUpdate, mockGetPostsDataSourceId } = vi.hoisted(() => {
+const { mockQuery, mockBlocksList, mockRetrieve, mockUpdate } = vi.hoisted(() => {
   return { 
     mockQuery: vi.fn(),
     mockBlocksList: vi.fn(),
     mockRetrieve: vi.fn(),
     mockUpdate: vi.fn(),
-    mockGetPostsDataSourceId: vi.fn(() => 'test-source-id'),
-  };
-});
-
-// Mock getPostsDataSourceId to avoid env dependency
-vi.mock('@/lib/services/posts.service', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@/lib/services/posts.service')>();
-  return {
-    ...actual,
-    getPostsDataSourceId: mockGetPostsDataSourceId,
   };
 });
 
@@ -53,6 +43,7 @@ describe('getPublishedPosts', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
+    vi.stubEnv('NOTION_POSTS_DATA_SOURCE_ID', 'test-source-id');
   });
 
   afterEach(() => {
@@ -123,6 +114,7 @@ describe('getAllTags', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
+    vi.stubEnv('NOTION_POSTS_DATA_SOURCE_ID', 'test-source-id');
   });
 
   afterEach(() => {
@@ -153,7 +145,7 @@ describe('groupPosts', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
-
+    vi.stubEnv('NOTION_POSTS_DATA_SOURCE_ID', 'test-source-id');
   });
 
   afterEach(() => {
@@ -193,7 +185,7 @@ describe('getAllGroups', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
-
+    vi.stubEnv('NOTION_POSTS_DATA_SOURCE_ID', 'test-source-id');
   });
 
   afterEach(() => {
@@ -224,7 +216,7 @@ describe('getTopTags', () => {
   beforeEach(() => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date('2025-01-01T12:00:00Z'));
-
+    vi.stubEnv('NOTION_POSTS_DATA_SOURCE_ID', 'test-source-id');
   });
 
   afterEach(() => {
