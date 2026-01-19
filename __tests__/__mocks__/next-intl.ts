@@ -2,7 +2,7 @@ import { vi } from 'vitest';
 
 export const useLocale = vi.fn(() => 'en');
 export const useTranslations = vi.fn(() => (key: string) => key);
-export const Link = ({ children, href }: { children: any, href: string }) => children;
+export const Link = ({ children, href }: { children: React.ReactNode, href: string }) => children;
 export const useRouter = vi.fn(() => ({
   push: vi.fn(),
   replace: vi.fn(),

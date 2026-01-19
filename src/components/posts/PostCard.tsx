@@ -1,12 +1,19 @@
+"use client"
+
 import Image from "next/image";
 
 import { Link } from "@/i18n/routing";
 import { BlogPost } from "@/lib/types";
+import { usePrefetch } from "@/hooks/usePrefetch";
 
 export function PostCard({ post }: { post: BlogPost }) {
+  const { prefetch, cancel } = usePrefetch(`/${post.slug}`);
+
   return (
     <Link
       href={`/${post.slug}`}
+      onMouseEnter={prefetch}
+      onMouseLeave={cancel}
       className="group flex flex-col bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
     >
       <div className="aspect-[1.6/1] overflow-hidden bg-neutral-100 dark:bg-neutral-800 relative">

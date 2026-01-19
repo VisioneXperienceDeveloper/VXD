@@ -10,6 +10,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { ThemeProvider } from "@/components/utils/ThemeProvider";
 import { GoogleAnalytics } from "@/components/delegator/GoogleAnalytics";
 import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 import "../globals.css";
 
@@ -87,7 +88,9 @@ export default async function LocaleLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <ErrorBoundary>
+              {children}
+            </ErrorBoundary>
             <SpeedInsights/>
           </ThemeProvider>
         </NextIntlClientProvider>

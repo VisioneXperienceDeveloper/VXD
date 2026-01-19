@@ -8,6 +8,8 @@ import { LanguageToggle } from "@/components/utils/LanguageToggle";
 import { ViewTracker } from "@/components/utils/ViewTracker";
 import { PostEngagement } from "@/components/posts/PostEngagement";
 import { CommentSection } from "@/components/comments/CommentSection";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { CommentErrorFallback } from "@/components/error-fallbacks/CommentErrorFallback";
 
 export const dynamic = 'force-dynamic';
 
@@ -162,7 +164,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </div>
 
             {/* Comments Section */}
-            <CommentSection postId={post.id} />
+            <ErrorBoundary fallback={<CommentErrorFallback />}>
+              <CommentSection postId={post.id} />
+            </ErrorBoundary>
           </div>
 
           {/* Sidebar: Related Posts */}

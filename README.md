@@ -145,19 +145,6 @@ pnpm test:ui
 
 ---
 
-## 📚 Documentation
-
-Comprehensive documentation is available in the [`docs/`](./docs) directory:
-
-- [Notion API Integration](./docs/architecture/notion-api-integration.md)
-- [Comment System](./docs/architecture/comment-system.md)
-- [i18n Strategy](./docs/architecture/i18n-strategy.md)
-- [SEO Strategy](./docs/architecture/seo-strategy.md)
-- [CI/CD Pipeline](./docs/architecture/cicd-strategy.md)
-- [CHANGELOG](./docs/CHANGELOG.md)
-
----
-
 ## 🚢 Deployment
 
 ### Vercel (Recommended)
