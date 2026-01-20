@@ -15,11 +15,11 @@
 - **Reasoning:** Before writing code, always output the **"Reasoning Process"**. If the modification is extensive, present a **"Plan"** first and await user approval.
 - **Code Quality:** Prefer clear, multi-line code over unreadable one-liners. Remove unused variables and imports immediately.
 - **Error Handling:** When an error occurs, do not just fix it; summarize the **root cause** in one line. If a terminal command fails, stop the process immediately.
-- **Documentation:** Every works must be documented in /docs folder. There are 3 types of documents: 
-  - **/architectures** 
-  - **/fixes** 
-  - **/plans** 
-  - **/tests** 
+- **Documentation:** Every works must be documented in /docs folder. There are several types of documents: 
+  - **/architectures** (for used architecture of the project)
+  - **/fixes** (for fixing bugs)
+  - **/plans** (for planning features)
+  - **/tests** (for testing features)
   - ... (if you need to add more documents, add them and save them in /docs folder)
   - **CHANGELOG.md** (always update this file when you make a change)
 - **Workflow Automation Rule:**

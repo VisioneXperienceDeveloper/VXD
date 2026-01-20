@@ -2,7 +2,7 @@ import { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/
 import { unstable_cache } from 'next/cache';
 
 import { notion } from "../notion";
-import { BlogPost } from "../types";
+import { BlogPost, SortOption, SortDirection } from "../types";
 import { getNumberValue, extractBlogPostFromPage } from "./posts.helper";
 
 export const getPostsDataSourceId = () => {
@@ -44,41 +44,79 @@ export interface GetPublishedPostsOptions {
   searchQuery?: string;
   group?: string;
   locale?: string;
+  sortBy?: SortOption;
+  sortDirection?: SortDirection;
 }
 
 export const getPublishedPosts = async (options: GetPublishedPostsOptions = {}): Promise<BlogPost[] | null> => {
-  const { tag, searchQuery, group, locale = 'ko' } = options;
+  const { 
+    tag, 
+    searchQuery, 
+    group, 
+    locale = 'ko',
+    sortBy = 'published_date',
+    sortDirection = 'desc'
+  } = options;
   const posts = await getCachedAllPosts();
   if (!posts) return null;
 
   const now = new Date();
 
-  return posts
-    .filter(post => {
-      // Filter out future posts
-      if (post.date && new Date(post.date) > now) return false;
+  // Filter posts
+  const filteredPosts = posts.filter(post => {
+    // Filter out future posts
+    if (post.date && new Date(post.date) > now) return false;
 
-      // Filter by locale (Language property)
-      // Map 'en' locale to 'EN' property value, 'ko' to 'KR' (or whatever is used in Notion)
-      // Assuming Notion uses 'KR' and 'EN' as select options
-      const targetLang = locale === 'ko' ? 'KR' : 'EN';
-      if (post.language && post.language !== targetLang) return false;
-      
-      // Filter by tag if provided
-      if (tag && !post.tags.includes(tag)) return false;
-  
-      // Filter by search query if provided
-      if (searchQuery && !post.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
-  
-      // Filter by group if provided
-      if (group && post.group !== group) return false;
-      
-      return true;
-    })
-    .map(post => ({
-      ...post,
-      date: new Date(post.date).toLocaleDateString(), // Format date for display
-    }));
+    // Filter by locale (Language property)
+    // Map 'en' locale to 'EN' property value, 'ko' to 'KR' (or whatever is used in Notion)
+    // Assuming Notion uses 'KR' and 'EN' as select options
+    const targetLang = locale === 'ko' ? 'KR' : 'EN';
+    if (post.language && post.language !== targetLang) return false;
+    
+    // Filter by tag if provided
+    if (tag && !post.tags.includes(tag)) return false;
+
+    // Filter by search query if provided
+    if (searchQuery && !post.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;
+
+    // Filter by group if provided
+    if (group && post.group !== group) return false;
+    
+    return true;
+  });
+
+  // Sort posts
+  const sortedPosts = [...filteredPosts].sort((a, b) => {
+    let aValue: number | string;
+    let bValue: number | string;
+
+    switch (sortBy) {
+      case 'published_date':
+        aValue = new Date(a.date).getTime();
+        bValue = new Date(b.date).getTime();
+        break;
+      case 'view_count':
+        aValue = a.viewCount || 0;
+        bValue = b.viewCount || 0;
+        break;
+      case 'comment_count':
+        aValue = a.commentCount || 0;
+        bValue = b.commentCount || 0;
+        break;
+      default:
+        aValue = new Date(a.date).getTime();
+        bValue = new Date(b.date).getTime();
+    }
+
+    const comparison = aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
+    return sortDirection === 'desc' ? -comparison : comparison;
+  });
+
+  // Format dates
+  return sortedPosts.map(post => ({
+    ...post,
+    date: new Date(post.date).toLocaleDateString(),
+  }));
 };
 
 export const getAllTags = async (): Promise<string[]> => {

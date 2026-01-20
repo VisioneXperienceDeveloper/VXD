@@ -1,11 +1,13 @@
 import { getPublishedPosts, getAllGroups, getTopTags } from "@/lib/services/posts.service";
 import { getTranslations } from 'next-intl/server';
+import { SortOption } from "@/lib/types";
 
 export const revalidate = 3600; // Revalidate every 1 hour
 
 import { ModeToggle } from "@/components/utils/ModeToggle";
 import { LanguageToggle } from "@/components/utils/LanguageToggle";
 import { Search } from "@/components/utils/Search";
+import { SortDropdown } from "@/components/utils/SortDropdown";
 import { Sidebar } from "@/components/utils/Sidebar";
 import { PostList } from "@/components/posts/PostList";
 import { Footer } from "@/components/utils/Footer";
@@ -24,8 +26,15 @@ export default async function Home({
   const selectedTag = typeof resolvedSearchParams.tag === 'string' ? resolvedSearchParams.tag : undefined;
   const selectedGroup = typeof resolvedSearchParams.group === 'string' ? resolvedSearchParams.group : undefined;
   const searchQuery = typeof resolvedSearchParams.search === 'string' ? resolvedSearchParams.search : undefined;
+  const sortBy = (typeof resolvedSearchParams.sort === 'string' ? resolvedSearchParams.sort : 'published_date') as SortOption;
   
-  const allPosts = await getPublishedPosts({ tag: selectedTag, searchQuery, group: selectedGroup, locale });
+  const allPosts = await getPublishedPosts({ 
+    tag: selectedTag, 
+    searchQuery, 
+    group: selectedGroup, 
+    locale,
+    sortBy
+  });
   const groups = await getAllGroups();
   const topTags = await getTopTags();
 
@@ -38,6 +47,7 @@ export default async function Home({
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 relative">
         <div className="absolute top-6 right-6 sm:top-10 sm:right-10 flex items-center gap-2 z-50">
           <Search />
+          <SortDropdown />
           <ModeToggle />
           <LanguageToggle />
         </div>

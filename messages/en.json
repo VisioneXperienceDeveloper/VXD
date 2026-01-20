@@ -73,5 +73,11 @@
     "submitError": "Failed to submit comment. Please try again.",
     "loading": "Loading comments...",
     "loadError": "Failed to load comments."
+  },
+  "Sort": {
+    "sortBy": "Sort by",
+    "publishedDate": "Latest",
+    "viewCount": "Views",
+    "comments": "Comments"
   }
 }
