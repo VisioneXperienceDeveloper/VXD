@@ -41,6 +41,7 @@ const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> =>
 
 export interface GetPublishedPostsOptions {
   tag?: string;
+  tags?: string[];
   searchQuery?: string;
   group?: string;
   locale?: string;
@@ -51,6 +52,7 @@ export interface GetPublishedPostsOptions {
 export const getPublishedPosts = async (options: GetPublishedPostsOptions = {}): Promise<BlogPost[] | null> => {
   const { 
     tag, 
+    tags,
     searchQuery, 
     group, 
     locale = 'ko',
@@ -61,6 +63,9 @@ export const getPublishedPosts = async (options: GetPublishedPostsOptions = {}):
   if (!posts) return null;
 
   const now = new Date();
+
+  // Normalize tags: support both single tag and multiple tags for backward compatibility
+  const selectedTags = tags || (tag ? [tag] : []);
 
   // Filter posts
   const filteredPosts = posts.filter(post => {
@@ -73,8 +78,13 @@ export const getPublishedPosts = async (options: GetPublishedPostsOptions = {}):
     const targetLang = locale === 'ko' ? 'KR' : 'EN';
     if (post.language && post.language !== targetLang) return false;
     
-    // Filter by tag if provided
-    if (tag && !post.tags.includes(tag)) return false;
+    // Filter by tags (multi-tag AND filtering)
+    if (selectedTags.length > 0) {
+      const hasAllTags = selectedTags.every(selectedTag => 
+        post.tags.includes(selectedTag)
+      );
+      if (!hasAllTags) return false;
+    }
 
     // Filter by search query if provided
     if (searchQuery && !post.title.toLowerCase().includes(searchQuery.toLowerCase())) return false;

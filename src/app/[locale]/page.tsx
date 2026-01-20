@@ -7,10 +7,10 @@ export const revalidate = 3600; // Revalidate every 1 hour
 import { ModeToggle } from "@/components/utils/ModeToggle";
 import { LanguageToggle } from "@/components/utils/LanguageToggle";
 import { Search } from "@/components/utils/Search";
-import { SortDropdown } from "@/components/utils/SortDropdown";
 import { Sidebar } from "@/components/utils/Sidebar";
 import { PostList } from "@/components/posts/PostList";
 import { Footer } from "@/components/utils/Footer";
+import Link from "next/link";
 
 export default async function Home({
   searchParams,
@@ -23,13 +23,18 @@ export default async function Home({
   const { locale } = await params;
   const t = await getTranslations('Common');
 
-  const selectedTag = typeof resolvedSearchParams.tag === 'string' ? resolvedSearchParams.tag : undefined;
+  // Extract and deduplicate multiple tags from URL parameters
+  const rawTags = resolvedSearchParams.tag;
+  const selectedTags: string[] = Array.isArray(rawTags)
+    ? [...new Set(rawTags)]  // Remove duplicates
+    : rawTags ? [rawTags] : [];
+  
   const selectedGroup = typeof resolvedSearchParams.group === 'string' ? resolvedSearchParams.group : undefined;
   const searchQuery = typeof resolvedSearchParams.search === 'string' ? resolvedSearchParams.search : undefined;
   const sortBy = (typeof resolvedSearchParams.sort === 'string' ? resolvedSearchParams.sort : 'published_date') as SortOption;
   
   const allPosts = await getPublishedPosts({ 
-    tag: selectedTag, 
+    tags: selectedTags, 
     searchQuery, 
     group: selectedGroup, 
     locale,
@@ -47,14 +52,13 @@ export default async function Home({
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 relative">
         <div className="absolute top-6 right-6 sm:top-10 sm:right-10 flex items-center gap-2 z-50">
           <Search />
-          <SortDropdown />
           <ModeToggle />
           <LanguageToggle />
         </div>
         
         <header className="mb-12 text-center space-y-4 pt-8">
           <div className="inline-block p-3 rounded-2xl bg-white dark:bg-neutral-900 shadow-sm mb-4">
-            <span role="img" aria-label="writing" className="text-2xl">✍️</span>
+            <Link href="/" aria-label="Home"><span role="img" aria-label="writing" className="text-2xl">✍️</span></Link>
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl">
             {"VXD Blog"}
@@ -72,7 +76,7 @@ export default async function Home({
                 groups={groups} 
                 topTags={topTags} 
                 selectedGroup={selectedGroup} 
-                selectedTag={selectedTag} 
+                selectedTags={selectedTags} 
               />
             </div>
           </div>
@@ -95,7 +99,7 @@ export default async function Home({
               <PostList 
                 initialPosts={initialPosts}
                 initialHasMore={initialHasMore}
-                tag={selectedTag}
+                tag={selectedTags[0]}
                 search={searchQuery}
                 group={selectedGroup}
                 locale={locale}

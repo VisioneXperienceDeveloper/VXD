@@ -11,7 +11,7 @@ test.describe('Home Page', () => {
 
   test('should display the sidebar with categories', async ({ page }) => {
     await expect(page.getByRole('complementary').getByText('카테고리')).toBeVisible();
-    await expect(page.getByRole('link', { name: '전체보기' })).toBeVisible();
+    await expect(page.getByTestId('all-posts-button')).toBeVisible();
   });
 
   test('should display the sidebar with top tags', async ({ page }) => {

@@ -119,7 +119,8 @@ describe('posts.helper - API Response Parsing', () => {
         description: '',
         language: 'EN',
         translationId: 'translated-page-id',
-        viewCount: 100
+        viewCount: 100,
+        commentCount: 0
       });
     });
 
