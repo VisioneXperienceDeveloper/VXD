@@ -1,6 +1,7 @@
 'use server';
 
 import { getPublishedPosts } from '@/lib/services/posts.service';
+import { BlogPost } from '@/lib/types';
 
 const POSTS_PER_PAGE = 6;
 
@@ -16,7 +17,7 @@ export async function fetchPosts({
   search?: string;
   group?: string;
   locale?: string;
-}) {
+}): Promise<{ posts: BlogPost[]; hasMore: boolean }> {
   const allPosts = await getPublishedPosts({ tag, searchQuery: search, group, locale });
   
   if (!allPosts) {

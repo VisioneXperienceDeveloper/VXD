@@ -15,6 +15,16 @@
 - **Reasoning:** Before writing code, always output the **"Reasoning Process"**. If the modification is extensive, present a **"Plan"** first and await user approval.
 - **Code Quality:** Prefer clear, multi-line code over unreadable one-liners. Remove unused variables and imports immediately.
 - **Error Handling:** When an error occurs, do not just fix it; summarize the **root cause** in one line. If a terminal command fails, stop the process immediately.
+- **Documentation:** Every works must be documented in /docs folder. There are several types of documents: 
+  - **/architectures** (for used architecture of the project)
+  - **/fixes** (for fixing bugs)
+  - **/plans** (for planning features)
+  - **/tests** (for testing features)
+  - ... (if you need to add more documents, add them and save them in /docs folder)
+  - **CHANGELOG.md** (always update this file when you make a change)
+- **Workflow Automation Rule:**
+  - When a task is deemed complete or the user indicates completion, do not commit immediately; **always initiate the `@finish` workflow.**
+  - Enforce the **[Code Review] -> [Request Approval] -> [Commit]** procedure. Do not suggest `git commit` directly.
 
 ## 3. Server vs. Client Strategy (Architecture)
 - **Default to Server:** All components are **Server Components** by default.
@@ -64,25 +74,14 @@
 - No New Packages: Do not install new npm packages without asking for approval first.
 - No Prop Drilling: Avoid passing props more than 3 levels deep.
 
-## 6. Testing Strategy
-- Unit Tests (Vitest): Every new utility function or logic-heavy component must have a corresponding .test.ts(x) file in __tests__/unit.
-- E2E Tests (Playwright): Major user flows (Home, Search, Post View) must be covered in __tests__/e2e.
-- CI/CD: Ensure pnpm test and pnpm test:e2e pass before committing.
-
-## 7. Environment & Commands
-- Environment Variables: NOTION_API_KEY, NOTION_DATABASE_ID.
+## 6. Environment & Commands
+- Environment Variables: NOTION_API_KEY, NOTION_POSTS_DATA_SOURCE_ID, NOTION_COMMENTS_DATA_SOURCE_ID.
 - Commands:
     - pnpm dev: Start dev server (http://localhost:3000).
     - pnpm build: Production build.
     - pnpm test: Run unit tests.
     - pnpm test:e2e: Run E2E tests.
 
-## 8. Documentation Etiquette
+## 7. Documentation Etiquette
 - Code Comments: When writing complex logic, write a brief comment explaining "Why" (intent), not "What" (syntax).
 - JSDoc: Mandatory for all utility functions.
-
-## 9. Commit Messages
-- Use imperative verb in commit messages (e.g., "Add feature", "Fix bug").
-- Keep the summary line concise (50 chars or less).
-- Use body for additional details if needed.
-- Reference issue numbers if applicable (e.g., "Fix #123").

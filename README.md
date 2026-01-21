@@ -69,9 +69,9 @@
    NEXT_PUBLIC_SITE_URL=http://localhost:3000
 
    # Google Services (Optional)
-   NEXT_PUBLIC_GA_ID=G-XXXXXX
-   NEXT_PUBLIC_GTM_ID=GTM-XXXXXX
-   NEXT_PUBLIC_GOOGLE_ADSENSE_ID=ca-pub-XXXXXXXXXXXXXXXX
+   GA_ID=G-XXXXXX
+   GTM_ID=GTM-XXXXXX
+   GOOGLE_ADSENSE_ID=ca-pub-XXXXXXXXXXXXXXXX
    ```
 
 4. **Run development server**
