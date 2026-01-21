@@ -10,7 +10,7 @@ describe('GoogleAnalytics Component', () => {
   });
 
   it('should render without errors when GA ID is set', () => {
-    // Note: GoogleAnalytics reads from process.env.NEXT_PUBLIC_GA_ID at build time
+    // Note: GoogleAnalytics reads from process.env.GA_ID at build time
     // This test just ensures the component renders without runtime errors
     const { container } = render(<GoogleAnalytics />);
     expect(container).toBeDefined();
