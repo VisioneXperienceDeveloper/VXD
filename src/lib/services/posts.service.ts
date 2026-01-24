@@ -20,6 +20,12 @@ const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> =>
   try {
     response = await notion.dataSources.query({
       data_source_id: dataSourceId,
+      filter: {
+        property: "published_date",
+        date: {
+          before: new Date().toISOString(),
+        },
+      },
       sorts: [
         {
           timestamp: "created_time",
@@ -37,7 +43,7 @@ const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> =>
     .map(extractBlogPostFromPage);
 
   return posts;
-}, ['all-posts-v4'], { revalidate: 3600 });
+}, ['all-posts-v5'], { revalidate: 3600 });
 
 export interface GetPublishedPostsOptions {
   tag?: string;
@@ -75,8 +81,15 @@ export const getPublishedPosts = async (options: GetPublishedPostsOptions = {}):
     // Filter by locale (Language property)
     // Map 'en' locale to 'EN' property value, 'ko' to 'KR' (or whatever is used in Notion)
     // Assuming Notion uses 'KR' and 'EN' as select options
-    const targetLang = locale === 'ko' ? 'KR' : 'EN';
-    if (post.language && post.language !== targetLang) return false;
+    if (post.language) {
+      if (locale === 'ko') {
+        // For Korean locale, accept 'KR', etc.
+        if (post.language !== 'KR') return false;
+      } else {
+        // For English locale, strictly check for 'EN'
+        if (post.language !== 'EN') return false;
+      }
+    }
     
     // Filter by tags (multi-tag AND filtering)
     if (selectedTags.length > 0) {
