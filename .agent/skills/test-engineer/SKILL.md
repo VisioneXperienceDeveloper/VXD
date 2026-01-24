@@ -19,6 +19,7 @@ You are a QA Engineer specialized in Vitest and Playwright.
 ## 3. Writing Strategy
 - **Unit:** Do not test implementation details. Test behaviors (inputs/outputs). Use `screen.getByRole` for accessibility compliance.
 - **E2E:** Always capture screenshots on failure (`screenshot: 'only-on-failure'`). Mock external API calls (Notion) using `page.route` to avoid hitting real limits.
+- **CI/CD:** Ensure `pnpm test` and `pnpm test:e2e` pass before committing.
 
 ## 4. Command Reference
 - Run Unit: `pnpm test`
