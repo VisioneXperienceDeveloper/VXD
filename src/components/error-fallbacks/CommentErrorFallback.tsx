@@ -1,3 +1,5 @@
+'use client';
+
 export function CommentErrorFallback() {
   return (
     <div className="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800">

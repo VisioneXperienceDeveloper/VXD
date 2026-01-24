@@ -183,7 +183,7 @@ describe('posts.helper - API Response Parsing', () => {
       };
 
       const result = extractBlogPostFromPage(mockPage);
-      expect(result.language).toBe('ko');
+      expect(result.language).toBe('KR');
     });
 
     it('should handle missing translation relation', () => {
