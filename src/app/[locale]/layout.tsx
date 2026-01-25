@@ -5,12 +5,12 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from "@vercel/analytics/next"
 
 import { ThemeProvider } from "@/components/utils/ThemeProvider";
-import { GoogleAnalytics } from "@/components/delegator/GoogleAnalytics";
-import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
 
 import "../globals.css";
 
@@ -80,9 +80,9 @@ export default async function LocaleLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        <GoogleAnalytics gaId={process.env.GA_ID ?? ""} />
+        <GoogleAdSense pId={process.env.GOOGLE_ADSENSE_ID ?? ""} />
         <NextIntlClientProvider messages={messages}>
-          <GoogleAnalytics />
-          <GoogleAdSense pId={process.env.GOOGLE_ADSENSE_ID ?? ""} />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -92,9 +92,10 @@ export default async function LocaleLayout({
             <ErrorBoundary>
               {children}
             </ErrorBoundary>
-            <SpeedInsights/>
           </ThemeProvider>
         </NextIntlClientProvider>
+        <SpeedInsights/>
+        <Analytics />
       </body>
     </html>
   );

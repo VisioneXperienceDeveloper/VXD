@@ -71,7 +71,8 @@
    # Google Services (Optional)
    GA_ID=G-XXXXXX
    GTM_ID=GTM-XXXXXX
-   GOOGLE_ADSENSE_ID=ca-pub-XXXXXXXXXXXXXXXX
+   GOOGLE_ADSENSE_ACCOUNT=ca-pub-XXXXXXXXXXXXXXXX
+   GOOGLE_ADSENSE_ID=pub-XXXXXXXXXXXXXXXX
    ```
 
 4. **Run development server**
