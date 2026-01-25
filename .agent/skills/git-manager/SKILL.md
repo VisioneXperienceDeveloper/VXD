@@ -21,7 +21,7 @@ Follow the **Conventional Commits** format:
 - `fix`: Bug fixes (hydration error, layout shift)
 - `docs`: Documentation changes
 - `style`: Code changes without logic change
-- `refactor`: Code changes without logic change
+- `refactor`: Code changes that improve code structure
 - `test`: Test changes
 - `chore`: Config changes, dependency updates
 
