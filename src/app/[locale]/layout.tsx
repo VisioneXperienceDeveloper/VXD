@@ -5,13 +5,12 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from "@vercel/analytics/next"
 
 import { ThemeProvider } from "@/components/utils/ThemeProvider";
-import { GoogleAnalytics } from "@/components/delegator/GoogleAnalytics";
-import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
 
 import "../globals.css";
 
@@ -75,13 +74,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+      <GoogleTagManager gtmId={process.env.GTM_ID!} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <GoogleAnalytics />
-        <GoogleAdSense pId={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE_ID!} />
+        <GoogleAnalytics gaId={process.env.GA_ID!} />
+        <GoogleAdSense pId={process.env.GOOGLE_ADSENSE_ID!} />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
