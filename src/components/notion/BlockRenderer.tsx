@@ -1,4 +1,5 @@
 import { TextRenderer } from "./TextRenderer";
+import { CodeBlock } from "./CodeBlock";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import type { BlockObjectResponse, RichTextItemResponse, TableRowBlockObjectResponse, PartialBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
@@ -92,12 +93,16 @@ export function BlockRenderer({ block }: BlockRendererProps) {
         </div>
       );
     case "code":
+      // Extract code text from rich text array
+      const codeText = value.rich_text
+        .map((rt: RichTextItemResponse) => rt.plain_text)
+        .join('');
+      
       return (
-        <pre className="bg-neutral-100 dark:bg-neutral-900 p-4 rounded-md overflow-x-auto my-4 text-sm font-mono">
-          <code className="language-{value.language}">
-            <TextRenderer text={value.rich_text} />
-          </code>
-        </pre>
+        <CodeBlock 
+          code={codeText}
+          language={value.language}
+        />
       );
     case "image":
       const src =
