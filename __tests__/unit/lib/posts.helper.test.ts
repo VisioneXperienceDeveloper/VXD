@@ -119,7 +119,8 @@ describe('posts.helper - API Response Parsing', () => {
         description: '',
         language: 'EN',
         translationId: 'translated-page-id',
-        viewCount: 100
+        viewCount: 100,
+        commentCount: 0
       });
     });
 
@@ -182,7 +183,7 @@ describe('posts.helper - API Response Parsing', () => {
       };
 
       const result = extractBlogPostFromPage(mockPage);
-      expect(result.language).toBe('ko');
+      expect(result.language).toBe('KR');
     });
 
     it('should handle missing translation relation', () => {

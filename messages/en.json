@@ -12,6 +12,7 @@
     "allPosts": "All Posts",
     "categories": "Categories",
     "topTags": "Top Tags",
+    "sort": "Sort By",
     "noOtherPosts": "No other posts in this part.",
     "thisBlog": "this blog",
     "description": "A collection of thoughts, learnings, and stories.",
@@ -73,5 +74,16 @@
     "submitError": "Failed to submit comment. Please try again.",
     "loading": "Loading comments...",
     "loadError": "Failed to load comments."
+  },
+  "Sort": {
+    "sortBy": "Sort by",
+    "publishedDate": "Latest",
+    "viewCount": "Views",
+    "comments": "Comments"
+  },
+  "Filters": {
+    "activeFilters": "Active Filters",
+    "clearAll": "Clear All",
+    "noFilters": "No filters applied"
   }
 }

@@ -62,9 +62,10 @@ export function extractBlogPostFromPage(p: PageObjectResponse): BlogPost {
 
   const groupName = getSelectValue(p.properties.group);
   const part = getSelectValue(p.properties.part);
-  const language = getSelectValue(p.properties.language) || 'ko';
+  const language = getSelectValue(p.properties.language) || 'KR';
   const translationId = getRelationId(p.properties.translation);
   const viewCount = getNumberValue(p.properties.view_count);
+  const commentCount = getNumberValue(p.properties.comment_count);
 
   let cover: string | null = null;
   if (p.cover?.type === 'external') {
@@ -86,6 +87,7 @@ export function extractBlogPostFromPage(p: PageObjectResponse): BlogPost {
     language,
     translationId,
     viewCount,
+    commentCount,
   };
 
   return blogPost;

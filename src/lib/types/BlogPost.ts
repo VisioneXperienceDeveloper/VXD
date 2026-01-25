@@ -12,4 +12,5 @@ export interface BlogPost {
   language?: string;
   translationId?: string | null;
   viewCount?: number;
+  commentCount?: number;
 };
