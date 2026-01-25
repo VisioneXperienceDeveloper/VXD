@@ -6,9 +6,11 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from "@vercel/analytics/next"
 
 import { ThemeProvider } from "@/components/utils/ThemeProvider";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
 
