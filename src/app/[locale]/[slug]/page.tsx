@@ -1,21 +1,17 @@
-import { getPageContent, getPostBySlug, getPublishedPosts, getPostById } from "@/lib/services/posts.service";
-import { BlockRenderer } from "@/components/notion/BlockRenderer";
-import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from 'next-intl/server';
+import { Metadata } from "next";
+
+import { getPageContent, getPostBySlug, getPublishedPosts, getPostById } from "@/lib/services/posts.service";
+import { BlockRenderer } from "@/components/notion/BlockRenderer";
+import { Link } from "@/i18n/routing";
 import { LanguageToggle } from "@/components/utils/LanguageToggle";
 import { ViewTracker } from "@/components/utils/ViewTracker";
 import { PostEngagement } from "@/components/posts/PostEngagement";
 import { CommentSection } from "@/components/comments/CommentSection";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { CommentErrorFallback } from "@/components/error-fallbacks/CommentErrorFallback";
-
-export const dynamic = 'force-dynamic';
-
-export const revalidate = 3600; // Revalidate every 1 hour
-
-import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const posts = await getPublishedPosts();
@@ -38,6 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: post.title,
     description: post.description || `Read ${post.title} on VXD Blog`,
+    keywords: post.tags?.join(', '),
     openGraph: {
       title: post.title,
       description: post.description || `Read ${post.title} on VXD Blog`,

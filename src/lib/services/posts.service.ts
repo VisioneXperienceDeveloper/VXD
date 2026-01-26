@@ -5,6 +5,8 @@ import { notion } from "../notion";
 import { BlogPost, SortOption, SortDirection } from "../types";
 import { getNumberValue, extractBlogPostFromPage } from "./posts.helper";
 
+export const revalidate = 1 * 60 * 60; // Revalidate every 1 hour
+
 export const getPostsDataSourceId = () => {
   const dataSourceId = process.env.NOTION_POSTS_DATA_SOURCE_ID;
   if (!dataSourceId) {
@@ -43,7 +45,7 @@ const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> =>
     .map(extractBlogPostFromPage);
 
   return posts;
-}, ['all-posts-v5'], { revalidate: 3600 });
+}, ['all-posts'], { revalidate });
 
 export interface GetPublishedPostsOptions {
   tag?: string;
@@ -235,7 +237,7 @@ export const getPageContent = unstable_cache(async (pageId: string) => {
     console.error("Failed to fetch page content:", error);
     return [];
   }
-}, ['page-content'], { revalidate: 3600 });
+}, ['page-content'], { revalidate });
 
 export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPost | null> => {
   try {
@@ -255,7 +257,7 @@ export const getPostById = unstable_cache(async (pageId: string): Promise<BlogPo
   } catch {
     return null;
   }
-}, ['post-by-id'], { revalidate: 3600 });
+}, ['post-by-id'], { revalidate });
 
 export const getPostBySlug = unstable_cache(async (slug: string): Promise<BlogPost | null> => {
   try {
@@ -276,7 +278,7 @@ export const getPostBySlug = unstable_cache(async (slug: string): Promise<BlogPo
   } catch {
     return null;
   }
-}, ['post-by-slug-v4'], { revalidate: 3600 });
+}, ['post-by-slug'], { revalidate });
 
 // Increment view count for a post (no caching, direct update)
 export async function incrementViewCount(pageId: string): Promise<number> {

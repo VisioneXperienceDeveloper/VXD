@@ -4,6 +4,15 @@ import { BlockRenderer } from '@/components/notion/BlockRenderer';
 import { createTestBlock } from '../../../helpers/block-test-helpers';
 
 // Mock next/image to avoid width/height requirement in tests
+// Mock react-syntax-highlighter
+vi.mock('react-syntax-highlighter', () => ({
+  Prism: ({ children }: { children: string }) => <pre>{children}</pre>,
+}));
+
+vi.mock('react-syntax-highlighter/dist/esm/styles/prism', () => ({
+  atomDark: {},
+}));
+
 vi.mock('next/image', () => ({
   default: ({ src, alt, className }: { src: string; alt: string; className?: string }) => (
     // eslint-disable-next-line @next/next/no-img-element
