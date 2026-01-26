@@ -11,7 +11,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig: NextConfig = {
   images: {
-    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 1080, 1920],
+    imageSizes: [64, 128, 256],
     remotePatterns: [
       {
         protocol: "https",
@@ -26,8 +27,6 @@ const nextConfig: NextConfig = {
         hostname: "**.amazonaws.com",
       },
     ],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
   // async redirects() {
   //   return [

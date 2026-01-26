@@ -116,6 +116,7 @@ export function BlockRenderer({ block }: BlockRendererProps) {
                 src={src} 
                 alt={caption || "Blog image"} 
                 className="object-cover w-full h-full"
+                unoptimized={true}
             />
           </div>
           {caption && (
