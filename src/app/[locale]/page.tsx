@@ -1,16 +1,16 @@
 import { getPublishedPosts, getAllGroups, getTopTags } from "@/lib/services/posts.service";
 import { getTranslations } from 'next-intl/server';
 import { SortOption } from "@/lib/types";
+import Link from "next/link";
+
+import { Sidebar } from "@/widgets/sidebar";
+import { PostList } from "@/widgets/post-list";
+import { Footer } from "@/widgets/footer";
+import { ModeToggle } from "@/features/theme";
+import { LanguageToggle } from "@/features/language";
+import { Search } from "@/features/search-posts";
 
 export const revalidate = 3600; // Revalidate every 1 hour
-
-import { ModeToggle } from "@/components/utils/ModeToggle";
-import { LanguageToggle } from "@/components/utils/LanguageToggle";
-import { Search } from "@/components/utils/Search";
-import { Sidebar } from "@/components/utils/Sidebar";
-import { PostList } from "@/components/posts/PostList";
-import { Footer } from "@/components/utils/Footer";
-import Link from "next/link";
 
 export default async function Home({
   searchParams,

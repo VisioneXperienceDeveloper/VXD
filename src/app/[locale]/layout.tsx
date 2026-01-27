@@ -8,9 +8,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from "@vercel/analytics/next"
 
-import { ThemeProvider } from "@/components/utils/ThemeProvider";
-import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { GoogleAdSense } from "@/components/delegator/GoogleAdSense";
+import { ThemeProvider } from "@/shared/providers";
+import { ErrorBoundary } from "@/shared/ui";
+import { GoogleAdSense } from "@/shared/lib/analytics";
 
 import "../globals.css";
 

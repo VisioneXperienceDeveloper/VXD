@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { PostCard } from '@/components/posts/PostCard';
+import { PostCard } from '@/entities/post/ui/PostCard';
 import { mockBlogPosts } from '../../fixtures/notion-data';
 
 // Explicitly mock next/navigation to override any next-intl patching

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { LanguageToggle } from '@/components/utils/LanguageToggle';
+import { LanguageToggle } from '@/features/language/ui/LanguageToggle';
 
 // Mock the hooks
 const mockUseLocale = vi.fn();

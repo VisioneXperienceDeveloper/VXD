@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render } from '@testing-library/react';
-import { GoogleAnalytics } from '@/components/delegator/GoogleAnalytics';
+import { GoogleAnalytics } from '@/shared/lib/analytics/GoogleAnalytics';
 
 describe('GoogleAnalytics Component', () => {
   it('should render without errors when GA ID is not set', () => {

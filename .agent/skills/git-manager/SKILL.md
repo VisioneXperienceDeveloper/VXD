@@ -2,9 +2,9 @@
 name: Git Commit Manager
 description: Generate semantic commit messages and manage branches.
 triggers:
-  - @git
-  - @wt
-  - @cm
+  - /git
+  - /wt
+  - /cm
   - "commit message"
   - "커밋해줘"
 ---

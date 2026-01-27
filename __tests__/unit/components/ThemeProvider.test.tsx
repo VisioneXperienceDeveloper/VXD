@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { ThemeProvider } from '@/components/utils/ThemeProvider';
+import { ThemeProvider } from '@/shared/providers/ThemeProvider';
 
 // Mock next-themes
 vi.mock('next-themes', () => ({

@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from 'react';
-import { CommentList } from './CommentList';
-import { CommentForm } from './CommentForm';
-import { Comment } from '@/lib/types';
 import { useTranslations } from 'next-intl';
+
+import { CommentList, CommentForm } from '@/features/comment';
+import { Comment } from '@/lib/types';
 
 interface CommentSectionProps {
   postId: string;

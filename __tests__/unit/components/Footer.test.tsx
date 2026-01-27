@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { Footer } from '@/components/utils/Footer';
+import { Footer } from '@/widgets/footer';
 
 // Mock next-intl server
 vi.mock('next-intl/server', () => ({

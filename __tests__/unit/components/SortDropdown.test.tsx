@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { SortDropdown } from '@/components/utils/SortDropdown';
+import { SortDropdown } from '@/features/sort-posts/ui/SortDropdown';
 import { useSearchParams } from 'next/navigation';
 import { useRouter, usePathname } from '@/i18n/routing';
 
