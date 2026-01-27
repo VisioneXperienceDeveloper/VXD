@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { Loader2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-import { BlogPost } from '@/lib/types';
+import { BlogPost } from '@/entities/lib/types';
 import { fetchPosts } from '@/app/actions';
 import { PostCard } from '@/entities/post';
 

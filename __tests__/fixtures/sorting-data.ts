@@ -1,4 +1,4 @@
-import { BlogPost } from '@/lib/types';
+import { BlogPost } from '@/entities/lib/types';
 
 /**
  * Mock blog posts for sorting tests

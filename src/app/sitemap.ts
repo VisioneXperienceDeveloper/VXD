@@ -1,6 +1,7 @@
-import { getPublishedPosts } from '@/lib/services/posts.service';
-import { routing } from '@/i18n/routing';
 import { MetadataRoute } from 'next';
+
+import { getPublishedPosts } from '@/entities/lib/services';
+import { routing } from '@/shared/i18n/routing';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const koreanPosts = await getPublishedPosts({ locale: 'ko' });

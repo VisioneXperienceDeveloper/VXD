@@ -2,9 +2,9 @@
 
 import { useState, useRef, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
-import { useRouter } from "@/i18n/routing"
+import { useRouter } from "@/shared/i18n/routing"
 import { Search as SearchIcon } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { cn } from "@/shared/lib/utils"
 import { useTranslations } from 'next-intl';
 
 export function Search() {

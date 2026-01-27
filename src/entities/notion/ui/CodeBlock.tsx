@@ -50,7 +50,7 @@ export function CodeBlock({ code, language }: CodeBlockProps) {
           customStyle={{
             margin: 0,
             padding: '2rem 1rem 1.5rem',
-            backgroundColor: 'var(--color-neutral-950)', // Fallback or custom dark bg
+            backgroundColor: 'var(--color-neutral-900)', // Fallback or custom dark bg
             fontSize: '0.875rem',
             lineHeight: '1.5',
           }}

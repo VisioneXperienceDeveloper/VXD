@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { getPublishedPosts, getAllTags, getAllGroups, getTopTags, groupPosts, getPageContent, getPostById, incrementViewCount } from '@/lib/services/posts.service';
+import { getPublishedPosts, getAllTags, getAllGroups, getTopTags, groupPosts, getPageContent, getPostById, incrementViewCount } from '@/entities/lib/services/posts.service';
 import { mockPosts, mockBlogPosts } from '../../fixtures/notion-data';
 
 // Hoist mocks before imports

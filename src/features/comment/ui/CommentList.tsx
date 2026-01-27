@@ -1,6 +1,6 @@
 "use client"
 
-import { Comment } from '@/lib/types';
+import { Comment } from '@/entities/lib/types';
 import { useTranslations } from 'next-intl';
 
 interface CommentListProps {

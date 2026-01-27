@@ -1,2 +1,2 @@
-export * from './GoogleAnalytics';
-export * from './GoogleAdSense';
+export { GoogleAnalytics } from './GoogleAnalytics';
+export { GoogleAdSense } from './GoogleAdSense';

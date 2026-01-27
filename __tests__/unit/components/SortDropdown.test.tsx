@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SortDropdown } from '@/features/sort-posts/ui/SortDropdown';
 import { useSearchParams } from 'next/navigation';
-import { useRouter, usePathname } from '@/i18n/routing';
+import { useRouter, usePathname } from '@/shared/i18n/routing';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 

@@ -1,6 +1,4 @@
-import { getPublishedPosts, getAllGroups, getTopTags } from "@/lib/services/posts.service";
 import { getTranslations } from 'next-intl/server';
-import { SortOption } from "@/lib/types";
 import Link from "next/link";
 
 import { Sidebar } from "@/widgets/sidebar";
@@ -9,6 +7,12 @@ import { Footer } from "@/widgets/footer";
 import { ModeToggle } from "@/features/theme";
 import { LanguageToggle } from "@/features/language";
 import { Search } from "@/features/search-posts";
+import { SortOption } from "@/entities/lib/types";
+import { 
+  getPublishedPosts,
+  getAllGroups,
+  getTopTags
+} from "@/entities/lib/services";
 
 export const revalidate = 3600; // Revalidate every 1 hour
 

@@ -1,10 +1,10 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useRouter, usePathname } from '@/i18n/routing';
+import { useRouter, usePathname } from '@/shared/i18n/routing';
 import { useTranslations } from 'next-intl';
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import { SortDropdown } from "@/features/sort-posts";
 import { ActiveFilters } from "@/features/filter-by-tag";
 

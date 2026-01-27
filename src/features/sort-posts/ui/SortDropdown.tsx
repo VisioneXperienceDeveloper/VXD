@@ -1,9 +1,9 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useRouter, usePathname } from '@/i18n/routing';
+import { useRouter, usePathname } from '@/shared/i18n/routing';
 import { useTranslations } from 'next-intl';
-import { SortOption } from '@/lib/types';
+import { SortOption } from '@/entities/lib/types';
 
 const SORT_OPTIONS: { value: SortOption; labelKey: string }[] = [
   { value: 'published_date', labelKey: 'publishedDate' },

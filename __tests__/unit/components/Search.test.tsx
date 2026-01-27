@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Search } from '@/features/search-posts/ui/Search';
 import { useSearchParams } from 'next/navigation';
-import { useRouter } from '@/i18n/routing';
+import { useRouter } from '@/shared/i18n/routing';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 

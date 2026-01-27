@@ -1,2 +1,2 @@
-export * from './CommentErrorFallback';
-export * from './PostErrorFallback';
+export { CommentErrorFallback } from './CommentErrorFallback';
+export { PostErrorFallback } from './PostErrorFallback';

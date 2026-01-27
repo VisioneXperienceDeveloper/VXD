@@ -1,7 +1,8 @@
 import { getTranslations } from 'next-intl/server';
-import { Link } from '@/i18n/routing';
 import { Metadata } from 'next';
 import { ExternalLink, Mail } from 'lucide-react';
+
+import { Link } from '@/shared/i18n/routing';
 
 type Props = {
   params: Promise<{ locale: string }>;

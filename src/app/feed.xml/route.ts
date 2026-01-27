@@ -1,4 +1,4 @@
-import { getPublishedPosts } from '@/lib/services/posts.service';
+import { getPublishedPosts } from '@/entities/lib/services';
 
 function escapeXml(unsafe: string): string {
   return unsafe.replace(/[<>&'"]/g, (c) => {

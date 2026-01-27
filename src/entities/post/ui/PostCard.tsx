@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 
-import { Link } from "@/i18n/routing";
-import { BlogPost } from "@/lib/types";
-import { usePrefetch } from "@/hooks/usePrefetch";
+import { Link } from "@/shared/i18n/routing";
+import { BlogPost } from "@/entities/lib/types";
+import { usePrefetch } from "../hooks";
 
 export function PostCard({ post }: { post: BlogPost }) {
   const { prefetch, cancel } = usePrefetch(`/${post.slug}`);

@@ -3,11 +3,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from "@vercel/analytics/next"
 
+import { routing } from '@/shared/i18n/routing';
 import { ThemeProvider } from "@/shared/providers";
 import { ErrorBoundary } from "@/shared/ui";
 import { GoogleAdSense } from "@/shared/lib/analytics";

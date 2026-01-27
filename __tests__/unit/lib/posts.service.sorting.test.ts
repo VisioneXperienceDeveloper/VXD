@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { getPublishedPosts } from '@/lib/services/posts.service';
+import { getPublishedPosts } from '@/entities/lib/services/posts.service';
 import { mockSortingPosts } from '../../fixtures/sorting-data';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 

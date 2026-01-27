@@ -1,2 +1,2 @@
-export * from './ErrorBoundary';
+export { ErrorBoundary } from './ErrorBoundary';
 export * from './error-fallbacks';

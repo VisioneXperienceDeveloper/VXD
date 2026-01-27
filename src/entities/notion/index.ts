@@ -1,2 +1,1 @@
-export * from './ui/BlockRenderer';
-export * from './ui/TextRenderer';
+export * from './ui';

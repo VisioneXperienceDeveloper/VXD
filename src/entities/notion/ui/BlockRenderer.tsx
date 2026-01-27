@@ -1,6 +1,6 @@
 import { TextRenderer } from "./TextRenderer";
 import { CodeBlock } from "./CodeBlock";
-import { cn } from "@/lib/utils";
+import { cn } from "@/shared/lib/utils";
 import Image from "next/image";
 import type { BlockObjectResponse, RichTextItemResponse, TableRowBlockObjectResponse, PartialBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 

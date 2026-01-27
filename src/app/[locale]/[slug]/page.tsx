@@ -1,17 +1,21 @@
+import { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations } from 'next-intl/server';
-import { Metadata } from "next";
 
-import { getPageContent, getPostBySlug, getPublishedPosts, getPostById } from "@/lib/services/posts.service";
-import { BlockRenderer } from "@/entities/notion";
-import { Link } from "@/i18n/routing";
+import { CommentSection } from "@/widgets/comment-section";
 import { LanguageToggle } from "@/features/language"; 
 import { ViewTracker } from "@/features/track-views";
+import { 
+  getPageContent, 
+  getPostBySlug, 
+  getPublishedPosts, 
+  getPostById
+} from "@/entities/lib/services";
 import { PostEngagement } from "@/entities/post";
-import { CommentSection } from "@/widgets/comment-section";
-import { ErrorBoundary } from "@/shared/ui";
-import { CommentErrorFallback } from "@/shared/ui/error-fallbacks/CommentErrorFallback";
+import { BlockRenderer } from "@/entities/notion";
+import { Link } from "@/shared/i18n/routing";
+import { ErrorBoundary, CommentErrorFallback } from "@/shared/ui";
 
 export const dynamic = 'force-dynamic';
 

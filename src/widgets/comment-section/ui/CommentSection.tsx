@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { CommentList, CommentForm } from '@/features/comment';
-import { Comment } from '@/lib/types';
+import { Comment } from '@/entities/lib/types';
 
 interface CommentSectionProps {
   postId: string;

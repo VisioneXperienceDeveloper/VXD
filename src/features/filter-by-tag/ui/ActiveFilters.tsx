@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useRouter, usePathname } from '@/i18n/routing';
+import { useRouter, usePathname } from '@/shared/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { X } from 'lucide-react';
 

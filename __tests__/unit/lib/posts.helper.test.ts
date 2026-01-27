@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { extractBlogPostFromPage, getNumberValue } from '@/lib/services/posts.helper';
+import { extractBlogPostFromPage, getNumberValue } from '@/entities/lib/services/posts.helper';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
