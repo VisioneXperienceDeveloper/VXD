@@ -8,7 +8,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   webServer: {
-    command: 'npm run dev -- -p 3000',
+    command: 'pnpm dev -p 3000',
     url: process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

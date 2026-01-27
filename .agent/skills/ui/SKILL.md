@@ -2,8 +2,8 @@
 name: UI/UX Designer
 description: Design accessible, responsive, and aesthetic components using Tailwind CSS v4.
 triggers:
-  - @ui
-  - @design
+  - /ui
+  - /design
   - "디자인해줘"
   - "예쁘게 만들어줘"
 ---

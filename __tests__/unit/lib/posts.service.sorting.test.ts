@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { getPublishedPosts } from '@/lib/services/posts.service';
+import { getPublishedPosts } from '@/entities/lib/services/posts.service';
 import { mockSortingPosts } from '../../fixtures/sorting-data';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
@@ -57,31 +57,38 @@ function createNotionPage(post: typeof mockSortingPosts[0]): PageObjectResponse 
             color: 'default',
           },
           href: null,
-        }] 
+        }],
+        id: 'title'
       },
       published_date: { 
         type: 'date', 
-        date: { start: post.date, end: null, time_zone: null } 
+        date: { start: post.date, end: null, time_zone: null },
+        id: 'published_date'
       },
       tags: { 
         type: 'multi_select', 
-        multi_select: post.tags.map(tag => ({ id: tag, name: tag, color: 'default' }))
+        multi_select: post.tags.map(tag => ({ id: tag, name: tag, color: 'default' })),
+        id: 'tags'
       },
       language: { 
         type: 'select', 
-        select: post.language ? { id: post.language, name: post.language, color: 'default' } : null
+        select: post.language ? { id: post.language, name: post.language, color: 'default' } : null,
+        id: 'language'
       },
       group: {
         type: 'select',
-        select: post.group ? { id: post.group, name: post.group, color: 'default' } : null
+        select: post.group ? { id: post.group, name: post.group, color: 'default' } : null,
+        id: 'group'
       },
       view_count: {
         type: 'number',
-        number: post.viewCount ?? 0
+        number: post.viewCount ?? 0,
+        id: 'view_count'
       },
       comment_count: {
         type: 'number',
-        number: post.commentCount ?? 0
+        number: post.commentCount ?? 0,
+        id: 'comment_count'
       },
       slug: {
         type: 'rich_text',
@@ -98,7 +105,8 @@ function createNotionPage(post: typeof mockSortingPosts[0]): PageObjectResponse 
             color: 'default',
           },
           href: null,
-        }]
+        }],
+        id: 'slug'
       }
     },
     last_edited_time: '2025-01-01T00:00:00Z',
@@ -113,6 +121,7 @@ function createNotionPage(post: typeof mockSortingPosts[0]): PageObjectResponse 
     created_by: { object: 'user', id: 'user-1' },
     last_edited_by: { object: 'user', id: 'user-1' },
     object: 'page',
+    is_locked: false,
   } as PageObjectResponse;
 }
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-import { createComment } from '@/lib/services';
+import { createComment } from '@/entities/lib/services';
 
 // Simple in-memory rate limiting (for development)
 // In production, use Redis or a proper rate limiting service

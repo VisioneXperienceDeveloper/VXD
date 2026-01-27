@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { BlockRenderer } from '@/components/notion/BlockRenderer';
+import { BlockRenderer } from '@/entities/notion';
 import { createTestBlock } from '../../../helpers/block-test-helpers';
 
 // Mock next/image to avoid width/height requirement in tests

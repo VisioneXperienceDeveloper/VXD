@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { translateText, translateBlock } from '@/lib/translator';
+import { translateText, translateBlock } from '@/entities/lib/translator';
 
 describe('translateText', () => {
   it('should return original text for Korean locale', async () => {

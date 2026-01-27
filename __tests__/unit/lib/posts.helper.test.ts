@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
-import { extractBlogPostFromPage, getNumberValue } from '@/lib/services/posts.helper';
+import { extractBlogPostFromPage, getNumberValue } from '@/entities/lib/services/posts.helper';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -52,7 +52,7 @@ describe('posts.helper - API Response Parsing', () => {
         properties: {
           title: {
             type: 'title',
-            title: [{ type: 'text', text: { content: 'Test Post' }, plain_text: 'Test Post', annotations: {} as any, href: null }],
+            title: [{ type: 'text', text: { content: 'Test Post', link: null }, plain_text: 'Test Post', annotations: {} as any, href: null }],
             id: 'title'
           },
           published_date: {
@@ -83,8 +83,7 @@ describe('posts.helper - API Response Parsing', () => {
           translation: {
             type: 'relation',
             relation: [{ id: 'translated-page-id' }],
-            id: 'translation',
-            has_more: false
+            id: 'translation'
           },
           view_count: {
             type: 'number',
@@ -100,7 +99,8 @@ describe('posts.helper - API Response Parsing', () => {
         url: 'https://notion.so/test',
         public_url: null,
         created_by: { object: 'user', id: 'user1' },
-        last_edited_by: { object: 'user', id: 'user1' }
+        last_edited_by: { object: 'user', id: 'user1' },
+        is_locked: false
       };
     });
 
@@ -190,8 +190,7 @@ describe('posts.helper - API Response Parsing', () => {
       mockPage.properties.translation = {
         type: 'relation',
         relation: [],
-        id: 'translation',
-        has_more: false
+        id: 'translation'
       };
 
       const result = extractBlogPostFromPage(mockPage);

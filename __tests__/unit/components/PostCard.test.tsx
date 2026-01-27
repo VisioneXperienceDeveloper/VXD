@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { PostCard } from '@/components/posts/PostCard';
+import { PostCard } from '@/entities/post/ui/PostCard';
 import { mockBlogPosts } from '../../fixtures/notion-data';
 
 // Explicitly mock next/navigation to override any next-intl patching
@@ -21,7 +21,7 @@ vi.mock('next-intl', () => ({
 }));
 
 // Mock routing
-vi.mock('@/i18n/routing', () => ({
+vi.mock('@/shared/i18n/routing', () => ({
   Link: ({ children }: { children: React.ReactNode }) => children,
 }));
 

@@ -3,11 +3,11 @@ import { fetchPosts } from '@/app/actions';
 import { mockBlogPosts } from '../../fixtures/notion-data';
 
 // Mock the getPublishedPosts function
-vi.mock('@/lib/services/posts.service', () => ({
+vi.mock('@/entities/lib/services/posts.service', () => ({
   getPublishedPosts: vi.fn(),
 }));
 
-import { getPublishedPosts } from '@/lib/services/posts.service';
+import { getPublishedPosts } from '@/entities/lib/services/posts.service';
 
 describe('fetchPosts server action', () => {
   beforeEach(() => {

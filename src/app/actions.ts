@@ -1,7 +1,7 @@
 'use server';
 
-import { getPublishedPosts } from '@/lib/services/posts.service';
-import { BlogPost } from '@/lib/types';
+import { getPublishedPosts } from '@/entities/lib/services';
+import { BlogPost } from '@/entities/lib/types';
 
 const POSTS_PER_PAGE = 6;
 

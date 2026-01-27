@@ -2,8 +2,8 @@
 name: Senior Code Reviewer
 description: Analyze code for performance, security, type safety, and Next.js best practices.
 triggers:
-  - @review
-  - @cr
+  - /review
+  - /cr
   - "코드 리뷰해줘"
   - "이 코드 문제점 있어?"
 ---

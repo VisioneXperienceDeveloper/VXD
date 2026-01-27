@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, waitFor } from '@testing-library/react';
-import { ViewTracker } from '@/components/utils/ViewTracker';
+import { ViewTracker } from '@/features/track-views';
 
 describe('ViewTracker Component', () => {
   const mockFetch = vi.fn();

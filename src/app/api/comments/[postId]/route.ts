@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCommentsByPostId } from '@/lib/services';
+
+import { getCommentsByPostId } from '@/entities/lib/services';
 
 export async function GET(
   request: NextRequest,

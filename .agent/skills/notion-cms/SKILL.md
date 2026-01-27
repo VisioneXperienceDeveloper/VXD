@@ -2,8 +2,8 @@
 name: Notion CMS Handler
 description: Manage Notion API interactions, database queries, and data fetching logic.
 triggers:
-  - @notion
-  - @cms
+  - /notion
+  - /cms
   - "fetch post"
   - "노션"
 ---

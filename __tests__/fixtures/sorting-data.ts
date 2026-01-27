@@ -1,4 +1,4 @@
-import { BlogPost } from '@/lib/types';
+import { BlogPost } from '@/entities/lib/types';
 
 /**
  * Mock blog posts for sorting tests
@@ -14,6 +14,8 @@ export const mockSortingPosts: BlogPost[] = [
     group: 'Group A',
     viewCount: 100,
     commentCount: 5,
+    cover: null,
+    description: 'Description 1'
   },
   {
     id: '2',
@@ -25,6 +27,8 @@ export const mockSortingPosts: BlogPost[] = [
     group: 'Group A',
     viewCount: 250,
     commentCount: 10,
+    cover: null,
+    description: 'Description 2'
   },
   {
     id: '3',
@@ -36,6 +40,8 @@ export const mockSortingPosts: BlogPost[] = [
     group: 'Group B',
     viewCount: 50,
     commentCount: 15,
+    cover: null,
+    description: 'Description 3'
   },
   {
     id: '4',
@@ -47,6 +53,8 @@ export const mockSortingPosts: BlogPost[] = [
     group: 'Group A',
     viewCount: 1000,
     commentCount: 3,
+    cover: null,
+    description: 'Description 4'
   },
   {
     id: '5',
@@ -58,6 +66,8 @@ export const mockSortingPosts: BlogPost[] = [
     group: 'Group B',
     viewCount: 150,
     commentCount: 50,
+    cover: null,
+    description: 'Description 5'
   },
   {
     id: '6',
@@ -69,5 +79,7 @@ export const mockSortingPosts: BlogPost[] = [
     group: 'Group C',
     viewCount: 0,
     commentCount: 0,
+    cover: null,
+    description: 'Description 6'
   },
 ];

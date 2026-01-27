@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { SortDropdown } from '@/components/utils/SortDropdown';
+import { SortDropdown } from '@/features/sort-posts/ui/SortDropdown';
 import { useSearchParams } from 'next/navigation';
-import { useRouter, usePathname } from '@/i18n/routing';
+import { useRouter, usePathname } from '@/shared/i18n/routing';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -11,8 +11,8 @@ vi.mock('next/navigation', () => ({
   useSearchParams: vi.fn(),
 }));
 
-// Mock @/i18n/routing
-vi.mock('@/i18n/routing', () => ({
+// Mock @/shared/i18n/routing
+vi.mock('@/shared/i18n/routing', () => ({
   useRouter: vi.fn(),
   usePathname: vi.fn(),
   Link: ({ children, href, ...props }: any) => <a href={href} {...props}>{children}</a>,

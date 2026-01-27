@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { TextRenderer } from '@/components/notion/TextRenderer';
+import { TextRenderer } from '@/entities/notion';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -18,8 +18,7 @@ describe('TextRenderer Component', () => {
   });
 
   it('should render null when text is null', () => {
-    // @ts-expect-error Testing null input
-    const { container } = render(<TextRenderer text={null} />);
+    const { container } = render(<TextRenderer text={null as any} />);
     expect(container.innerHTML).toBe('');
   });
 

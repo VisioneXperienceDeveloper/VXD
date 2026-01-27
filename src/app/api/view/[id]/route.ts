@@ -1,5 +1,6 @@
-import { incrementViewCount } from '@/lib/services/posts.service';
 import { NextRequest, NextResponse } from 'next/server';
+
+import { incrementViewCount } from '@/entities/lib/services';
 
 export async function POST(
   request: NextRequest,

@@ -2,7 +2,7 @@
 name: Test Engineer
 description: Write and debug Unit (Vitest) and E2E (Playwright) tests.
 triggers:
-  - @test
+  - /test
   - "테스트 작성해줘"
   - "에러 고쳐줘"
 ---

@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, waitFor, act } from '@testing-library/react';
-import { PostList } from '@/components/posts/PostList';
+import { PostList } from '@/widgets/post-list/ui/PostList';
 import { mockBlogPosts } from '../../fixtures/notion-data';
 import { fetchPosts } from '@/app/actions';
 
@@ -19,7 +19,7 @@ vi.mock('next/navigation', () => ({
 }));
 
 // Mock routing
-vi.mock('@/i18n/routing', () => ({
+vi.mock('@/shared/i18n/routing', () => ({
   Link: ({ children }: { children: React.ReactNode }) => children,
 }));
 
