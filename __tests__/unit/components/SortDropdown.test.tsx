@@ -11,8 +11,8 @@ vi.mock('next/navigation', () => ({
   useSearchParams: vi.fn(),
 }));
 
-// Mock @/i18n/routing
-vi.mock('@/i18n/routing', () => ({
+// Mock @/shared/i18n/routing
+vi.mock('@/shared/i18n/routing', () => ({
   useRouter: vi.fn(),
   usePathname: vi.fn(),
   Link: ({ children, href, ...props }: any) => <a href={href} {...props}>{children}</a>,

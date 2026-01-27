@@ -21,7 +21,7 @@ vi.mock('next-intl', () => ({
 }));
 
 // Mock routing
-vi.mock('@/i18n/routing', () => ({
+vi.mock('@/shared/i18n/routing', () => ({
   Link: ({ children }: { children: React.ReactNode }) => children,
 }));
 
