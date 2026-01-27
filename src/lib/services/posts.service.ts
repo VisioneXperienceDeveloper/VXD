@@ -44,6 +44,19 @@ const getCachedAllPosts = unstable_cache(async (): Promise<BlogPost[] | null> =>
     .filter((page): page is PageObjectResponse => 'properties' in page)
     .map(extractBlogPostFromPage);
 
+  // Sync cover images between translations
+  // If a post has no cover but has a translationId, try to use the translation's cover
+  const postsMap = new Map(posts.map(p => [p.id, p]));
+
+  posts.forEach(post => {
+    if (!post.cover && post.translationId) {
+      const translatedPost = postsMap.get(post.translationId);
+      if (translatedPost?.cover) {
+        post.cover = translatedPost.cover;
+      }
+    }
+  });
+
   return posts;
 }, ['all-posts'], { revalidate });
 

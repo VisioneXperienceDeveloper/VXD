@@ -27,6 +27,12 @@ export async function Footer() {
           >
             {t('terms')}
           </Link>
+          <a
+            href="mailto:visionexperiencedeveloper@gmail.com"
+            className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+          >
+            {t('contact')}
+          </a>
         </nav>
         <p className="text-neutral-500 text-sm">
           {t('copyright', { year })}

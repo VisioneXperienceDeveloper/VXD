@@ -23,6 +23,7 @@
     "privacy": "Privacy Policy",
     "about": "About",
     "terms": "Terms of Use",
+    "contact": "Contact",
     "copyright": "© {year} VXD Blog. Built with Next.js & Notion."
   },
   "Privacy": {
@@ -48,7 +49,8 @@
     "aboutAuthorTitle": "About the Author",
     "aboutAuthorContent": "Hello! I'm an engineer who loves development. I enjoy exploring new technologies and sharing what I've learned.",
     "contactTitle": "Contact",
-    "contactContent": "If you have any inquiries, please reach out through GitHub."
+    "contactContent": "If you have any inquiries, please reach out through GitHub or email.",
+    "emailLabel": "Send Email"
   },
   "Terms": {
     "back": "Home",
