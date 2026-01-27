@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
 import { Metadata } from 'next';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Mail } from 'lucide-react';
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -70,6 +70,13 @@ export default async function AboutPage() {
               VXD&apos;s GitHub
               <ExternalLink className="w-4 h-4" />
             </Link>
+            <a 
+              href="mailto:visionexperiencedeveloper@gmail.com" 
+              className="inline-flex items-center gap-2 mt-4 ml-4 px-4 py-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:border-neutral-300 dark:hover:border-neutral-600 transition-all"
+            >
+              {t('emailLabel')}
+              <Mail className="w-4 h-4" />
+            </a>
           </section>
         </div>
       </div>
