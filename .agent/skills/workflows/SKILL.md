@@ -2,8 +2,8 @@
 name: Task Finisher Workflow
 description: Automate the Code Review -> Confirmation -> Git Commit pipeline.
 triggers:
-  - /finish
-  - /done
+  - "/finish"
+  - "/done"
   - "작업 완료"
   - "마무리해줘"
 ---
