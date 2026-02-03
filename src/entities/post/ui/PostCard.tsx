@@ -24,6 +24,7 @@ export function PostCard({ post }: { post: BlogPost }) {
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
+            unoptimized={true}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-neutral-300 dark:text-neutral-700">
