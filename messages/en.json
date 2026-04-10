@@ -1,4 +1,11 @@
 {
+  "Header": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact",
+    "about": "About"
+  },
   "Navigation": {
     "back": "Back",
     "moreIn": "More in {part}",

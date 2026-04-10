@@ -4,13 +4,11 @@ import { notFound } from "next/navigation";
 import { getTranslations } from 'next-intl/server';
 
 import { CommentSection } from "@/widgets/comment-section";
-import { LanguageToggle } from "@/features/language"; 
 import { ViewTracker } from "@/features/track-views";
 import { 
   getPageContent, 
-  getPostBySlug, 
-  getPublishedPosts, 
-  getPostById
+  getPostBySlug,
+  getPublishedPosts
 } from "@/entities/lib/services";
 import { PostEngagement } from "@/entities/post";
 import { BlockRenderer } from "@/entities/notion";
@@ -67,15 +65,6 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     notFound();
   }
 
-  // Get translated post slug if it exists
-  let translationSlug = null;
-  if (post.translationId) {
-    const translatedPost = await getPostById(post.translationId);
-    if (translatedPost) {
-      translationSlug = translatedPost.slug;
-    }
-  }
-
   const blocks = await getPageContent(post.id);
 
   // Fetch related posts (same part)
@@ -88,18 +77,17 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
   }
 
   return (
-    <article className="min-h-screen bg-white dark:bg-neutral-950 font-sans selection:bg-blue-100 dark:selection:bg-blue-900">
+    <article className="selection:bg-blue-100 dark:selection:bg-blue-900">
       <ViewTracker postId={post.id} />
       <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         <nav className="mb-8 flex items-center justify-between">
           <Link
-            href="/"
+            href="/blog"
             className="group inline-flex items-center text-sm font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
           >
             <span className="mr-2 group-hover:-translate-x-1 transition-transform">←</span>
             {tNav('back')}
           </Link>
-          <LanguageToggle translationSlug={translationSlug} />
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
@@ -162,7 +150,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </div>
             
             <div className="mt-20 pt-10 border-t border-neutral-100 dark:border-neutral-800">
-                <Link href="/" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
+                <Link href="/blog" className="text-blue-600 dark:text-blue-400 font-medium hover:underline">
                     ← {tNav('readMore')}
                 </Link>
             </div>
@@ -182,7 +170,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               {relatedPosts.length > 0 ? (
                 <div className="space-y-6">
                   {relatedPosts.map(relatedPost => (
-                    <Link key={relatedPost.id} href={`/${relatedPost.slug}`} className="group block">
+                    <Link key={relatedPost.id} href={`/blog/${relatedPost.slug}`} className="group block">
                       <h4 className="text-base font-medium text-neutral-900 dark:text-neutral-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
                         {relatedPost.title}
                       </h4>
