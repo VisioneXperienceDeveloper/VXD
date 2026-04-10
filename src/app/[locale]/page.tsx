@@ -1,119 +1,63 @@
-import { getTranslations } from 'next-intl/server';
-import Link from "next/link";
 
-import { Sidebar } from "@/widgets/sidebar";
-import { PostList } from "@/widgets/post-list";
-import { Footer } from "@/widgets/footer";
-import { ModeToggle } from "@/features/theme";
-import { LanguageToggle } from "@/features/language";
-import { Search } from "@/features/search-posts";
-import { SortOption } from "@/entities/lib/types";
-import { 
-  getPublishedPosts,
-  getAllGroups,
-  getTopTags
-} from "@/entities/lib/services";
+import { Link } from '@/shared/i18n/routing';
 
-export const revalidate = 3600; // Revalidate every 1 hour
-
-export default async function Home({
-  searchParams,
-  params
-}: {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-  params: Promise<{ locale: string }>;
-}) {
-  const resolvedSearchParams = await searchParams;
-  const { locale } = await params;
-  const t = await getTranslations('Common');
-
-  // Extract and deduplicate multiple tags from URL parameters
-  const rawTags = resolvedSearchParams.tag;
-  const selectedTags: string[] = Array.isArray(rawTags)
-    ? [...new Set(rawTags)]  // Remove duplicates
-    : rawTags ? [rawTags] : [];
-  
-  const selectedGroup = typeof resolvedSearchParams.group === 'string' ? resolvedSearchParams.group : undefined;
-  const searchQuery = typeof resolvedSearchParams.search === 'string' ? resolvedSearchParams.search : undefined;
-  const sortBy = (typeof resolvedSearchParams.sort === 'string' ? resolvedSearchParams.sort : 'published_date') as SortOption;
-  
-  const allPosts = await getPublishedPosts({ 
-    tags: selectedTags, 
-    searchQuery, 
-    group: selectedGroup, 
-    locale,
-    sortBy
-  });
-  const groups = await getAllGroups();
-  const topTags = await getTopTags();
-
-  const POSTS_PER_PAGE = 6;
-  const initialPosts = allPosts ? allPosts.slice(0, POSTS_PER_PAGE) : [];
-  const initialHasMore = allPosts ? allPosts.length > POSTS_PER_PAGE : false;
+export default function HomePage() {
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 font-sans selection:bg-neutral-200 dark:selection:bg-neutral-800 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8 relative">
-        <div className="absolute top-6 right-6 sm:top-10 sm:right-10 flex items-center gap-2 z-50">
-          <Search />
-          <ModeToggle />
-          <LanguageToggle />
-        </div>
+    <div className="flex flex-col min-h-[calc(100vh-64px)] overflow-hidden">
+      {/* Hero Section */}
+      <section className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-20 relative">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-blue-100 via-white to-white dark:from-blue-900/20 dark:via-neutral-950 dark:to-neutral-950"></div>
         
-        <header className="mb-12 text-center space-y-4 pt-8">
-          <div className="inline-block p-3 rounded-2xl bg-white dark:bg-neutral-900 shadow-sm mb-4">
-            <Link href="/" aria-label="Home"><span role="img" aria-label="writing" className="text-2xl">✍️</span></Link>
-          </div>
-          <h1 className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-50 sm:text-5xl">
-            {"VXD Blog"}
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-neutral-900 dark:text-white mb-6">
+            Hi, I&apos;m <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">VXD</span>
           </h1>
-          <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
-            {t('description')}
+          
+          <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto leading-relaxed">
+            Software Engineer creating exceptional digital experiences. 
+            Passionate about modern web technologies and building scalable applications.
           </p>
-        </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <Sidebar 
-                groups={groups} 
-                topTags={topTags} 
-                selectedGroup={selectedGroup} 
-                selectedTags={selectedTags} 
-              />
-            </div>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+            <Link 
+              href="/projects" 
+              className="px-8 py-3.5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-semibold rounded-full hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              View Projects
+            </Link>
+            <Link 
+              href="/blog" 
+              className="px-8 py-3.5 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white font-semibold rounded-full border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-all"
+            >
+              Read Blog
+            </Link>
           </div>
+        </div>
+      </section>
 
-          {/* Main Content */}
-          <div className="lg:col-span-3">
-            {allPosts === null ? (
-              <div className="text-center py-32 bg-white dark:bg-neutral-900 rounded-2xl border border-dashed border-red-300 dark:border-red-900/30">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-50 dark:bg-red-900/20 mb-6">
-                   <span className="text-3xl">📡</span>
+      {/* Experience / Resume Section Placeholder */}
+      <section className="py-24 bg-white dark:bg-neutral-950 border-t border-neutral-100 dark:border-neutral-900">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-12 text-center text-neutral-900 dark:text-white">Experience</h2>
+          
+          <div className="space-y-12">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="relative pl-8 border-l border-neutral-200 dark:border-neutral-800">
+                <div className="absolute w-4 h-4 rounded-full bg-blue-500 -left-[9px] top-1"></div>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                  <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">Software Engineer</h3>
+                  <span className="text-sm font-medium text-neutral-500">2023 - Present</span>
                 </div>
-                <h3 className="text-xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2">
-                  No Internet Connection
-                </h3>
-                <p className="text-neutral-500 text-lg max-w-md mx-auto">
-                  Please check your network settings and try again.
+                <h4 className="text-lg text-neutral-600 dark:text-neutral-400 mb-4">Tech Company</h4>
+                <p className="text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                  Developed scalable web applications using React, Next.js, and TypeScript. Improved performance by 40% and led a team of 3 developers in a major migration project.
                 </p>
               </div>
-            ) : (
-              <PostList 
-                initialPosts={initialPosts}
-                initialHasMore={initialHasMore}
-                tag={selectedTags[0]}
-                search={searchQuery}
-                group={selectedGroup}
-                locale={locale}
-              />
-            )}
+            ))}
           </div>
         </div>
-        
-        <Footer />
-      </div>
-    </main>
+      </section>
+    </div>
   );
 }

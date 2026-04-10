@@ -1,4 +1,11 @@
 {
+  "Header": {
+    "home": "소개",
+    "projects": "프로젝트",
+    "blog": "블로그",
+    "contact": "연락처",
+    "about": "소개(About)"
+  },
   "Navigation": {
     "back": "뒤로",
     "moreIn": "{part}의 다른 글",

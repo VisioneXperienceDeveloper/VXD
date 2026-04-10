@@ -15,7 +15,7 @@ export function PostErrorFallback() {
         </p>
         <div className="flex gap-4 justify-center">
           <Link
-            href="/"
+            href="/blog"
             className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
           >
             Go to homepage

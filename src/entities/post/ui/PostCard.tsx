@@ -7,11 +7,11 @@ import { BlogPost } from "@/entities/lib/types";
 import { usePrefetch } from "../hooks";
 
 export function PostCard({ post }: { post: BlogPost }) {
-  const { prefetch, cancel } = usePrefetch(`/${post.slug}`);
+  const { prefetch, cancel } = usePrefetch(`/blog/${post.slug}`);
 
   return (
     <Link
-      href={`/${post.slug}`}
+      href={`/blog/${post.slug}`}
       onMouseEnter={prefetch}
       onMouseLeave={cancel}
       className="group flex flex-col bg-white dark:bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"

@@ -11,6 +11,7 @@ import { routing } from '@/shared/i18n/routing';
 import { ThemeProvider } from "@/shared/providers";
 import { ErrorBoundary } from "@/shared/ui";
 import { GoogleAdSense } from "@/shared/lib/analytics";
+import { Header } from "@/widgets/header";
 
 import "../globals.css";
 
@@ -90,7 +91,10 @@ export default async function LocaleLayout({
             disableTransitionOnChange
           >
             <ErrorBoundary>
-              {children}
+              <Header />
+              <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950 font-sans selection:bg-neutral-200 dark:selection:bg-neutral-800 transition-colors duration-300">
+                {children}
+              </main>
             </ErrorBoundary>
           </ThemeProvider>
         </NextIntlClientProvider>
