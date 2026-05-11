@@ -36,8 +36,6 @@ dist
 # Gemini
 gemini.local.md
 
-# Documentation
-docs/
 
 # Debug
 npm-debug.log*
