@@ -31,11 +31,13 @@
       "output": "dist"
     },
     "linux": {
+      "executableName": "slack-clone",
       "target": [
         "AppImage",
         "deb"
       ]
     },
+    "artifactName": "slack-clone-${version}-${arch}.${ext}",
     "npmRebuild": false,
     "asar": true
   }
