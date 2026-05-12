@@ -6,7 +6,9 @@
     "start": "expo start --port 5102",
     "android": "expo start --android --port 5102",
     "ios": "expo start --ios --port 5102",
-    "web": "expo start --web --port 5102"
+    "web": "expo start --web --port 5102",
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",
@@ -31,7 +33,9 @@
   },
   "devDependencies": {
     "@types/react": "~19.1.0",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.2",
+    "eslint": "^9",
+    "vitest": "^4.0.16"
   },
   "private": true
 }

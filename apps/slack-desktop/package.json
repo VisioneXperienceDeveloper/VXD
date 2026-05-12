@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "electron .",
     "build": "electron-builder",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
     "electron-is-dev": "^2.0.0"
@@ -20,7 +21,8 @@
     "7zip-bin": "^5.2.0",
     "electron": "31.7.7",
     "electron-builder": "^24.13.3",
-    "globals": "^17.6.0"
+    "globals": "^17.6.0",
+    "vitest": "^4.0.16"
   },
   "build": {
     "appId": "com.slack-clone.desktop",
@@ -29,11 +31,13 @@
       "output": "dist"
     },
     "linux": {
+      "executableName": "slack-clone",
       "target": [
         "AppImage",
         "deb"
       ]
     },
+    "artifactName": "slack-clone-${version}-${arch}.${ext}",
     "npmRebuild": false,
     "asar": true
   }

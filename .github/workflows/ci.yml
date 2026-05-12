@@ -2,13 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [ main, feature ]
+    branches: [ main, "feature/*", "hotfix/*" ]
   pull_request:
-    branches: [ main, feature ]
+    branches: [ main, "feature/*", "hotfix/*" ]
 
 jobs:
-  build:
-    name: Build and Test
+  validate:
+    name: Validate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,8 +18,6 @@ jobs:
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 9
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,5 +31,21 @@ jobs:
       - name: Lint
         run: pnpm turbo lint
 
+      - name: Test
+        run: pnpm turbo test
+
       - name: Build
         run: pnpm turbo build
+        env:
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_YWNjZXB0ZWQtZ3VsbC00Ny5jbGVyay5hY2NvdW50cy5kZXYk
+          CLERK_SECRET_KEY: sk_test_veRYSensItIvEInfORmaTIoNnoTEpAsS
+          NEXT_PUBLIC_CONVEX_URL: https://dummy-123.convex.cloud
+          CLERK_JWT_ISSUER_DOMAIN: dummy-123.clerk.accounts.dev
+          NOTION_API_KEY: secret_dummy_notion_key_for_ci_build_purposes
+          NOTION_POSTS_DATA_SOURCE_ID: 00000000000000000000000000000000
+          NOTION_COMMENTS_DATA_SOURCE_ID: 00000000000000000000000000000000
+          GA_ID: G-0000000000
+          GOOGLE_ADSENSE_ID: pub-0000000000000000
+          GOOGLE_ADSENSE_ACCOUNT: ca-pub-0000000000000000
+          GTM_ID: GTM-0000000
+          NEXT_PUBLIC_SITE_URL: http://localhost:3000

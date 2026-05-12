@@ -4,23 +4,32 @@
     "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
     "CLERK_SECRET_KEY",
     "NEXT_PUBLIC_CONVEX_URL",
-    "CLERK_JWT_ISSUER_DOMAIN"
+    "CLERK_JWT_ISSUER_DOMAIN",
+    "NOTION_API_KEY",
+    "NOTION_POSTS_DATA_SOURCE_ID",
+    "NOTION_COMMENTS_DATA_SOURCE_ID",
+    "GA_ID",
+    "GOOGLE_ADSENSE_ID",
+    "GOOGLE_ADSENSE_ACCOUNT",
+    "GTM_ID"
   ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "dist/**"]
+      "outputs": [".next/**", "dist/**", "out/**"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "cache": true
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": ["coverage/**"],
+      "cache": true
     },
     "dev": {
       "cache": false,
       "persistent": true
-    },
-    "test": {
-      "dependsOn": ["^build"],
-      "outputs": ["coverage/**"]
     }
   }
 }
