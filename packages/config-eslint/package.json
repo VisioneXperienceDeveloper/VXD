@@ -1,0 +1,9 @@
+{
+  "name": "@vxd/config-eslint",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.mjs",
+  "dependencies": {
+    "eslint-config-next": "16.1.1"
+  }
+}

@@ -1,0 +1,70 @@
+Task:
+  All:
+  Analysis Requirements(Statement, Goal ...):
+    create notion style blog site
+
+  Dev Strategy(Tests, Scenarios, Priorities):
+      
+  Work List: @must @should @could @won't
+    ☐ [feat] add like count @could  
+    ☐ [feat] add subscribe floating btn (email) @could
+    ☐ [feat] add notification @could
+    
+    ☐ [ui] common top menu @must
+    ☐ [ui] add tag list in the bottom of the post detail page @could
+    ☐ [ui] if image is not exist, show refresh btn @could
+      ☐ [feat] add refresh btn to get image again @could
+
+    ☐ [performance] redesign caching strategy (6 latest posts, and others do not get to Notion and cache, and then get other 6 posts, when client requests) @must
+    
+    ☐ [docs] upload docs in github but omit docs in production @could
+    ☐ [docs] update ai workflow docs for improvement ai performance (planning -> create new branch and checkout -> testing for TDD -> feature development -> testing -> code review -> numericalization and documentation -> git commit -> pull request -> repeatation) @could
+    
+  Completed Features:
+    ✔ [performance] merge cover image between posts and translated posts @must @done(26-01-27 08:31)
+    ✔ update code block to copyable @could @started(26-01-22 18:43) @done(26-01-27 00:32) @lasted(4d5h49m39s)
+    ✔ update searching(part, tag) @could @done(26-01-22 18:05)
+    ✔ add multi tags select @must @done(26-01-22 18:05)
+    ✔ add unselect tags @must @done(26-01-22 18:05)
+    ✔ duplicate search params, tags params and sort params @must @done(26-01-22 18:05)
+    
+    ✔ update env variables in github and vercel @must @done(26-01-22 18:05)
+    ✔ add sorting (view count, like count, published date) @must @started(26-01-20 16:13) @done(26-01-21 00:05) @lasted(7h52m12s)
+    ✔ update sortDropdown UI @could @done(26-01-21 00:04)
+    ✔ upgrade gemini setup @should @done(26-01-20 16:12)
+    ✔ add comment @could @done(26-01-20 14:41)
+    ✔ update post detail route (id -> slug) @done(26-01-14 22:36)
+    ✔ add google analytics @done(26-01-13 16:55)
+
+    필수 페이지 및 법적 요건:
+      ✔ 개인정보처리방침 (Privacy Policy): 방문자의 데이터를 어떻게 수집하고 처리하는지 명시하는 법적 필수 페이지입니다. @done(26-01-10 16:56)
+      ✔ 연락처/About 페이지: 블로그 운영 주체에 대한 정보를 제공하여 신뢰도를 높입니다. @done(26-01-10 16:56)
+      ✔ 저작권/면책조항: 특히 금융, 건강 등 전문 분야에서 정보의 한계와 법적 책임을 명확히 합니다. @done(26-01-10 16:56)
+      ✔ 사이트맵 (XML): 검색엔진이 블로그의 전체 구조를 쉽게 파악하고 모든 페이지를 색인할 수 있도록 돕습니다. @done(26-01-10 16:37)
+      ✔ robots.txt: 검색엔진 로봇의 접근을 제어하는 파일로, 불필요한 페이지의 색인을 막습니다. @done(26-01-10 16:37)
+      
+    ✔ add view count @done(26-01-07 17:50)
+    ✔ fix infinite scroll always loaded Korean posts issue @done(26-01-06 18:59)
+    ✔ fix 500 error on production @done(26-01-05 19:47)
+    ✔ fix image sizing issue @done(26-01-05 18:55)
+    ✔ add ci&cd (github actions - vercel) @done(26-01-05 14:35)
+    ✔ add i18n (ko, en) @started(26-01-05 13:52) @done(26-01-05 14:25) @lasted(34m)
+    ✔ fix unloading image issue @done(26-01-05 14:05)
+    ✔ add part property from notion @done(26-01-05 10:25)
+      ✔ change post detail side content (same group -> same part) @done(26-01-05 10:25)
+      ✔ change post detail top content (tags -> part) @done(26-01-05 10:25)
+    ✔ upload post after published date @done(26-01-02 10:08)
+    ✔ make category following the tags @done(26-01-02 10:08)
+    ✔ make group following the group and get order by published date @done(26-01-02 10:08)
+    ✔ add theme (dark/light/system(defualt) mode) @done(26-01-02 10:08)
+    ✔ add search bar @done(26-01-02 10:08)
+
+    ✔ add cache for posts render (nextjs cache) @done(26-01-02 20:57)
+    ✔ add infinite scroll (6 posts per page) @done(26-01-02 21:05)
+
+  Retrospect:
+
+  Additions:
+    lsof -i :3000
+
+    kill -9 82744 && rm -f /Users/cjungwo/Documents/Project/Blog/vxd-blog/feature/.next/dev/lock

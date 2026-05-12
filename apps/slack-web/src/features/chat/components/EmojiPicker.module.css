@@ -1,0 +1,60 @@
+.picker {
+  background-color: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--space-1);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.quickGrid {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.emojiBtn, .moreBtn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+}
+
+.emojiBtn:hover, .moreBtn:hover {
+  background-color: var(--bg-hover);
+  transform: scale(1.1);
+}
+
+.moreBtn {
+  color: var(--text-tertiary);
+  border-left: 1px solid var(--border-subtle);
+  margin-left: 2px;
+  padding-left: 4px;
+  width: 28px;
+}
+
+.fullPickerContainer {
+  margin-top: var(--space-2);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
