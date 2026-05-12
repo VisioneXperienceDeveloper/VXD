@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
-# VXD Blog
-
-> A modern, feature-rich blog platform powered by Notion as a headless CMS.
-=======
-![VXD Portfolio Header](/Users/cjungwo/.gemini/antigravity/brain/b4215118-f238-4de2-b374-7b231e05c4f6/vxd_portfolio_header_1777883817425.png)
+![VXD Portfolio Header](/public/vxd_portfolio_header_1777883817425.png)
 
 # 🚀 VXD Portfolio
->>>>>>> Stashed changes
 
 > **Vision eXperience Developer (VXD)** — A premium, high-performance portfolio and blog platform built with the latest web technologies. Powered by **Next.js 16**, **Notion CMS**, and **Tailwind CSS v4**.
 
@@ -14,7 +8,6 @@
 
 ## 🌟 Overview
 
-<<<<<<< Updated upstream
 ### Core Features
 - 📝 **Notion CMS Integration**: Manage blog posts directly from Notion
 - 🌐 **Internationalization (i18n)**: Full support for Korean (KR) and English (EN)
@@ -37,33 +30,16 @@
 - 🔄 **CI/CD**: GitHub Actions → Vercel deployment
 - 📊 **Analytics**: Google Analytics (GA4), Google Tag Manager
 - 💰 **Monetization**: Google AdSense integration
-=======
-This project is a state-of-the-art developer portfolio designed to showcase projects, skills, and insights with a focus on **aesthetic excellence** and **technical precision**. It leverages Notion as a headless CMS, allowing for seamless content management without the need for a dedicated backend.
-
-### ⚡ Key Highlights
-- **Framework**: Next.js 16 (App Router)
-- **CMS**: Notion API (Headless)
-- **Styling**: Tailwind CSS v4 (Glassmorphism & Fluid UI)
-- **Architecture**: Feature-Sliced Design (FSD)
-- **i18n**: Multi-language support (KR/EN)
->>>>>>> Stashed changes
 
 ---
 
 ## ✨ Premium Features
 
-<<<<<<< Updated upstream
-### Prerequisites
-- Node.js 18+ (recommended: 20+)
-- pnpm (or npm/yarn)
-- Notion account with API access
-=======
 ### 🎨 Visual & Experience
 - **Fluid Design System**: A meticulously crafted UI using Tailwind CSS v4, featuring glassmorphism, smooth gradients, and interactive micro-animations.
 - **Dark/Light Mode**: First-class support for system-preferred and manual theme switching via `next-themes`.
 - **Responsive Mastery**: Tailored experiences for every device, from ultra-wide monitors to mobile screens.
 - **Framer Motion**: Dynamic transitions and scroll-based animations for an immersive browsing experience.
->>>>>>> Stashed changes
 
 ### 📝 Headless Blog (Notion)
 - **Dynamic Content**: Posts are fetched in real-time from Notion databases with optimized caching.
@@ -72,95 +48,6 @@ This project is a state-of-the-art developer portfolio designed to showcase proj
 - **Integrated Comments**: A custom comment system using Notion as a persistent data store.
 - **Post Metrics**: Real-time view tracking and engagement analytics.
 
-<<<<<<< Updated upstream
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd vxd-blog/client
-   ```
-
-2. **Install dependencies**
-   ```bash
-   pnpm install
-   ```
-
-3. **Set up environment variables**
-   
-   Create a `.env.local` file:
-   ```bash
-   # Notion API
-   NOTION_API_KEY=secret_xxx
-   NOTION_POSTS_DATA_SOURCE_ID=xxx
-   NOTION_COMMENTS_DATA_SOURCE_ID=xxx
-
-   # Site Configuration
-   NEXT_PUBLIC_SITE_URL=http://localhost:3000
-
-   # Google Services (Optional)
-   GA_ID=G-XXXXXX
-   GTM_ID=GTM-XXXXXX
-   GOOGLE_ADSENSE_ACCOUNT=ca-pub-XXXXXXXXXXXXXXXX
-   GOOGLE_ADSENSE_ID=pub-XXXXXXXXXXXXXXXX
-   ```
-
-4. **Run development server**
-   ```bash
-   pnpm dev
-   ```
-
-   Open [http://localhost:3000](http://localhost:3000)
-
----
-
-## 📦 Tech Stack
-
-| Category | Technologies |
-|----------|-------------|
-| **Framework** | Next.js 16.1.1 (App Router) |
-| **UI Library** | React 19.2.3 |
-| **Language** | TypeScript 5.x |
-| **Styling** | Tailwind CSS 4.x |
-| **CMS** | Notion API (`@notionhq/client`) |
-| **i18n** | next-intl |
-| **Testing** | Vitest, Playwright, Testing Library |
-| **Deployment** | Vercel |
-
----
-
-## 🏗️ Project Structure
-
-```
-src/
-├── app/                      # Next.js App Router
-│   ├── [locale]/            # Internationalized routes
-│   │   ├── [slug]/          # Blog post pages
-│   │   └── layout.tsx       # Root layout
-│   └── api/                 # API routes
-│       └── comments/        # Comment endpoints
-├── components/              # React components
-│   ├── comments/           # Comment system
-│   ├── delegator/          # Third-party integrations
-│   └── notion/             # Notion block renderers
-├── lib/                    # Utilities and services
-│   ├── services/           # Business logic layer
-│   │   ├── posts.service.ts
-│   │   └── comments.service.ts
-│   └── types/              # TypeScript types
-└── i18n/                   # Internationalization config
-
-docs/                       # Documentation (unpublished)
-├── architecture/           # Architecture docs
-│   ├── notion-api-integration.md
-│   ├── comment-system.md
-│   ├── i18n-strategy.md
-│   └── ...
-└── CHANGELOG.md           # Version history
-```
-
----
-
-## 🧪 Testing
-=======
 ### 🛠️ Technical Excellence
 - **SEO Mastery**: Automated generation of sitemaps, robots.txt, and dynamic Open Graph images.
 - **RSS Integration**: Stay connected with an auto-generated RSS 2.0 feed.
@@ -246,7 +133,6 @@ graph TD
 ## 🧪 Quality Assurance
 
 We maintain high code quality through rigorous testing and automated workflows.
->>>>>>> Stashed changes
 
 ```bash
 # Run Unit Tests
@@ -261,57 +147,14 @@ pnpm test:ui
 
 ---
 
-<<<<<<< Updated upstream
-## 🚢 Deployment
-
-### Vercel (Recommended)
-
-1. Push to GitHub
-2. Import project in [Vercel](https://vercel.com)
-3. Configure environment variables
-4. Deploy!
-
-### Manual Build
-
-```bash
-pnpm build
-pnpm start
-```
-
----
-
-## 🤝 Contributing
-=======
 ## 📄 License & Author
->>>>>>> Stashed changes
 
 Copyright © 2026 **Vision eXperience Developer (VXD)**.  
 This project is private and proprietary. Unauthorized copying or distribution is prohibited.
 
 ---
 
-<<<<<<< Updated upstream
-## 📄 License
-
-This project is private and proprietary.
-
----
-
-## 👤 Author
-
-**Vision eXperience Developer (VXD)**
-
----
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) - The React Framework
-- [Notion](https://www.notion.so/) - Headless CMS
-- [Vercel](https://vercel.com/) - Deployment Platform
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
-=======
 ## 🙏 Credits
 - [Next.js Team](https://nextjs.org/) for the incredible framework.
 - [Notion](https://notion.so) for being the best headless CMS.
 - [Tailwind Labs](https://tailwindcss.com) for CSS superpowers.
->>>>>>> Stashed changes
