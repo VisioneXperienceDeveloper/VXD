@@ -37,15 +37,15 @@ jobs:
       - name: Build
         run: pnpm turbo build
         env:
-          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_dummy
-          CLERK_SECRET_KEY: sk_test_dummy
-          NEXT_PUBLIC_CONVEX_URL: https://dummy.convex.cloud
-          CLERK_JWT_ISSUER_DOMAIN: https://dummy.clerk.accounts.dev
-          NOTION_API_KEY: ntn_dummy
-          NOTION_POSTS_DATA_SOURCE_ID: dummy
-          NOTION_COMMENTS_DATA_SOURCE_ID: dummy
-          GA_ID: G-DUMMY
-          GOOGLE_ADSENSE_ID: pub-dummy
-          GOOGLE_ADSENSE_ACCOUNT: pub-dummy
-          GTM_ID: GTM-DUMMY
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: pk_test_YWNjZXB0ZWQtZ3VsbC00Ny5jbGVyay5hY2NvdW50cy5kZXYk
+          CLERK_SECRET_KEY: sk_test_veRYSensItIvEInfORmaTIoNnoTEpAsS
+          NEXT_PUBLIC_CONVEX_URL: https://dummy-123.convex.cloud
+          CLERK_JWT_ISSUER_DOMAIN: dummy-123.clerk.accounts.dev
+          NOTION_API_KEY: secret_dummy_notion_key_for_ci_build_purposes
+          NOTION_POSTS_DATA_SOURCE_ID: 00000000000000000000000000000000
+          NOTION_COMMENTS_DATA_SOURCE_ID: 00000000000000000000000000000000
+          GA_ID: G-0000000000
+          GOOGLE_ADSENSE_ID: pub-0000000000000000
+          GOOGLE_ADSENSE_ACCOUNT: ca-pub-0000000000000000
+          GTM_ID: GTM-0000000
           NEXT_PUBLIC_SITE_URL: http://localhost:3000
