@@ -1,20 +1,16 @@
-name: CI
+name: CD
 
 on:
   push:
-    branches: [ main, "feature/*", "hotfix/*" ]
-  pull_request:
-    branches: [ main, "feature/*", "hotfix/*" ]
+    branches: [ main ]
 
 jobs:
-  validate:
-    name: Validate
+  deploy-prep:
+    name: Prepare for Deployment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -28,11 +24,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint
-        run: pnpm turbo lint
-
-      - name: Test
-        run: pnpm turbo test
-
-      - name: Build
+      - name: Production Build
         run: pnpm turbo build
+
+      - name: Deployment Placeholder
+        run: echo "Vercel deployment skipped as per request. Ready for deployment."

@@ -6,7 +6,9 @@
   "types": "./src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -20,10 +22,15 @@
   },
   "devDependencies": {
     "@vxd/config-typescript": "workspace:*",
+    "@vxd/config-eslint": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^9",
     "typescript": "^5",
-    "tailwindcss": "^4"
+    "tailwindcss": "^4",
+    "vitest": "^4.0.16",
+    "jsdom": "^27.4.0",
+    "@vitejs/plugin-react": "^5.1.2"
   }
 }

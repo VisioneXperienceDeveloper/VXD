@@ -2,7 +2,16 @@ import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 
+export const baseConfig = defineConfig([
+  globalIgnores([
+    "node_modules/**",
+    "dist/**",
+    ".turbo/**",
+  ]),
+]);
+
 export const nextConfig = defineConfig([
+  ...baseConfig,
   ...nextVitals,
   ...nextTs,
   globalIgnores([
