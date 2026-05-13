@@ -1,0 +1,40 @@
+{
+  "ProjectsPage": {
+    "title": "Selected Work",
+    "description": "화려한 기술 스택보다 실질적인 비즈니스 가치를 우선합니다. 코드는 동작해야 하고, 측정 가능한 결과로 증명되어야 합니다.",
+    "clientProjects": {
+      "title": "Client Projects",
+      "description": "측정 가능한 결과로 증명된 실무 프로젝트 경험입니다.",
+      "headers": {
+        "client": "Client",
+        "field": "Field",
+        "role": "Role",
+        "impact": "Impact"
+      },
+      "list": [
+        { "client": "Wise Express", "field": "물류", "tech": "Node.js · REST API", "role": "설계 & 배포", "impact": "예약 오류 35% 감소" },
+        { "client": "The Varai", "field": "이커머스", "tech": "웹 풀스택", "role": "브랜드 사이트 개발", "impact": "브랜드 아이덴티티 온라인화" },
+        { "client": "CPR Learning", "field": "에듀테크", "tech": "WordPress · PHP · React", "role": "백엔드 Co-lead", "impact": "전환율 25% 향상" },
+        { "client": "Meyd.it", "field": "SaaS", "tech": "모던 프레임워크", "role": "풀스택 인턴", "impact": "메인 웹사이트 SEO 개선" }
+      ]
+    },
+    "list": [
+      {
+        "title": "VXD Blog",
+        "description": "Notion을 헤드리스 CMS로 연동한 개인 블로그 겸 튜터링 플랫폼. SSR로 SEO를 최적화하고 Gemini CLI로 개발 생산성을 높였습니다."
+      },
+      {
+        "title": "Wise Express",
+        "description": "물류 포털 예약 시스템 자동화. 수동 예약 오류를 35% 감소시킨 풀스택 솔루션입니다."
+      },
+      {
+        "title": "Tamago Bot",
+        "description": "React 기반 크롬 확장 프로그램. 디지털 펫과 함께하는 생산성 도구로 크롬 웹 스토어에 배포되었습니다."
+      },
+      {
+        "title": "MindTap Vision Pro",
+        "description": "뇌-컴퓨터 인터페이스(BCI) 데이터를 Apple Vision Pro에 실시간 스트리밍하는 앱입니다."
+      }
+    ]
+  }
+}

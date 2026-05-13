@@ -1,0 +1,66 @@
+{
+  "Header": {
+    "home": "홈",
+    "projects": "프로젝트",
+    "blog": "블로그",
+    "contact": "연락처",
+    "about": "소개",
+    "startProject": "프로젝트 시작"
+  },
+  "Navigation": {
+    "back": "뒤로",
+    "moreIn": "{part}의 다른 글",
+    "readMore": "더 많은 글 보기",
+    "seeMore": "더보기"
+  },
+  "Search": {
+    "placeholder": "검색..."
+  },
+  "Common": {
+    "noPosts": "글이 없습니다.",
+    "allPosts": "전체보기",
+    "categories": "카테고리",
+    "topTags": "인기 태그",
+    "sort": "정렬 기준",
+    "noOtherPosts": "이 파트의 다른 글이 없습니다.",
+    "thisBlog": "이 블로그",
+    "description": "생각, 배움, 그리고 이야기를 모아둔 공간입니다.",
+    "copy": "링크 복사",
+    "copied": "복사됨!"
+  },
+  "Footer": {
+    "privacy": "개인정보처리방침",
+    "about": "소개",
+    "terms": "이용약관",
+    "contact": "문의하기",
+    "copyright": "© {year} Chris Choi. Built with Next.js & Notion.",
+    "dev": "개발",
+    "explore": "탐색",
+    "content": "콘텐츠",
+    "connect": "연결"
+  },
+  "Comments": {
+    "title": "댓글",
+    "noComments": "아직 댓글이 없습니다. 첫 댓글을 남겨보세요!",
+    "writeComment": "댓글 작성",
+    "commentPlaceholder": "댓글을 입력하세요 (최대 1000자)",
+    "characters": "자",
+    "submit": "댓글 등록",
+    "submitting": "등록 중...",
+    "submitSuccess": "댓글이 등록되었습니다. 승인 후 표시됩니다.",
+    "submitError": "댓글 등록에 실패했습니다. 다시 시도해주세요.",
+    "loading": "댓글을 불러오는 중...",
+    "loadError": "댓글을 불러오는데 실패했습니다."
+  },
+  "Sort": {
+    "sortBy": "정렬 기준",
+    "publishedDate": "최신글",
+    "viewCount": "조회수",
+    "comments": "댓글수"
+  },
+  "Filters": {
+    "activeFilters": "활성 필터",
+    "clearAll": "전체 해제",
+    "noFilters": "적용된 필터가 없습니다"
+  }
+}
