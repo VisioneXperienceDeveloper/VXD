@@ -26,7 +26,7 @@ export async function Footer() {
     { 
       title: t('content'), 
       links: [
-        { label: 'Blog', href: process.env.NODE_ENV === 'production' ? 'https://blog.visionexperience.com' : 'http://localhost:5100' },
+        { label: 'Blog', href: process.env.NODE_ENV === 'production' ? 'https://vxd-blog-web.vercel.app' : 'http://localhost:5100' },
         { label: 'LinkedIn', href: PERSON.linkedin }
       ] 
     },
