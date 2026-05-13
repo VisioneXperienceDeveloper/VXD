@@ -1,1 +1,40 @@
-{}
+{
+  "ProjectsPage": {
+    "title": "Selected Work",
+    "description": "Prioritizing real business value over flashy tech stacks. Code must work and be proven by measurable results.",
+    "clientProjects": {
+      "title": "Client Projects",
+      "description": "Professional project experiences proven by measurable outcomes.",
+      "headers": {
+        "client": "Client",
+        "field": "Field",
+        "role": "Role",
+        "impact": "Impact"
+      },
+      "list": [
+        { "client": "Wise Express", "field": "Logistics", "tech": "Node.js · REST API", "role": "Design & Deployment", "impact": "35% Booking Error Reduction" },
+        { "client": "The Varai", "field": "E-commerce", "tech": "Web Fullstack", "role": "Brand Site Development", "impact": "Brand Identity Digitized" },
+        { "client": "CPR Learning", "field": "EduTech", "tech": "WordPress · PHP · React", "role": "Backend Co-lead", "impact": "25% Conversion Boost" },
+        { "client": "Meyd.it", "field": "SaaS", "tech": "Modern Frameworks", "role": "Full-stack Intern", "impact": "Main Website SEO Improvement" }
+      ]
+    },
+    "list": [
+      {
+        "title": "VXD Blog",
+        "description": "A personal blog and tutoring platform with Notion as a headless CMS. Optimized for SEO via SSR and enhanced by Gemini CLI."
+      },
+      {
+        "title": "Wise Express",
+        "description": "Automated logistics portal booking system. Reduced manual booking errors by 35% with a full-stack solution."
+      },
+      {
+        "title": "Tamago Bot",
+        "description": "React-based Chrome extension. A productivity tool with digital pets, deployed to the Chrome Web Store."
+      },
+      {
+        "title": "MindTap Vision Pro",
+        "description": "App for real-time streaming of Brain-Computer Interface (BCI) data to Apple Vision Pro."
+      }
+    ]
+  }
+}

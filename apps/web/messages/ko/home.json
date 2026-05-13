@@ -1,10 +1,130 @@
 {
   "Home": {
     "heroBadge": "풀스택 개발자 · 시드니",
-    "heroTitle1": "본질을 추구하고",
-    "heroTitle2": "문제를 해결하는 개발자",
+    "heroTitle1": "다르게 생각하고",
+    "heroTitle2": "코드로 만듭니다.",
     "heroSubtitle": "Next.js, Node.js, TypeScript, AWS로 실제 비즈니스 가치를 만드는 3년 경력의 풀스택 개발자",
     "viewProjects": "프로젝트 보기",
     "contactMe": "연락하기"
+  },
+  "Resume": {
+    "heroTitle": "안녕하세요,",
+    "heroRole": "Full Stack Developer Chris Choi입니다",
+    "heroSummary": "사용자 경험을 코드로 현실로 만드는 개발자. Next.js, Node.js, TypeScript, AWS로 실제 비즈니스 가치를 만드는 3년 경력의 풀스택 개발자입니다.",
+    "viewProjects": "프로젝트 보기",
+    "readBlog": "블로그 읽기",
+    "downloadResume": "이력서 다운로드",
+    "skillsTitle": "기술 스택",
+    "experienceTitle": "경력",
+    "present": "현재",
+    "projectsTitle": "프로젝트",
+    "projectsSubtitle": "성능, 유려한 사용자 인터페이스, 견고한 아키텍처에 집중하여 개발한 작업물들입니다."
+  },
+  "ProjectCarousel": {
+    "title": "주요 프로젝트 하이라이트"
+  },
+  "Approach": {
+    "badge": "기술 철학",
+    "title": "안정성과 혁신 사이의 균형",
+    "pillar1Title": "구조화된 아키텍처",
+    "pillar1Desc": "확장 가능하고 유지보수가 쉬운 코드를 우선합니다.",
+    "pillar2Title": "AI 드리븐 개발",
+    "pillar2Desc": "Claude Code, Gemini로 개발 사이클을 가속합니다.",
+    "pillar3Title": "비즈니스 가치",
+    "pillar3Desc": "35% 오류 감소, 25% 전환율 향상 — 측정 가능한 결과."
+  },
+  "Collaboration": {
+    "title": "함께 일하는 방법",
+    "subtitle": "프로젝트의 규모와 성격에 맞는 최적의 협업 방식을 제안합니다.",
+    "mostPopular": "가장 인기있는 선택",
+    "contactButton": "상담 시작하기",
+    "plan1Name": "오픈소스",
+    "plan1Desc": "공개 레포 기여 환영 / 이슈 & PR 리뷰 / 코드 리뷰 요청",
+    "plan1F1": "공개 레포 기여",
+    "plan1F2": "이슈 & PR 리뷰",
+    "plan1F3": "코드 리뷰 요청",
+    "plan2Name": "프리랜서",
+    "plan2Desc": "Next.js·Node.js 풀스택 / AWS 인프라 / AI 통합 / 아키텍처 컨설팅",
+    "plan2F1": "풀스택 웹 앱 개발",
+    "plan2F2": "AWS 인프라 구축",
+    "plan2F3": "AI 솔루션 통합",
+    "plan2F4": "아키텍처 컨설팅",
+    "plan3Name": "풀타임",
+    "plan3Desc": "The Robot Coding 재직 중, 풀스택·AI 포지션 열린 마음으로 검토",
+    "plan3F1": "Coding Instructor",
+    "plan3F2": "UTS IT 학사",
+    "plan3F3": "시드니 기반"
+  },
+  "FAQ": {
+    "title": "자주 묻는 질문",
+    "description": "협업 및 서비스에 대해 궁금한 점을 확인하세요.",
+    "q1": "어떤 기술 스택을 주로 사용하시나요?",
+    "a1": "주로 Next.js + TypeScript + Node.js 풀스택을 사용하며, AWS 인프라와 Claude/Gemini AI 도구를 적극 활용합니다.",
+    "q2": "프리랜서 프로젝트는 어떤 분야를 맡으시나요?",
+    "a2": "웹 애플리케이션 개발, 백엔드 API 설계, AWS 인프라 구성, AI 통합 및 리팩토링을 담당합니다. Wise Express, The Varai, CPR 등 다양한 클라이언트와 협업했습니다.",
+    "q3": "연락은 어떻게 하면 되나요?",
+    "a3": "이메일 또는 LinkedIn으로 연락주세요. 24시간 이내 답장합니다.",
+    "q4": "현재 구직 중인가요?",
+    "a4": "The Robot Coding에서 재직하면서, 풀스택·AI 포지션을 열린 마음으로 검토 중입니다.",
+    "q5": "어떤 AI 도구를 활용하시나요?",
+    "a5": "Claude Code로 코드 리뷰와 아키텍처 설계를 보조하고, Gemini CLI로 자동화 워크플로우를 개선합니다."
+  },
+  "Features": {
+    "core": {
+      "badge": "핵심 역량",
+      "title": "FullStack Expertise",
+      "desc": "프론트부터 클라우드 인프라까지, 소프트웨어 개발 라이프사이클 전 과정을 직접 주도합니다. 클린 아키텍처와 AI 도구를 결합해 실질적인 비즈니스 임팩트를 만들어냅니다.",
+      "b1": "Next.js · Node.js · TypeScript End-to-End",
+      "b2": "AWS · Docker · Kubernetes Cloud-Native",
+      "b3": "AI-Driven Development with Claude & Gemini",
+      "s1v": "3+",
+      "s1l": "years experience",
+      "s2v": "35%",
+      "s2l": "오류 감소 (Wise Express)",
+      "s3v": "25%",
+      "s3l": "전환율 향상 (CPR LMS)"
+    },
+    "chrome": {
+      "badge": "Chrome Extension",
+      "title": "Tamago Bot",
+      "desc": "디지털 펫과 함께 태스크를 완수하는 크롬 확장 프로그램. React로 동적 UI 상태를 관리하며 Chrome Web Store에 실제 배포된 프로덕트입니다.",
+      "b1": "디지털 펫 기반 생산성 확장 — React UI 상태 관리",
+      "b2": "Canvas LMS 마감 자동 추적 — Chrome Extension API",
+      "b3": "YouTube 구독 커스텀 필터링 — JavaScript 로직 설계",
+      "s1v": "3개",
+      "s1l": "배포",
+      "s2v": "실배포",
+      "s2l": "Chrome Web Store",
+      "s3v": "Solo",
+      "s3l": "단독 개발"
+    },
+    "vxd": {
+      "badge": "Solo Study Project",
+      "title": "VXD Blog",
+      "desc": "Notion을 헤드리스 CMS로 연동한 개인 블로그 겸 튜터링 플랫폼. SSR로 SEO를 최적화하고 Gemini CLI로 개발 생산성을 높였습니다.",
+      "b1": "Notion API 기반 헤드리스 CMS 연동",
+      "b2": "Next.js App Router & SSR 최적화",
+      "b3": "FSD 아키텍처 & 클린 코드 준수",
+      "s1v": "SSR",
+      "s1l": "서버사이드 렌더링",
+      "s2v": "Notion",
+      "s2l": "헤드리스 CMS",
+      "s3v": "Open",
+      "s3l": "GitHub 공개"
+    },
+    "mindtap": {
+      "badge": "Lead Developer",
+      "title": "MindTap Vision Pro",
+      "desc": "뇌-컴퓨터 인터페이스(BCI) 데이터를 실시간으로 Apple Vision Pro에 스트리밍하는 앱. Python 데이터 파이프라인과 Firebase 동기화를 결합한 멀티플랫폼 시스템.",
+      "b1": "Real-time BCI 데이터 스트리밍 파이프라인",
+      "b2": "Apple Vision Pro (VisionOS) 연동",
+      "b3": "Firebase 기반 실시간 동기화",
+      "s1v": "BCI",
+      "s1l": "뇌-컴퓨터 인터페이스",
+      "s2v": "VisionOS",
+      "s2l": "Apple Vision Pro",
+      "s3v": "Real-time",
+      "s3l": "실시간 동기화"
+    }
   }
 }

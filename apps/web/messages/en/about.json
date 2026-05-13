@@ -8,5 +8,40 @@
     "aboutAuthorTitle": "About the Author",
     "aboutAuthorContent": "A Full Stack Developer with 3+ years of experience delivering business value using Next.js, Node.js, TypeScript, and AWS. I combine clean architecture with AI tools to create measurable business impact.",
     "emailLabel": "Send Email"
+  },
+  "AboutPage": {
+    "timeline": [
+      {
+        "period": "2026 Q1 – Present",
+        "label": "Current",
+        "items": ["Coding Instructor @ The Robot Coding", "Scaling VXD Blog — Personal portfolio & content platform"]
+      },
+      {
+        "period": "2025 Q4 – 2026 Q1",
+        "label": "Internship",
+        "items": ["Full-stack Developer Intern @ Meyd.it (SEO & Responsive UI)", "ACC x Code Club Australia — Volunteer Coding Instructor"]
+      },
+      {
+        "period": "2024 – 2025",
+        "label": "Freelance & Projects",
+        "items": [
+          "Wise Express: Automated booking system (35% error reduction)",
+          "CPR Learning: Backend Co-lead for LMS system (25% conversion boost)",
+          "The Varai: Brand e-commerce full-stack development",
+          "MindTap: Real-time BCI data streaming app for VisionOS",
+          "Chrome Extensions: Deployed 3+ extensions including Tamago Bot"
+        ]
+      },
+      {
+        "period": "2024 Q1",
+        "label": "Community Leadership",
+        "items": ["Started freelancing (The Imagine, LOE Korea, etc.)", "UTS God's People Leadership activities"]
+      },
+      {
+        "period": "2022 – 2023",
+        "label": "Academia & Beginnings",
+        "items": ["Enrolled in UTS Bachelor of IT (HDs in core subjects)", "Started dev journey & established core tech stack"]
+      }
+    ]
   }
 }

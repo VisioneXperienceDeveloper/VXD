@@ -38,5 +38,29 @@
     "explore": "Explore",
     "content": "Content",
     "connect": "Connect"
+  },
+  "Comments": {
+    "title": "Comments",
+    "noComments": "No comments yet. Be the first to comment!",
+    "writeComment": "Write a comment",
+    "commentPlaceholder": "Enter your comment (maximum 1000 characters)",
+    "characters": "characters",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "submitSuccess": "Comment submitted successfully. It will appear after approval.",
+    "submitError": "Failed to submit comment. Please try again.",
+    "loading": "Loading comments...",
+    "loadError": "Failed to load comments."
+  },
+  "Sort": {
+    "sortBy": "Sort by",
+    "publishedDate": "Latest",
+    "viewCount": "Views",
+    "comments": "Comments"
+  },
+  "Filters": {
+    "activeFilters": "Active Filters",
+    "clearAll": "Clear All",
+    "noFilters": "No filters applied"
   }
 }
