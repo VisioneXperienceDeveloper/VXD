@@ -60,12 +60,12 @@ function createTray() {
   tray = new Tray(icon);
   
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Open Slack Clone', click: () => { mainWindow.show(); } },
+    { label: "Open VXD's slack-desktop", click: () => { mainWindow.show(); } },
     { type: 'separator' },
     { label: 'Quit', click: () => { app.isQuitting = true; app.quit(); } }
   ]);
 
-  tray.setToolTip('Slack Clone');
+  tray.setToolTip("VXD's slack-desktop");
   tray.setContextMenu(contextMenu);
 
   tray.on('click', () => {
@@ -85,7 +85,7 @@ function createWindow() {
     titleBarStyle: 'hiddenInset',
     vibrancy: 'under-window',
     visualEffectState: 'active',
-    title: 'Slack Clone'
+    title: "VXD's slack-desktop"
   });
 
   const url = isDev 
