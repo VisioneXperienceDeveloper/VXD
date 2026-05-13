@@ -12,9 +12,9 @@
         "impact": "Impact"
       },
       "list": [
-        { "client": "Wise Express", "field": "Delivery", "tech": "Node.js · REST API", "role": "Full Stack Developer", "impact": "35% Booking Error Reduction" },
-        { "client": "The Varai", "field": "E-commerce", "tech": "Web Fullstack", "role": "Full Stack Developer", "impact": "Brand Identity Digitized" },
-        { "client": "CPR Learning", "field": "EduTech", "tech": "WordPress · PHP · React", "role": "Backend Developer", "impact": "25% Conversion Boost" },
+        { "client": "Wise Express", "field": "Logistics", "tech": "Node.js · REST API", "role": "Design & Deployment", "impact": "35% Booking Error Reduction" },
+        { "client": "The Varai", "field": "E-commerce", "tech": "Web Fullstack", "role": "Brand Site Development", "impact": "Brand Identity Digitized" },
+        { "client": "CPR Learning", "field": "EduTech", "tech": "WordPress · PHP · React", "role": "Backend Co-lead", "impact": "25% Conversion Boost" },
         { "client": "Meyd.it", "field": "SaaS", "tech": "Modern Frameworks", "role": "Full-stack Intern", "impact": "Main Website SEO Improvement" }
       ]
     },
