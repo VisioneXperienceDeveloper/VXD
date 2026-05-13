@@ -49,4 +49,5 @@ yarn-error.log*
 test-results
 playwright-report
 
-/scripts/
+# Scripts
+# (unignored to allow vercel-ignore-build.sh and other shared scripts)
