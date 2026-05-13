@@ -1,0 +1,28 @@
+{
+  "Privacy": {
+    "back": "Home",
+    "title": "Privacy Policy",
+    "metaDescription": "Policy regarding personal information collection and processing",
+    "lastUpdated": "Last Updated",
+    "section1Title": "1. Information We Collect",
+    "section1Content": "This blog uses Google Analytics to collect anonymized visitor statistics (page views, visit duration, approximate location, etc.). We do not collect personally identifiable information.",
+    "section2Title": "2. Use of Cookies",
+    "section2Content": "This blog uses cookies to improve user experience and for analytics purposes. You can disable cookies through your browser settings, but some features may be limited.",
+    "section3Title": "3. Purpose of Use",
+    "section3Content": "The collected information is used solely for improving blog operations, analyzing visitor statistics, and enhancing content quality.",
+    "section4Title": "4. Contact",
+    "section4Content": "If you have any questions about our privacy practices, please contact us through the About page."
+  },
+  "Terms": {
+    "back": "Home",
+    "title": "Terms of Use",
+    "metaDescription": "Terms of service and disclaimer",
+    "lastUpdated": "Last Updated",
+    "copyrightTitle": "1. Copyright",
+    "copyrightContent": "All content on this blog (articles, images, code, etc.) is protected by copyright law unless otherwise stated. Personal reference is permitted, but commercial use or unauthorized reproduction is prohibited.",
+    "disclaimerTitle": "2. Disclaimer",
+    "disclaimerContent": "The information on this blog is based on personal experience and learning. While we strive for accuracy, technical information may become outdated over time. We are not legally responsible for any outcomes resulting from the use of information on this blog.",
+    "usageTitle": "3. Usage Guidelines",
+    "usageContent": "When using this blog, please respect the rights of others and do not use it for any illegal purposes."
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "About": {
+    "back": "홈으로",
+    "title": "소개",
+    "metaDescription": "Chris Choi — 사용자 경험을 코드로 현실로 만드는 개발자",
+    "aboutBlogTitle": "블로그 소개",
+    "aboutBlogContent": "VXD Blog는 Notion을 헤드리스 CMS로 연동한 개인 블로그 겸 튜터링 플랫폼입니다. SSR로 SEO를 최적화하고 Gemini CLI로 개발 생산성을 높였습니다.",
+    "aboutAuthorTitle": "운영자 소개",
+    "aboutAuthorContent": "Next.js, Node.js, TypeScript, AWS로 실제 비즈니스 가치를 만드는 3년 경력의 풀스택 개발자입니다. 클린 아키텍처와 AI 도구를 결합해 실질적인 비즈니스 임팩트를 만들어냅니다.",
+    "emailLabel": "이메일 보내기"
+  },
+  "AboutPage": {
+    "timeline": [
+      {
+        "period": "2026 Q1 – 현재",
+        "label": "개인 프로젝트 & 취업 준비",
+        "items": [
+          "개인 포트폴리오 및 콘텐츠 플랫폼 VXD Blog 고도화",
+          "크롬 확장 프로그램 개발 - Tamago Bot, YT Subs Mgmt 등 3종",
+          "AI 챗봇 개발 - Gemini CLI 기반 자동화 챗봇"
+        ]
+      },
+      {
+        "period": "2026 Q1",
+        "label": "코딩 강사",
+        "items": ["Coding Instructor @ The Robot Coding"]
+      },
+      {
+        "period": "2025 Q4 – 2026 Q1",
+        "label": "인턴십",
+        "items": [
+          "Meyd.it 풀스택 개발 인턴 (SEO 및 반응형 UI 개선)",
+          "ACC x Code Club 호주 학교 코딩 봉사활동 참여"
+        ]
+      },
+      {
+        "period": "2025",
+        "label": "UTS 프로젝트",
+        "items": [
+          "UniFlow: UTS 학생들의 학습 및 네트워킹 플랫폼 개발",
+          "CPR Learning: LMS 시스템 백엔드 Co-lead (전환율 25% 향상)",
+          "MindTap: VisionOS 기반 BCI 실시간 데이터 스트리밍 앱"
+        ]
+      },
+      {
+        "period": "2024 - 2025 Q1",
+        "label": "호주 내 프리랜서 활동",
+        "items": [
+          "Wise Express: 자동화 예약 시스템 구축 (오류 35% 감소)",
+          "The Varai: 브랜드 이커머스 웹 풀스택 개발"
+        ]
+      },
+      {
+        "period": "2023",
+        "label": "호주 시드니로 이주 및 UTS 입학",
+        "items": [
+          "UTS Bachelor of IT 입학 (주요 과목 HD 취득)", 
+          "개발 기초 기술 스택 확립"
+        ]
+      }, 
+      {
+        "period": "2019 - 2020",
+        "label": "프리랜서 활동 시작",
+        "items": [
+          "Energetic",
+          "주식회사 LOE",
+          "The Imagine",
+          "Overdam"
+        ]
+      },
+      {
+        "period": "2018",
+        "label": "딴딴공작소(담넘어) 창업",
+        "items": [
+          "청소년 교육 플랫폼 창업 및 사업 경험",
+          "청소년 멘토링 및 상담 활동",
+          "웹/앱 서비스 및 교육 콘텐츠 기획 및 개발"
+        ]
+      }
+    ]
+  }
+}

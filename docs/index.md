@@ -21,6 +21,7 @@ Welcome to the central documentation for the Vision Experience Developer (VXD) p
 ### Blog
 - **[Search](features/blog/search.md)**: Content and tag-based post search.
 - **[Comments](features/blog/comments.md)**: User comments and feedback.
+- **[Projects](features/blog/projects.md)**: Portfolio project showcase.
 
 ## Applications
 

@@ -23,7 +23,7 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const BLOG_URL = process.env.NODE_ENV === 'production' ? 'https://blog.visionexperience.com' : 'http://localhost:5100';
+  const BLOG_URL = process.env.NODE_ENV === 'production' ? 'https://vxd-blog-web.vercel.app' : 'http://localhost:5100';
 
   const navItems = [
     { name: t('home'), href: '/' },
