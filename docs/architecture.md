@@ -43,3 +43,11 @@ The backend logic is centralized in `packages/slack-backend/convex`. It uses:
 - **Queries**: Real-time reactive data fetching.
 - **Mutations**: Atomic, transactional data updates.
 - **Actions**: Side-effect management (e.g., calling external APIs).
+
+## Middleware & i18n Routing
+
+The project uses `next-intl` for internationalization. To support advanced routing requirements (like accessing the current pathname in server components), we implement a proxy pattern:
+
+- **`middleware.ts`**: The entry point for Next.js middleware, which delegates to the proxy.
+- **`proxy.ts`**: Wraps the `next-intl` middleware to add custom headers (e.g., `x-pathname`) to the request. This allows server-side components to access the current path without client-side hooks.
+

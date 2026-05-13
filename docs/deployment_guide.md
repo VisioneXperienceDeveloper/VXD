@@ -6,20 +6,20 @@
 
 Vercel에서 새 프로젝트를 생성하거나 기존 프로젝트의 설정을 다음과 같이 변경합니다.
 
-- **Root Directory**: `apps/web` (중요)
+- **Root Directory**: `apps/web` (Main Portfolio) 또는 `apps/blog-web` (Blog)
 - **Framework Preset**: `Next.js`
-- **Build Command**: `cd ../.. && pnpm build --filter=@vxd/web...` (또는 `pnpm turbo build --filter=@vxd/web...`)
-- **Install Command**: `pnpm install` (Vercel이 자동으로 감지하지만, 필요한 경우 명시)
+- **Build Command**: `cd ../.. && pnpm build --filter=@vxd/web...` (web) 또는 `cd ../.. && pnpm build --filter=@vxd/blog-web...` (blog-web)
+- **Install Command**: `pnpm install`
 - **Output Directory**: `.next`
 
 ## 2. 환경 변수 (Environment Variables)
 
-`apps/web/.env.local`에 정의된 다음 환경 변수들을 Vercel 프로젝트 설정에 등록해야 합니다.
+각 앱의 `.env` 파일에 정의된 다음 환경 변수들을 Vercel 프로젝트 설정에 등록해야 합니다.
 
 - `NOTION_API_KEY`
 - `NOTION_POSTS_DATA_SOURCE_ID`
 - `NOTION_COMMENTS_DATA_SOURCE_ID`
-- `NEXT_PUBLIC_BASE_URL`
+- `NEXT_PUBLIC_SITE_URL`: `https://visionexperiencedeveloper.com` (web용) 또는 `https://vxd-blog-web.vercel.app` (blog-web용)
 
 ## 3. CI/CD 최적화
 
