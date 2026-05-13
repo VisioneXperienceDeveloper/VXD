@@ -19,7 +19,7 @@ Use this skill to automate the process of sharing code and requesting reviews on
 
 3. **Create Pull Request**:
    - Use the `mcp_github-mcp-server_create_pull_request` tool.
-   - **Base**: Usually `main`.
+   - **Base**: `features` (This is the intermediate integration branch).
    - **Head**: The feature branch you just pushed.
    - **Title**: Use the main commit message or a concise summary of the feature.
    - **Body**: Provide a clear description of the changes, including:
