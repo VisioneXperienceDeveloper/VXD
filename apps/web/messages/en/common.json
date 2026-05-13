@@ -1,0 +1,42 @@
+{
+  "Header": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact",
+    "about": "About",
+    "startProject": "Start Project"
+  },
+  "Navigation": {
+    "back": "Back",
+    "moreIn": "More in {part}",
+    "readMore": "Read more posts",
+    "seeMore": "See more"
+  },
+  "Search": {
+    "placeholder": "Search..."
+  },
+  "Common": {
+    "noPosts": "No posts found.",
+    "allPosts": "All Posts",
+    "categories": "Categories",
+    "topTags": "Top Tags",
+    "sort": "Sort By",
+    "noOtherPosts": "No other posts in this part.",
+    "thisBlog": "this blog",
+    "description": "A collection of thoughts, learnings, and stories.",
+    "copy": "Copy link",
+    "copied": "Copied!"
+  },
+  "Footer": {
+    "privacy": "Privacy Policy",
+    "about": "About",
+    "terms": "Terms of Use",
+    "contact": "Contact",
+    "copyright": "© {year} Chris Choi. Built with Next.js & Notion.",
+    "dev": "Dev",
+    "explore": "Explore",
+    "content": "Content",
+    "connect": "Connect"
+  }
+}

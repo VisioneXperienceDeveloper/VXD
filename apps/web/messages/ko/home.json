@@ -1,0 +1,10 @@
+{
+  "Home": {
+    "heroBadge": "풀스택 개발자 · 시드니",
+    "heroTitle1": "본질을 추구하고",
+    "heroTitle2": "문제를 해결하는 개발자",
+    "heroSubtitle": "Next.js, Node.js, TypeScript, AWS로 실제 비즈니스 가치를 만드는 3년 경력의 풀스택 개발자",
+    "viewProjects": "프로젝트 보기",
+    "contactMe": "연락하기"
+  }
+}
