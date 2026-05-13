@@ -1,7 +1,7 @@
 import { AnimatedSection, SectionContainer, Badge } from '@/shared/ui';
-import { Github, Monitor, Server, Cloud, Database } from 'lucide-react';
-import { cn } from '@/shared/lib/utils';
+import { Monitor, Server, Cloud, Database } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
+import { Project, PROJECT_METADATA, ProjectCard } from '@/entities/project';
 
 const TECH_TIERS = [
   { 
@@ -37,10 +37,16 @@ const TECH_TIERS = [
 export default async function ProjectsPage() {
   const t = await getTranslations('ProjectsPage');
 
-  const projects = t.raw('list') as Array<{
+  const translatedProjects = t.raw('list') as Array<{
     title: string;
     description: string;
   }>;
+
+  const projects: Project[] = PROJECT_METADATA.map((meta, idx) => ({
+    ...meta,
+    title: translatedProjects[idx]?.title || '',
+    description: translatedProjects[idx]?.description || '',
+  }));
 
   const clientProjects = t.raw('clientProjects.list') as Array<{
     client: string;
@@ -49,27 +55,6 @@ export default async function ProjectsPage() {
     role: string;
     impact: string;
   }>;
-
-  const projectTags = [
-    ["TypeScript", "Next.js", "React", "Notion API", "Tailwind v4"],
-    ["Node.js", "REST APIs", "Express", "Logistics"],
-    ["React", "Chrome API", "JavaScript"],
-    ["VisionOS", "Python", "Firebase", "Real-time"]
-  ];
-
-  const projectLinks = [
-    "https://github.com/VisioneXperienceDeveloper/VXD_Blog",
-    "#",
-    "https://chromewebstore.google.com/detail/tamago-bot/egjdcglbmfnpdbabandhhhfiidpdcloa",
-    "#"
-  ];
-
-  const projectColors = [
-    "from-blue-500/20 to-indigo-500/20",
-    "from-emerald-500/20 to-teal-500/20",
-    "from-red-500/20 to-orange-500/20",
-    "from-purple-500/20 to-pink-500/20"
-  ];
 
   return (
     <main className="min-h-screen bg-background pt-20">
@@ -104,57 +89,15 @@ export default async function ProjectsPage() {
 
         {/* Project Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-32">
-          {projects.map((project, idx) => (
-            <AnimatedSection key={idx} className="group relative">
-              <div className={cn(
-                "h-full flex flex-col p-8 rounded-3xl border border-border bg-card hover:border-accent-brand/50 transition-all duration-500 overflow-hidden",
-                idx === 0 && "lg:col-span-2 lg:flex-row lg:items-center gap-12"
-              )}>
-                <div className={cn(
-                  "absolute inset-0 bg-linear-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none",
-                  projectColors[idx]
-                )} />
-
-                <div className={cn(
-                  "relative aspect-video rounded-2xl bg-muted border border-border/50 shrink-0 flex items-center justify-center overflow-hidden",
-                  idx === 0 ? "w-full lg:w-1/2" : "w-full mb-8"
-                )}>
-                  <span className="text-muted-foreground/30 font-black text-4xl uppercase select-none">{project.title}</span>
-                </div>
-
-                <div className="flex flex-col flex-1 space-y-6">
-                  <div className="space-y-2">
-                    <h3 className="text-3xl font-bold group-hover:text-accent-brand transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {projectTags[idx]?.map(tag => (
-                      <Badge key={tag} variant="outline" className="text-[10px] uppercase font-black">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-4 pt-4">
-                    <a 
-                      href={projectLinks[idx]} 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm font-bold hover:text-accent-brand transition-colors"
-                    >
-                      GitHub / Live <Github size={16} />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
+          {projects.map((project) => (
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              isFeatured={false} 
+            />
           ))}
         </div>
+
 
         {/* Comparison Table Section */}
         <AnimatedSection className="space-y-12">
