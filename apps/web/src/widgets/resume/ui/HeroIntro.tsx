@@ -34,7 +34,7 @@ export function HeroIntro() {
             {t('downloadResume')}
           </a>
           <a 
-            href={process.env.NODE_ENV === 'production' ? 'https://blog.visionexperience.com' : 'http://localhost:5100'} 
+            href={process.env.NODE_ENV === 'production' ? 'https://vxd-blog-web.vercel.app' : 'http://localhost:5100'} 
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3.5 bg-transparent text-neutral-700 dark:text-neutral-300 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
