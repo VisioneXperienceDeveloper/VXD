@@ -10,8 +10,9 @@ Convex agent skills for common tasks can be installed by running `npx convex ai-
 
 - **Branching Strategy**:
   - `main`: Production branch. CD is only triggered from this branch.
-  - `feature/*`: Development branch for new features.
-  - `hotfix/*`: Branch for emergency bug fixes.
+  - `features`: Intermediate integration branch. All features must be merged here first.
+  - `feature/*`: Development branch for new features. PRs target `features`.
+  - `hotfix/*`: Branch for emergency bug fixes. PRs target `main`.
 - **Continuous Integration (CI)**:
   - All Pull Requests to the `main` branch must pass automated tests, linting, and build checks before they can be merged.
   - **MANDATORY**: AI assistants must run `npm run lint`, `npm run test`, and `npm run build` locally before pushing to any branch or creating a PR.
@@ -37,6 +38,7 @@ Convex agent skills for common tasks can be installed by running `npx convex ai-
 
 - **/add-docs**: Analyzes the project and updates `/docs` according to the standards. Located in `.agents/skills/docs/add-docs`.
 - **/gc**: Groups changes and commits them step-by-step to separate branches. Located in `.agents/skills/git/git-stage-commit`.
-- **/gpr**: Pushes branches and creates Pull Requests on GitHub. Located in `.agents/skills/git/git-create-pr`.
+- **/gpr**: Pushes branches and creates Pull Requests on GitHub (Target: `features`). Located in `.agents/skills/git/git-create-pr`.
+- **/gpr-main**: Creates a Pull Request from `features` to `main`. Located in `.agents/skills/git/git-create-pr-main`.
 - **/gmain**: Syncs the local repository by pulling the latest remote main and deleting all other local feature branches to maintain a clean workspace. Located in `.agents/skills/git/git-sync-main`.
 - **/ci**: Runs the mandatory continuous integration checks (lint, test, build) locally to ensure code quality before pushing. Located in `.agents/skills/ci`.
