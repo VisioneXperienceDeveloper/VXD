@@ -7,12 +7,12 @@
 
 echo "VERCEL_GIT_COMMIT_REF: $VERCEL_GIT_COMMIT_REF"
 
-if [[ "$VERCEL_GIT_COMMIT_REF" == "features" ]]; then
-  # Skip build for the 'features' branch as requested
-  echo "🛑 - Build cancelled for 'features' branch (Integration Branch)"
-  exit 0;
-else
-  # Proceed with the build for other branches (main, feature/*, etc.)
-  echo "✅ - Build can proceed"
+if [[ "$VERCEL_GIT_COMMIT_REF" == "main" ]]; then
+  # Proceed with the build only for the 'main' branch
+  echo "✅ - Build can proceed (Production branch: main)"
   exit 1;
+else
+  # Skip build for all other branches (features, feature/*, etc.)
+  echo "🛑 - Build cancelled for '$VERCEL_GIT_COMMIT_REF' branch"
+  exit 0;
 fi
