@@ -8,11 +8,12 @@ import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics } from "@vercel/analytics/next"
 
 import { routing } from '@/shared/i18n/routing';
-import { ThemeProvider } from "@/shared/providers";
+import { ThemeProvider, ConvexClientProvider } from "@/shared/providers";
 import { ErrorBoundary } from "@/shared/ui";
 import { GoogleAdSense } from "@/shared/lib/analytics";
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
+import { AuthProvider } from "@vxd/auth";
 
 import "../globals.css";
 
@@ -91,11 +92,15 @@ export default async function LocaleLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <ErrorBoundary>
-              <Header />
-              {children}
-              <Footer />
-            </ErrorBoundary>
+            <AuthProvider>
+              <ConvexClientProvider>
+                <ErrorBoundary>
+                  <Header />
+                  {children}
+                  <Footer />
+                </ErrorBoundary>
+              </ConvexClientProvider>
+            </AuthProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
         <SpeedInsights/>

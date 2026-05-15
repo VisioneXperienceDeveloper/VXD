@@ -19,5 +19,5 @@ A full-featured web-based Slack clone.
 ## Technology Details
 
 - **Backend**: Convex (`@vxd/slack-backend`)
-- **Authentication**: Clerk (`@vxd/slack-auth`)
+- **Authentication**: Clerk (`@vxd/auth`)
 - **UI**: Shadcn UI, Lucide Icons

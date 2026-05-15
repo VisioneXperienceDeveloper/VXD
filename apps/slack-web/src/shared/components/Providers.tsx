@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { ClerkProvider, useAuth } from '@clerk/nextjs';
-import { ConvexAuthProvider } from '@vxd/slack-auth';
+import { ConvexAuthProvider } from '@vxd/auth';
 import { dark } from '@clerk/themes';
 
 import { useAuthUser } from '../hooks/use-auth-user';
