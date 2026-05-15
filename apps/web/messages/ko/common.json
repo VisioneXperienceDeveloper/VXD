@@ -5,7 +5,21 @@
     "blog": "블로그",
     "contact": "연락처",
     "about": "소개",
-    "startProject": "프로젝트 시작"
+    "startProject": "프로젝트 시작",
+    "communities": "커뮤니티",
+    "vxdBlog": "VXD 블로그",
+    "youtubeChannels": "유튜브 채널",
+    "slackChat": "슬랙 채팅",
+    "linkedin": "링크드인",
+    "github": "깃허브",
+    "policies": "약관 및 정책",
+    "termsOfUse": "이용약관",
+    "privacyPolicy": "개인정보처리방침",
+    "tamagoPolicy": "타마고 정책",
+    "canvasSyncPolicy": "캔버스 동기화 정책",
+    "ytSubsMgmtPolicy": "유튜브 구독 관리 정책",
+    "services": "서비스",
+    "comingSoon": "준비 중..."
   },
   "Navigation": {
     "back": "뒤로",

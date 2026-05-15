@@ -1,0 +1,58 @@
+
+ RUN  v4.0.16 /Users/cjungwo/Documents/Vision/VXD/Dev/vxd/apps/web
+
+ ✓ __tests__/unit/components/Sidebar.test.tsx > Sidebar Component > should render categories and tags 1ms
+ ✓ __tests__/unit/components/GoogleAnalytics.test.tsx > GoogleAnalytics Component > should render without errors when GA ID is not set 11ms
+ ✓ __tests__/unit/components/GoogleAnalytics.test.tsx > GoogleAnalytics Component > should render without errors when GA ID is set 1ms
+ ✓ __tests__/unit/components/ThemeProvider.test.tsx > ThemeProvider Component > should wrap children with NextThemesProvider 18ms
+ ✓ __tests__/unit/components/ThemeProvider.test.tsx > ThemeProvider Component > should pass props to NextThemesProvider 2ms
+ ✓ __tests__/unit/components/ThemeProvider.test.tsx > ThemeProvider Component > should render multiple children 5ms
+ ✓ __tests__/unit/components/LanguageToggle.test.tsx > LanguageToggle Component > should render current language 19ms
+ ✓ __tests__/unit/components/LanguageToggle.test.tsx > LanguageToggle Component > should toggle language on click 6ms
+ ✓ __tests__/unit/components/LanguageToggle.test.tsx > LanguageToggle Component > should use translationSlug if provided 3ms
+ ✓ __tests__/unit/components/Footer.test.tsx > Footer Component > should render footer with links 26ms
+ ✓ __tests__/unit/components/Footer.test.tsx > Footer Component > should render copyright with current year 4ms
+ ✓ __tests__/unit/components/Footer.test.tsx > Footer Component > should have correct link hrefs 4ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should merge class names 3ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should handle conditional classes 0ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should merge tailwind classes correctly 0ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should handle arrays 0ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should handle objects 0ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should handle empty inputs 0ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should render toggle button 16ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should toggle from light to dark 4ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should toggle from dark to system 2ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should toggle from system to light 2ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should show Sun icon for light theme 1ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should show Moon icon for dark theme 1ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should show Monitor icon for system theme 1ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  __tests__/unit/lib/translator.test.ts [ __tests__/unit/lib/translator.test.ts ]
+Error: Failed to resolve import "@/entities/lib/translator" from "__tests__/unit/lib/translator.test.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/cjungwo/Documents/Vision/VXD/Dev/vxd/apps/web/__tests__/unit/lib/translator.test.ts:2:46
+  1  |  import { describe, it, expect } from "vitest";
+  2  |  import { translateText, translateBlock } from "@/entities/lib/translator";
+     |                                                 ^
+  3  |  describe("translateText", () => {
+  4  |    it("should return original text for Korean locale", async () => {
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28998:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28995:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27118:18
+ ❯ ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27176:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27144:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28796:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22669:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 7 passed (8)
+      Tests  25 passed (25)
+   Start at  23:38:09
+   Duration  951ms (transform 423ms, setup 0ms, import 1.13s, tests 140ms, environment 4.10s)
+
+undefined
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run --reporter=verbose

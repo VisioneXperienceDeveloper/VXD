@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { PostList } from '@/widgets/post-list/ui/PostList';
-import { mockBlogPosts } from '../../fixtures/notion-data';
+import { mockBlogPosts } from '../../fixtures/content-data';
 
 // Mock next-intl
 vi.mock('next-intl', () => ({

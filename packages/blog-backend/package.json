@@ -1,0 +1,14 @@
+{
+  "name": "@vxd/blog-backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "convex dev"
+  },
+  "dependencies": {
+    "convex": "^1.19.2"
+  },
+  "exports": {
+    "./convex/*": "./convex/*"
+  }
+}

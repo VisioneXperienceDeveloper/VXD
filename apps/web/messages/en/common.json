@@ -5,7 +5,21 @@
     "blog": "Blog",
     "contact": "Contact",
     "about": "About",
-    "startProject": "Start Project"
+    "startProject": "Start Project",
+    "communities": "Communities",
+    "vxdBlog": "VXD Blog",
+    "youtubeChannels": "Youtube Channels",
+    "slackChat": "Slack Chat",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "policies": "Policies",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "tamagoPolicy": "Tamago Policy",
+    "canvasSyncPolicy": "Canvas Sync Policy",
+    "ytSubsMgmtPolicy": "YT Subs Mgmt Policy",
+    "services": "Services",
+    "comingSoon": "Coming Soon..."
   },
   "Navigation": {
     "back": "Back",

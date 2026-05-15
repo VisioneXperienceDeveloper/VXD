@@ -10,9 +10,13 @@ export default defineConfig({
     setupFiles: [],
     include: ['__tests__/unit/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   },
+  define: {
+    'process.env.NEXT_PUBLIC_CONVEX_URL': JSON.stringify('https://dummy-url.convex.cloud'),
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@convex': path.resolve(__dirname, '../../packages/blog-backend/convex'),
     },
   },
 })

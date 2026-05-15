@@ -1,4 +1,3 @@
-export * from './comment-section';
 export * from './footer';
-export * from './post-list';
-export * from './sidebar';
+export * from './header';
+export * from './resume';

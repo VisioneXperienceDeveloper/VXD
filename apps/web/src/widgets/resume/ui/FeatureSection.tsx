@@ -3,7 +3,8 @@
 import { ReactNode } from 'react';
 import { cn } from '@/shared/lib/utils';
 import { Badge, AnimatedSection, SectionContainer } from '@/shared/ui';
-import { Check } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface FeatureSectionProps {
   id?: string;
@@ -15,6 +16,11 @@ interface FeatureSectionProps {
   visual?: ReactNode;
   reverse?: boolean;
   className?: string;
+  cta?: {
+    label: string;
+    href: string;
+    external?: boolean;
+  };
 }
 
 export function FeatureSection({
@@ -27,6 +33,7 @@ export function FeatureSection({
   visual,
   reverse = false,
   className,
+  cta,
 }: FeatureSectionProps) {
   return (
     <SectionContainer id={id} className={cn("overflow-hidden", className)}>
@@ -69,6 +76,30 @@ export function FeatureSection({
                   <div className="text-sm text-muted-foreground font-medium uppercase tracking-wide">{stat.label}</div>
                 </div>
               ))}
+            </div>
+          )}
+
+          {cta && (
+            <div className="pt-4">
+              {cta.external ? (
+                <a 
+                  href={cta.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-accent-brand text-white px-8 py-3 rounded-full text-base font-bold hover:scale-105 transition-all shadow-lg shadow-accent-brand/20 group"
+                >
+                  {cta.label}
+                  <ArrowRight className="ml-1 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </a>
+              ) : (
+                <Link 
+                  href={cta.href}
+                  className="inline-flex items-center gap-2 bg-accent-brand text-white px-8 py-3 rounded-full text-base font-bold hover:scale-105 transition-all shadow-lg shadow-accent-brand/20 group"
+                >
+                  {cta.label}
+                  <ArrowRight className="ml-1 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              )}
             </div>
           )}
         </AnimatedSection>

@@ -1,11 +1,10 @@
 {
   "Header": {
     "home": "Home",
-    "projects": "Projects",
-    "blog": "Blog",
-    "contact": "Contact",
-    "about": "About",
-    "startProject": "Start Project"
+    "vision": "Vision",
+    "experience": "eXperience",
+    "development": "Development",
+    "write": "Write"
   },
   "Resume": {
     "heroTitle": "Hi, I'm",

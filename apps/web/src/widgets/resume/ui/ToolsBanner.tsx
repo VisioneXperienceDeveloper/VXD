@@ -4,7 +4,7 @@ const TOOLS = [
   'TypeScript', 'JavaScript', 'Java', 'Swift',
   'Next.js', 'React', 'Node.js', 'NestJS', 'Spring',
   'AWS', 'Azure', 'GCP', 'Docker', 'Kubernetes', 'Vercel', 'GitHub Actions',
-  'PostgreSQL', 'MongoDB', 'MySQL', 'Firebase', 'Supabase',
+  'PostgreSQL', 'MongoDB', 'MySQL', 'Firebase', 'Supabase', 'Convex',
   'GraphQL', 'WordPress', 'Notion', 'Jira',
 ];
 

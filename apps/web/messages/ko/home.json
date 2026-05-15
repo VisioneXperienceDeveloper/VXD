@@ -99,18 +99,18 @@
       "s3l": "단독 개발"
     },
     "vxd": {
-      "badge": "Solo Study Project",
+      "badge": "개인 프로젝트",
       "title": "VXD Blog",
-      "desc": "Notion을 헤드리스 CMS로 연동한 개인 블로그 겸 튜터링 플랫폼. SSR로 SEO를 최적화하고 Gemini CLI로 개발 생산성을 높였습니다.",
-      "b1": "Notion API 기반 헤드리스 CMS 연동",
-      "b2": "Next.js App Router & SSR 최적화",
-      "b3": "FSD 아키텍처 & 클린 코드 준수",
-      "s1v": "SSR",
-      "s1l": "서버사이드 렌더링",
-      "s2v": "Notion",
-      "s2l": "헤드리스 CMS",
+      "desc": "개발자를 위해 설계된 고성능 기술 콘텐츠 플랫폼입니다. 최신 풀스택 아키텍처를 기반으로 가독성과 속도에 최적화된 기술 인사이트를 제공합니다.",
+      "b1": "Next.js App Router & 서버 컴포넌트",
+      "b2": "실시간 동기화 가능한 확장형 백엔드",
+      "b3": "FSD 아키텍처 및 클린 코드 규격 준수",
+      "s1v": "Modern",
+      "s1l": "기술 스택",
+      "s2v": "Fast",
+      "s2l": "성능 최적화",
       "s3v": "Open",
-      "s3l": "GitHub 공개"
+      "s3l": "GitHub 오픈소스"
     },
     "mindtap": {
       "badge": "Lead Developer",

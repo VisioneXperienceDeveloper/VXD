@@ -10,6 +10,9 @@
     "test:ui": "turbo test:ui"
   },
   "devDependencies": {
+    "@notionhq/client": "^5.6.0",
+    "@types/node": "^20",
+    "convex": "^1.19.2",
     "next": "^16.2.6",
     "prettier": "latest",
     "turbo": "latest"

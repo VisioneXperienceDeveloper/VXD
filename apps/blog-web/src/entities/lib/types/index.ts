@@ -1,1 +1,1 @@
-export * from "@vxd/notion-client";
+export * from './blog';
