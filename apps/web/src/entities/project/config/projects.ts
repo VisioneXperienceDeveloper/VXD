@@ -1,8 +1,8 @@
 export const PROJECT_METADATA = [
   {
     id: 'vxd-blog',
-    tags: ["TypeScript", "Next.js", "React", "Notion API", "Tailwind v4"],
-    link: "https://github.com/VisioneXperienceDeveloper/VXD",
+    tags: ["TypeScript", "Next.js", "React", "Convex", "Tailwind v4"],
+    link: "https://vxd-blog-web.vercel.app",
     color: "from-blue-500/20 to-indigo-500/20",
   },
   {

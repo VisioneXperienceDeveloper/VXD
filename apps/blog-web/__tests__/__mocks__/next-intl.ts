@@ -2,7 +2,12 @@ import { vi } from 'vitest';
 
 export const useLocale = vi.fn(() => 'en');
 export const useTranslations = vi.fn(() => (key: string) => key);
-export const Link = ({ children, href }: { children: React.ReactNode, href: string }) => children;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const Link = ({ children, ...props }: { children: React.ReactNode; [key: string]: any }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { href, ...rest } = props;
+  return children;
+};
 export const useRouter = vi.fn(() => ({
   push: vi.fn(),
   replace: vi.fn(),

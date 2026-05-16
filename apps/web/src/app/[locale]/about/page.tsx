@@ -93,12 +93,6 @@ export default async function AboutPage() {
           </div>
         </div>
 
-        <AnimatedSection className="mt-32 p-12 rounded-3xl bg-muted/50 border border-border text-center space-y-6">
-          <h2 className="text-3xl font-bold">{t('aboutBlogTitle')}</h2>
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
-            {t('aboutBlogContent')}
-          </p>
-        </AnimatedSection>
       </SectionContainer>
     </main>
   );

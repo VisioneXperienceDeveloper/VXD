@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { fetchPosts } from '@/app/actions';
-import { mockBlogPosts } from '../../fixtures/notion-data';
+import { mockBlogPosts } from '../../fixtures/content-data';
 
 // Mock the getPublishedPosts function
 vi.mock('@/entities/lib/services/posts.service', () => ({

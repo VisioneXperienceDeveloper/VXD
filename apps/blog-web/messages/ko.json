@@ -1,11 +1,10 @@
 {
   "Header": {
     "home": "홈",
-    "projects": "프로젝트",
-    "blog": "블로그",
-    "contact": "연락처",
-    "about": "소개",
-    "startProject": "프로젝트 시작"
+    "vision": "Vision",
+    "experience": "eXperience",
+    "development": "Development",
+    "write": "글쓰기"
   },
   "Resume": {
     "heroTitle": "안녕하세요,",

@@ -28,7 +28,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  transpilePackages: ["@vxd/ui", "@vxd/notion-client"],
+  transpilePackages: ["@vxd/ui", "@vxd/blog-backend"],
   // async redirects() {
   //   return [
   //     {

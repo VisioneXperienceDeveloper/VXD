@@ -68,6 +68,11 @@ export default function HomePage() {
           { value: t('vxd.s2v'), label: t('vxd.s2l') },
           { value: t('vxd.s3v'), label: t('vxd.s3l') }
         ]}
+        cta={{
+          label: useTranslations('Resume')('readBlog'),
+          href: process.env.NODE_ENV === 'production' ? 'https://vxd-blog-web.vercel.app' : 'http://localhost:5100',
+          external: true
+        }}
       />
 
       <FeatureSection 

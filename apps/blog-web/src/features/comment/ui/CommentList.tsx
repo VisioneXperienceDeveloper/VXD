@@ -22,16 +22,16 @@ export function CommentList({ comments }: CommentListProps) {
     <div className="space-y-4">
       {comments.map((comment) => (
         <div 
-          key={comment.id}
+          key={comment._id}
           className="p-4 rounded-lg bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800"
         >
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs text-neutral-500 dark:text-neutral-400">
-              {new Date(comment.createdTime).toLocaleString()}
+              {new Date(comment.createdAt).toLocaleString()}
             </span>
           </div>
           <p className="text-neutral-800 dark:text-neutral-200 whitespace-pre-wrap">
-            {comment.comment}
+            {comment.content}
           </p>
         </div>
       ))}

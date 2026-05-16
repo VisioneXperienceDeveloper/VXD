@@ -4,7 +4,7 @@
     "title": "About",
     "metaDescription": "Chris Choi — Full Stack Developer turning UX into reality through code",
     "aboutBlogTitle": "About This Blog",
-    "aboutBlogContent": "VXD Blog is a personal blog and tutoring platform integrated with Notion as a headless CMS. Optimized for SEO via SSR and enhanced by Gemini CLI for development productivity.",
+    "aboutBlogContent": "VXD Blog is a high-performance content platform designed for developers. Built with a modern full-stack architecture, it provides technical insights and tutorials optimized for readability and speed.",
     "aboutAuthorTitle": "About the Author",
     "aboutAuthorContent": "A Full Stack Developer with 3+ years of experience delivering business value using Next.js, Node.js, TypeScript, and AWS. I combine clean architecture with AI tools to create measurable business impact.",
     "emailLabel": "Send Email"

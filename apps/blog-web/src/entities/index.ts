@@ -1,2 +1,2 @@
-export * from './notion';
+export * from './content';
 export * from './post';

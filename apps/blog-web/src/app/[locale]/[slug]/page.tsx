@@ -11,9 +11,10 @@ import {
   getPublishedPosts
 } from "@/entities/lib/services";
 import { PostEngagement } from "@/entities/post";
-import { BlockRenderer } from "@/entities/notion";
+import { BlockRenderer } from "@/entities/content";
 import { Link } from "@/shared/i18n/routing";
 import { ErrorBoundary, CommentErrorFallback } from "@/shared/ui";
+import { Block } from "@/entities/lib/types";
 import { RelatedPosts } from "@/widgets/related-posts";
 
 export const dynamic = 'force-dynamic';
@@ -145,7 +146,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 prose-p:leading-relaxed prose-p:text-neutral-700 dark:prose-p:text-neutral-300
                 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
                 prose-img:rounded-xl prose-img:shadow-md">
-              {blocks.map((block) => (
+              {blocks.map((block: Block) => (
                 <BlockRenderer key={block.id} block={block} />
               ))}
             </div>

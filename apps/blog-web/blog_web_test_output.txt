@@ -1,0 +1,171 @@
+
+ RUN  v4.1.5 /Users/cjungwo/Documents/Vision/VXD/Dev/vxd/apps/blog-web
+
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should render all sort options 15ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should highlight default sort option (published_date) 5ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should highlight selected sort option from URL 2ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should update URL when selecting view_count 3ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should update URL when selecting comment_count 2ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should remove sort param when selecting default (published_date) 1ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should preserve other URL parameters when changing sort 1ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should handle multiple parameter changes 3ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should apply correct styles to active option 4ms
+ ✓ __tests__/unit/components/SortDropdown.test.tsx > SortDropdown Component > should use Korean translations 7ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should render toggle button 17ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should toggle from light to dark 7ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should toggle from dark to system 2ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should toggle from system to light 2ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should show Sun icon for light theme 1ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should show Moon icon for dark theme 1ms
+ ✓ __tests__/unit/components/ModeToggle.test.tsx > ModeToggle Component > should show Monitor icon for system theme 4ms
+ ✓ __tests__/unit/components/PostEngagement.test.tsx > PostEngagement Component > should render view count with number formatting 40ms
+ ✓ __tests__/unit/components/PostEngagement.test.tsx > PostEngagement Component > should render 0 when viewCount is undefined 3ms
+ ✓ __tests__/unit/components/PostEngagement.test.tsx > PostEngagement Component > should render 0 when viewCount is explicitly 0 2ms
+ ✓ __tests__/unit/components/Search.test.tsx > Search Component > should render search input 49ms
+ ✓ __tests__/unit/components/Search.test.tsx > Search Component > should update input value on change 26ms
+ ✓ __tests__/unit/components/PostEngagement.test.tsx > PostEngagement Component > should have share button with aria-label 193ms
+ ✓ __tests__/unit/components/PostEngagement.test.tsx > PostEngagement Component > should copy link to clipboard on button click 28ms
+ ✓ __tests__/unit/components/PostEngagement.test.tsx > PostEngagement Component > should handle clipboard error gracefully 65ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render paragraph 32ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render heading_1 128ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render bulleted_list_item 2ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render callout with icon 1ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render unsupported block message 5ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render heading_2 14ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render heading_3 14ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render numbered_list_item 3ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render to_do unchecked 7ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render to_do checked with strikethrough 19ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render toggle 3ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render quote 2ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render code block 5ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render divider 3ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render callout without icon (default) 2ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render table_row as null 1ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render table with rows 2ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render table with row header 1ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render image with external URL 2ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render image with file URL 4ms
+ ✓ __tests__/unit/components/notion/BlockRenderer.test.tsx > BlockRenderer Component > should render image without caption 3ms
+ ✓ __tests__/unit/components/Search.test.tsx > Search Component > should navigate on search submit after debounce 317ms
+ ✓ __tests__/unit/components/LanguageToggle.test.tsx > LanguageToggle Component > should render current language 23ms
+ ✓ __tests__/unit/components/LanguageToggle.test.tsx > LanguageToggle Component > should toggle language on click 6ms
+ ✓ __tests__/unit/components/LanguageToggle.test.tsx > LanguageToggle Component > should use translationSlug if provided 7ms
+ ✓ __tests__/unit/components/Footer.test.tsx > Footer Component > should render footer with links 39ms
+ ✓ __tests__/unit/components/Footer.test.tsx > Footer Component > should render copyright with current year 7ms
+ ✓ __tests__/unit/components/Footer.test.tsx > Footer Component > should have correct link hrefs 5ms
+ ✓ __tests__/unit/components/ViewTracker.test.tsx > ViewTracker Component > should render nothing visible 15ms
+ ✓ __tests__/unit/components/ViewTracker.test.tsx > ViewTracker Component > should call fetch on mount 4ms
+ ✓ __tests__/unit/components/ViewTracker.test.tsx > ViewTracker Component > should only track once per mount 3ms
+ ✓ __tests__/unit/components/ViewTracker.test.tsx > ViewTracker Component > should handle fetch error silently 7ms
+ ✓ __tests__/unit/components/ViewTracker.test.tsx > ViewTracker Component > should track different post when postId changes on new mount 6ms
+ ✓ __tests__/unit/components/PostCard.test.tsx > PostCard Component > should render post title and date 30ms
+ ✓ __tests__/unit/components/PostList.test.tsx > PostList Component > should render initial posts 50ms
+ ✓ __tests__/unit/components/PostList.test.tsx > PostList Component > should show no posts message when empty 8ms
+ ✓ __tests__/unit/components/PostList.test.tsx > PostList Component > should render pagination bar 16ms
+ ✓ __tests__/unit/components/Search.test.tsx > Search Component > should delete search param when query is cleared 319ms
+ ✓ __tests__/unit/components/Search.test.tsx > Search Component > should toggle search open on button click 9ms
+ ✓ __tests__/unit/components/Search.test.tsx > Search Component > should close search on blur when query is empty 4ms
+ ✓ __tests__/unit/components/ThemeProvider.test.tsx > ThemeProvider Component > should wrap children with NextThemesProvider 23ms
+ ✓ __tests__/unit/components/ThemeProvider.test.tsx > ThemeProvider Component > should pass props to NextThemesProvider 4ms
+ ✓ __tests__/unit/components/ThemeProvider.test.tsx > ThemeProvider Component > should render multiple children 3ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render plain text 23ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render null when text is null 2ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render bold text 5ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render italic text 6ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render strikethrough text 4ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render underline text 2ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render code text 1ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render colored text 1ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render linked text 102ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should render multiple text segments 3ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should apply custom className 2ms
+ ✓ __tests__/unit/components/notion/TextRenderer.test.tsx > TextRenderer Component > should handle text without text property 1ms
+ ✓ __tests__/unit/components/Search.test.tsx > Search Component > should not navigate when query matches current search 352ms
+ ✓ __tests__/unit/components/GoogleAnalytics.test.tsx > GoogleAnalytics Component > should render without errors when GA ID is not set 11ms
+ ✓ __tests__/unit/components/GoogleAnalytics.test.tsx > GoogleAnalytics Component > should render without errors when GA ID is set 2ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > getNumberValue > should extract number value from property 1ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > getNumberValue > should return 0 for null number 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > getNumberValue > should return 0 for undefined property 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > getNumberValue > should return 0 for non-number property 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should extract all properties correctly 1ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle missing title with default 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should use last_edited_time when published_date is missing 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle empty tags 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle missing group 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle missing part 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should default to ko language when missing 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle missing translation relation 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle file cover type 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle missing cover 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle zero view count 0ms
+ ✓ __tests__/unit/lib/posts.helper.test.ts > posts.helper - API Response Parsing > extractBlogPostFromPage > should handle missing view count 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateText > should return original text for Korean locale 1ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateText > should return original text for non-Korean locale (mock) 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateBlock > should return original block for Korean locale 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateBlock > should translate paragraph block for non-Korean locale 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateBlock > should handle paragraph block without text property 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateBlock > should translate heading_1 block 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateBlock > should translate heading_2 block 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateBlock > should handle empty rich_text array for paragraph 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateBlock > should handle empty rich_text array for heading 0ms
+ ✓ __tests__/unit/lib/translator.test.ts > translateBlock > should not modify non-paragraph/heading blocks 0ms
+ ✓ __tests__/unit/components/Sidebar.test.tsx > Sidebar Component > should render categories and tags 1ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should merge class names 3ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should handle conditional classes 0ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should merge tailwind classes correctly 0ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should handle arrays 0ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should handle objects 0ms
+ ✓ __tests__/unit/lib/utils.test.ts > cn utility function > should handle empty inputs 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  __tests__/unit/app/actions.test.ts [ __tests__/unit/app/actions.test.ts ]
+Error: Failed to resolve import "@convex/_generated/api" from "src/entities/lib/services/comments.service.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/cjungwo/Documents/Vision/VXD/Dev/vxd/apps/blog-web/src/entities/lib/services/comments.service.ts:3:20
+  1  |  import { unstable_cache } from "next/cache";
+  2  |  import { ConvexHttpClient } from "convex/browser";
+  3  |  import { api } from "@convex/_generated/api";
+     |                       ^
+  4  |  const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL);
+  5  |  const getCachedComments = unstable_cache(async (postId) => {
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28998:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28995:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27118:18
+ ❯ ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27176:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27144:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28796:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22669:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  __tests__/unit/lib/notion.test.ts [ __tests__/unit/lib/notion.test.ts ]
+ FAIL  __tests__/unit/lib/posts.service.sorting.test.ts [ __tests__/unit/lib/posts.service.sorting.test.ts ]
+Error: Failed to resolve import "@convex/_generated/api" from "src/entities/lib/services/posts.service.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/cjungwo/Documents/Vision/VXD/Dev/vxd/apps/blog-web/src/entities/lib/services/posts.service.ts:3:20
+  1  |  import { unstable_cache } from "next/cache";
+  2  |  import { ConvexHttpClient } from "convex/browser";
+  3  |  import { api } from "@convex/_generated/api";
+     |                       ^
+  4  |  const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL);
+  5  |  export const revalidate = 1 * 60 * 60;
+ ❯ TransformPluginContext._formatLog ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28998:43
+ ❯ TransformPluginContext.error ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28995:14
+ ❯ normalizeUrl ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27118:18
+ ❯ ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27176:32
+ ❯ TransformPluginContext.transform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:27144:4
+ ❯ EnvironmentPluginContainer.transform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:28796:14
+ ❯ loadAndTransform ../../node_modules/.pnpm/vite@7.3.0_@types+node@20.19.27_jiti@2.6.1_lightningcss@1.30.2_terser@5.46.2_yaml@2.8.4/node_modules/vite/dist/node/chunks/config.js:22669:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+
+ Test Files  3 failed | 17 passed (20)
+      Tests  116 passed (116)
+   Start at  23:38:42
+   Duration  2.51s (transform 1.49s, setup 0ms, import 4.27s, tests 2.20s, environment 10.27s)
+
+undefined
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run --reporter=verbose

@@ -1,21 +1,19 @@
 import { unstable_cache } from 'next/cache';
-import { 
-  fetchCommentsByPostId, 
-  createNotionComment,
-  Comment 
-} from "@vxd/notion-client";
+import { fetchQuery, fetchMutation } from "convex/nextjs";
+import { api } from "@convex/_generated/api";
+import { Id } from "@convex/_generated/dataModel";
+import { Comment } from "../types";
 
-export const getCommentsDataSourceId = () => {
-  const dataSourceId = process.env.NOTION_COMMENTS_DATA_SOURCE_ID;
-  if (!dataSourceId) {
-    throw new Error("NOTION_COMMENTS_DATA_SOURCE_ID is not set in environment variables");
-  }
-  return dataSourceId;
-}
+// Comment type moved to ../types/blog.ts
 
 const getCachedComments = unstable_cache(async (postId: string): Promise<Comment[]> => {
-  const dataSourceId = getCommentsDataSourceId();
-  return fetchCommentsByPostId(dataSourceId, postId);
+  try {
+    const comments = await fetchQuery(api.comments.getByPostId, { postId: postId as Id<"posts"> });
+    return comments.map(c => ({ ...c, _id: c._id }));
+  } catch (error) {
+    console.error("Failed to fetch comments from Convex:", error);
+    return [];
+  }
 }, ['comments'], { revalidate: 60 });
 
 export const getCommentsByPostId = async (postId: string): Promise<Comment[]> => {
@@ -23,8 +21,6 @@ export const getCommentsByPostId = async (postId: string): Promise<Comment[]> =>
 };
 
 export const createComment = async (postId: string, comment: string): Promise<{ success: boolean; error?: string }> => {
-  const dataSourceId = getCommentsDataSourceId();
-  
   if (!comment || comment.trim().length < 1) {
     return { success: false, error: 'Comment cannot be empty' };
   }
@@ -36,5 +32,15 @@ export const createComment = async (postId: string, comment: string): Promise<{ 
     return { success: false, error: 'URLs are not allowed in comments' };
   }
   
-  return createNotionComment(dataSourceId, postId, comment);
+  try {
+    await fetchMutation(api.comments.add, { 
+      postId: postId as Id<"posts">, 
+      author: "Anonymous", // Default for now
+      content: comment 
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to create comment in Convex:", error);
+    return { success: false, error: "Failed to post comment" };
+  }
 };

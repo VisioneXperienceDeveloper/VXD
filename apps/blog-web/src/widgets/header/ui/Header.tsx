@@ -8,7 +8,8 @@ import { ModeToggle } from '@/features/theme';
 import { LanguageToggle } from '@/features/language';
 import { Search } from '@/features/search-posts';
 import { useState, useEffect } from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { Edit3 } from 'lucide-react';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@vxd/auth';
 
 export function Header() {
   const t = useTranslations('Header');
@@ -25,10 +26,9 @@ export function Header() {
 
   const navItems = [
     { name: t('home'), href: '/' },
-    { name: t('about'), href: '/about' },
-    { name: t('projects'), href: '/projects' },
-    { name: t('blog'), href: '/blog' },
-    { name: t('contact'), href: '/contact' },
+    { name: t('vision'), href: '/category/vision' },
+    { name: t('experience'), href: '/category/experience' },
+    { name: t('development'), href: '/category/development' },
   ];
 
   const isNavActive = (href: string) => {
@@ -48,8 +48,8 @@ export function Header() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-8">
-            <Link href="/" className="text-2xl font-black tracking-tighter text-foreground group">
-              VXD<span className="text-accent-brand group-hover:animate-pulse">.</span>
+            <Link href="/" className="text-2xl font-black tracking-tighter text-foreground group whitespace-nowrap">
+              VXD<span className="text-accent-brand group-hover:animate-pulse">.</span>Blog
             </Link>
             
             <nav className="hidden lg:flex items-center gap-1 bg-muted/50 rounded-full p-1 border border-border/50">
@@ -70,25 +70,31 @@ export function Header() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <div className="hidden sm:flex items-center gap-2">
                <Search />
                <ModeToggle />
                <LanguageToggle />
             </div>
-            
-            <Link 
-              href="/contact"
-              className="hidden md:flex items-center gap-2 bg-accent-brand text-white px-5 py-2 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-lg shadow-accent-brand/20"
-            >
-              {t('startProject')}
-              <ArrowUpRight size={16} />
-            </Link>
 
-            {/* Mobile Actions Only */}
-            <div className="sm:hidden flex items-center gap-1">
-               <ModeToggle />
-               <LanguageToggle />
+            <div className="flex items-center gap-2 border-l border-border/50 pl-2">
+              <SignedIn>
+                <Link 
+                  href="/write"
+                  className="hidden md:flex items-center gap-2 bg-foreground text-background px-4 py-1.5 rounded-full text-sm font-bold hover:scale-105 transition-transform"
+                >
+                  <Edit3 size={16} />
+                  {t('write')}
+                </Link>
+                <UserButton />
+              </SignedIn>
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <button className="text-sm font-semibold hover:text-accent-brand transition-colors">
+                    Log in
+                  </button>
+                </SignInButton>
+              </SignedOut>
             </div>
           </div>
         </div>
