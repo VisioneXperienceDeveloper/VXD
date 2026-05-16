@@ -9,7 +9,7 @@ We use **Clerk** for identity management and **Convex** for backend authorizatio
 ## Implementation Details
 
 - **Provider**: Clerk
-- **Integration**: `@vxd/slack-auth` package.
+- **Integration**: `@vxd/auth` package.
 - **Identity Mapping**: Clerk user IDs are mapped to Convex user records.
 
 ## Auth Flow
@@ -21,6 +21,6 @@ We use **Clerk** for identity management and **Convex** for backend authorizatio
 
 ## Shared Package
 
-The `@vxd/slack-auth` package provides:
+The `@vxd/auth` package provides:
 - `ConvexClientProvider`: Wraps the app with Clerk and Convex providers.
 - `useAuth`: Common hooks for checking auth status.

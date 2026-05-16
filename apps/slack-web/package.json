@@ -13,7 +13,7 @@
   "dependencies": {
     "@clerk/nextjs": "^6.12.0",
     "@clerk/themes": "^2.4.57",
-    "@vxd/slack-auth": "workspace:*",
+    "@vxd/auth": "workspace:*",
     "convex": "^1.19.2",
     "emoji-picker-react": "^4.19.1",
     "framer-motion": "^12.38.0",
