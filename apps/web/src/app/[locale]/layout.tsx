@@ -13,7 +13,6 @@ import { GoogleAdSense } from "@/shared/lib/analytics";
 import { Header } from "@/widgets/header";
 import { Footer } from "@/widgets/footer";
 
-
 import { Outfit, Inter } from "next/font/google";
 
 import "../globals.css";
